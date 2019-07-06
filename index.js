@@ -23,7 +23,7 @@ if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
 }
 
-if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`){
+if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`, `${prefix}SERVERINFO`){
 
   let sicon = message.guild.displayAvatarUrl;
   let serverembed = new Discord.RichEmbed()
@@ -37,7 +37,7 @@ if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`){
   return message.channel.send(serverembed);
 }
 
-if(cmd === `${prefix}help`, `${prefix}Help`){
+if(cmd === `${prefix}help`, `${prefix}Help`, `${prefix}HELP`){
 
   let bicon = bot.user.displayAvatarUrl
   let botembed = new Discord.RichEmbed()
