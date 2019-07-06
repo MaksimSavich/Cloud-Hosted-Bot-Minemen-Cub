@@ -41,7 +41,7 @@ if(cmd === `${prefix}help`){
 
   let bicon = bot.user.displayAvatarUrl;
   let botembed = new Discord.RichEmbed()
-  .setDescription("__Bot Commands__")
+  .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
   .addField("Command List", display = "^help | ^serverinfo");
