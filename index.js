@@ -25,7 +25,7 @@ if(cmd === `${prefix}hello`){
 
 if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`, `${prefix}SERVERINFO`){
 
-  let sicon = message.guild.displayAvatarUrl;
+  let sicon = message.guild.displayAvatarUr;
   let serverembed = new Discord.RichEmbed()
   .setTitle("__Server Information__")
   .setColor("#af7ac5")
