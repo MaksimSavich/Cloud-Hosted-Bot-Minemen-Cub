@@ -39,7 +39,7 @@ if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`, `${prefix}SERVERINFO`){
 
 if(cmd === `${prefix}help`, `${prefix}Help`, `${prefix}HELP`){
 
-  let bicon = bot.user.displayAvatarUrl
+  let bicon = bot.user.displayAvatarUrl;
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
