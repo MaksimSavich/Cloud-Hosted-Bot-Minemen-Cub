@@ -20,20 +20,7 @@ bot.on("message", async message => {
 
 
 if(cmd === `${prefix}hello`){
-  return message.channel.send("▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬
-:police_car: Staff Roles :police_car:
-In order to become staff on here, you must be at least level 5 and apply.
-
-If you are staff on a server like Lunar, MMC, etc message @Owner » FlareCrazyy   or @Owner » FlyingFine in order to receive a special role.
-▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬
-:clapper: Media Roles :clapper:
-YouTube - 500 Subscribers
-Famous - 1K Subscribers
-
-:exclamation: Requirements may change over time :exclamation:
-
-If you would like to receive your roles message @Owner » FlareCrazyy or @Owner » FlyingFine
-▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬");
+  return message.channel.send("▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬:police_car: Staff Roles :police_car: In order to become staff on here, you must be at least level 5 and apply. If you are staff on a server like Lunar, MMC, etc message @Owner » FlareCrazyy   or @Owner » FlyingFine in order to receive a special role.▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬:clapper: Media Roles :clapper: YouTube - 500 SubscribersFamous - 1K Subscribers:exclamation: Requirements may change over time :exclamation:If you would like to receive your roles message @Owner » FlareCrazyy or @Owner » FlyingFine ▬▬▬▬▬▬▬▬▬▬▬◥◣◆◢◤▬▬▬▬▬▬▬▬▬▬▬");
 }
 
 if(cmd === `${prefix}serverinfo`){
