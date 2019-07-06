@@ -37,7 +37,7 @@ if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`){
   return message.channel.send(serverembed);
 }
 
-if(cmd === `${prefix}help`){
+if(cmd === `${prefix}help`, `${prefix}Help`){
 
   let bicon = bot.user.displayAvatarUrl
   let botembed = new Discord.RichEmbed()
