@@ -23,7 +23,7 @@ if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
 }
 
-if(cmd === `${prefix}serverinfo`){
+if(cmd === `${prefix}serverinfo`, `${prefix}Serverinfo`){
 
   let sicon = message.guild.displayAvatarUrl;
   let serverembed = new Discord.RichEmbed()
