@@ -53,14 +53,9 @@ if(cmd === `${prefix}kick`){
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
-      let modRole = message.guild.roles.find("name", "• Mod •");
-      let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
-      let adminRole = message.guild.roles.find("name", "• Admin •");
-      let ownerRole = message.guild.roles.find("name", "• Owner •");
+      let modRole = message.guild.roles.find("name", "• Mod •","• Sr.Mod •", "• Admin •", "• Owner •");
       if(message.member.roles.has(modRole.id));
-      if(message.member.roles.has(srmodRole.id));
-      if(message.member.roles.has(adminRole.id));
-      if(messages.member.roles.has(ownerRole.id));{
+
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
