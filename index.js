@@ -78,7 +78,7 @@ if(cmd === `${prefix}kick`){
     else {
       message.channel.reply("You can't perform this action!");
         message.delete().catch(O_o=>{});
-      return;
+      
     }
   }
 
