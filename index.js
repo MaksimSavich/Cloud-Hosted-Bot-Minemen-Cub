@@ -54,7 +54,7 @@ if(cmd === `${prefix}kick`){
     let kReason = args.join(" ").slice(22);
 
       let modRole = message.guild.roles.find("name", "• Mod •","• Sr.Mod •", "• Admin •", "• Owner •");
-      if(message.member.roles.has(modRole.id));
+      if(message.member.roles.has(modRole.id)){
 
 
     let kickEmbed = new Discord.RichEmbed()
