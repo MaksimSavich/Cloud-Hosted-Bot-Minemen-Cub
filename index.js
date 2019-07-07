@@ -8,6 +8,8 @@ bot.on("ready", async () => {
   bot.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 })
 
+    //Prefix and return
+
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
@@ -16,6 +18,8 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
+
+    //Report Command
 
   if(cmd === `${prefix}report`){
 
@@ -41,13 +45,17 @@ bot.on("message", async message => {
     return;
   }
 
-  if(cmd === `${prefix}kick`){
+    //Kick Command
+
+if(cmd === `${prefix}kick`){
+
+      message.delete().catch(O_o=>{});
 
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You can't perform this action.");
-    if(kUser.hasPermission) return message.channel.send("This person can't be kicked!")
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("This person can't be kicked!")
 
 
     let kickEmbed = new Discord.RichEmbed()
@@ -62,20 +70,19 @@ bot.on("message", async message => {
       let kickChannel = message.guild.channels.find(`name`, kick-ban-logs);
       if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
 
-
-      
       message.guild.member(kUser).kick(kReason);
-      message.delete().catch(O_o=>{});
       kickChannel.send(kickEmbed);
 
     return;
   }
 
-
+      //Hello Command
 
 if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
 }
+
+    //ServerInfo Command
 
 if(cmd === `${prefix}serverinfo`){
 
@@ -90,6 +97,8 @@ if(cmd === `${prefix}serverinfo`){
 
   return message.channel.send(serverembed);
 }
+
+    //Help Command
 
 if(cmd === `${prefix}help`){
 
