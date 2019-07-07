@@ -44,7 +44,7 @@ bot.on("message", async message => {
   if(cmd === `${prefix}kick`){
 
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
-    if(!rUSer) return message.channel.send("Can't find user!");
+    if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
     let modRole = message.guild.roles.find(`name`, "Mod")
     if(message.member.roles.has(modRole.id))
