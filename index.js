@@ -49,8 +49,6 @@ bot.on("message", async message => {
 
 if(cmd === `${prefix}kick`){
 
-      message.delete().catch(O_o=>{});
-
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
@@ -72,7 +70,8 @@ if(cmd === `${prefix}kick`){
 
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
-
+        message.delete().catch(O_o=>{});
+        
     return;
   }
 
