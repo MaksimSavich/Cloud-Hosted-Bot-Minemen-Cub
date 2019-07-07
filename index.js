@@ -49,12 +49,11 @@ bot.on("message", async message => {
 
 if(cmd === `${prefix}kick`){
 
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
       let kickRole = message.guild.roles.find("name", "• kick •");
-      if(kUser.hasRole("• kick •")) return message.channel.send("That person can't be kicked!");
       if(message.member.roles.has(kickRole.id)){
 
         let kickEmbed = new Discord.RichEmbed()
@@ -87,7 +86,7 @@ if(cmd === `${prefix}kick`){
 
 if(cmd === `${prefix}ban`){
 
-  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!bUser) return message.channel.send("Can't find user!");
   let bReason = args.join(" ").slice(22);
 
@@ -126,6 +125,8 @@ if(cmd === `${prefix}ban`){
 }
 
 
+
+
       //Hello Command
 
 if(cmd === `${prefix}hello`){
@@ -162,6 +163,31 @@ if(cmd === `${prefix}help`){
 
   return message.channel.send(botembed);
 }
+
+if(cmd === `${prefix}staffhelp`){
+
+  let helperRole = message.guild.roles.find("name", "• Helper •");
+  let modRole = message.guild.roles.find("name", "• Mod •");
+  let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
+  let adminRole = message.guild.roles.find("name", "• Admin •");
+  let ownerRole = message.guild.roles.find("name", "• Owner •");
+  if(message.member.roles.has(helperRole.id || modRole.id || srmodRole.id || adminRole.id || ownerRole.id)){
+
+  let bicon = bot.user.displayiconUrl;
+  let botembed = new Discord.RichEmbed()
+  .setTitle("__Bot Commands__")
+  .setColor("#af7ac5")
+  .setThumbnail(bicon)
+  .addField("Command List", display = "^staffhelp | ^kick | ^ban ");
+
+
+  return message.channel.send(botembed);
+  }
+}
+
+
+});
+
 
 
 bot.login(botconfig.token);
