@@ -61,7 +61,7 @@ if(cmd === `${prefix}kick`){
       if(message.member.roles.has(modRole.id))
       if(message.member.roles.has(srmodRole.id))
       if(message.member.roles.has(adminRole.id))
-      if(message.member.roles.has(ownerRole.id){
+      if(message.member.roles.has(ownerRole.id)){
 
 
       .setDescription("Kick")
