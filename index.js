@@ -30,9 +30,15 @@ bot.on("message", async message => {
     .addField("Reported By", `${messaged.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
-    .addField("Reason", reason)
-    message.channel.send(reportEmbed);
-    return{}
+    .addField("Reason", reason);
+
+    let reportschannel = message.guild.channels.find(`name`, "reports");
+    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+
+    message.delete(.catch(O_o=>{}));
+    reportschannel.send(reportEmbed)
+
+    return;
   }
 
 
