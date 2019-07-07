@@ -54,7 +54,8 @@ if(cmd === `${prefix}kick`){
     let kReason = args.join(" ").slice(22);
 
       let modRole = message.guild.roles.find("name", "Mod");
-      if(message.member.roles.has(modRole.id)){
+      if(message.member.roles.has(modRole.id))
+      if(!message.member.roles.has(modRole.id)) return message.channel.send("You can't perform this action!"){
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
