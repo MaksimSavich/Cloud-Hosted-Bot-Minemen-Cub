@@ -19,7 +19,7 @@ bot.on("message", async message => {
 
   if(cmd === `${prefix}report`){
 
-    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])){}
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
     if(!rUser) return message.channel.send("Couldn't find user.");
     let reason = args.join(" ").slice(22);
 
