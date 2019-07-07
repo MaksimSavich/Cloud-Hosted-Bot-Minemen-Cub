@@ -49,7 +49,7 @@ bot.on("message", async message => {
 
 if(cmd === `${prefix}kick`){
 
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
@@ -82,10 +82,40 @@ if(cmd === `${prefix}kick`){
     }
   }
 
-if(cmd === `${prefix}ban`){}
+if(cmd === `${prefix}ban`){
+
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("Can't find user!");
+    let bReason = args.join(" ").slice(22);
+
+      let banRole = message.guild.roles.find("name", "• ban •");
+      if(message.member.roles.has(banRole.id)){
+
+        let kickEmbed = new Discord.RichEmbed()
+      .setDescription("Kick")
+      .setColor("#af0000")
+      .addField("Banneded User", `${bUser} with ID ${bUser.id}`)
+      .addField("Banneded By", `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField("Banned In", message.channel)
+      .addField("Time", message.createdAt)
+      .addField("Reason", kReason);
+
+      let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
+      if(!banChannel) return message.channel.send("Can't find kick-ban-logs channel.");
+
+      message.guild.member(bUser).kick(bReason);
+        message.delete().catch(O_o=>{});
+      banChannel.send(banEmbed);
 
 
-
+    return;
+    }
+    else {
+      message.channel.send("You can't perform this action!");
+        message.delete().catch(O_o=>{});
+      return;
+    }
+  }
 
       //Hello Command
 
@@ -126,12 +156,8 @@ if(cmd === `${prefix}help`){
 
 if(cmd === `${prefix}staffhelp`){
 
-  let helperRole = message.guild.roles.find("name", "• Helper •");
-  let modRole = message.guild.roles.find("name", "• Mod •");
-  let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
-  let adminRole = message.guild.roles.find("name", "• Admin •");
-  let ownerRole = message.guild.roles.find("name", "• Owner •");
-  if(message.member.roles.has(helperRole.id || modRole.id || srmodRole.id || adminRole.id || ownerRole.id)){
+  let staffRole = message.guild.roles.find("name", "• staff •");
+  if(message.member.roles.has(staffRole.id)){
 
   let bicon = bot.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
