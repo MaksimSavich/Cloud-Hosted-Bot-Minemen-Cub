@@ -53,8 +53,8 @@ if(cmd === `${prefix}kick`){
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
-      let helperRole = message.guild.roles.find("name", "• Mod •");
-      let modRole = message.guild.roles.find("name", "• Sr.Mod • ");
+      let modRole = message.guild.roles.find("name", "• Mod •");
+      let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
       let adminRole = message.guild.roles.find("name", "• Admin •");
       let ownerRole = message.guild.roles.find("name", "• Owner •");
       if(message.member.roles.has(modRole.id, srmodRole.id, adminRole.id, ownerRole.id)){
