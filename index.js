@@ -52,6 +52,7 @@ if(cmd === `${prefix}kick`){
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
+    if(!kReason) return message.channel.send("Reason for kick is needed.")
 
       let kickRole = message.guild.roles.find("name", "• kick •");
       if(message.member.roles.has(kickRole.id)){
