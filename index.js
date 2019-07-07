@@ -57,7 +57,7 @@ if(cmd === `${prefix}kick`){
       let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
       let adminRole = message.guild.roles.find("name", "• Admin •");
       let ownerRole = message.guild.roles.find("name", "• Owner •");
-      if(message.member.roles.has(modRole.id || srmodRole.id || adminRole.id || ownerRole.id)){
+      if(message.member.roles.has(modRole.id), (srmodRole.id), (adminRole.id), (ownerRole.id)){
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
