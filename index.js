@@ -65,13 +65,14 @@ if(cmd === `${prefix}kick`){
       .addField("Time", message.createdAt)
       .addField("Reason", kReason);
 
-      let kickChannel = message.guild.channels.find(`name`, kick-ban-logs);
+      let kickChannel = message.guild.channels.find(`name`, "kick-ban-logs");
       if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
 
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
+
         message.delete().catch(O_o=>{});
-        
+
     return;
   }
 
