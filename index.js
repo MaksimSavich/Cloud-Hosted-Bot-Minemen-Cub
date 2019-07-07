@@ -60,7 +60,7 @@ if(cmd === `${prefix}kick`){
       if(message.member.roles.has(modRole.id));
       if(message.member.roles.has(srmodRole.id));
       if(message.member.roles.has(adminRole.id));
-      if(messages.member.roles.has(ownerRole.id)){
+      if(messages.member.roles.has(ownerRole.id));{
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
