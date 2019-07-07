@@ -58,7 +58,7 @@ if(cmd === `${prefix}kick`){
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
-      .setColor("#af7ac5")
+      .setColor("#af0000")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
       .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
       .addField("Kicked In", message.channel)
