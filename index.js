@@ -25,7 +25,7 @@ if(cmd === `${prefix}hello`){
 
 if(cmd === `${prefix}serverinfo`){
 
-  let sicon = message.guild.displayAvatarUrl;
+  let sicon = message.guild.displayiconUrl;
   let serverembed = new Discord.RichEmbed()
   .setTitle("__Server Information__")
   .setColor("#af7ac5")
@@ -39,7 +39,7 @@ if(cmd === `${prefix}serverinfo`){
 
 if(cmd === `${prefix}help`){
 
-  let bicon = bot.user.displayAvatarUrl;
+  let bicon = bot.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
