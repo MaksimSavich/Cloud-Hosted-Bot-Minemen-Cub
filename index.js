@@ -53,8 +53,11 @@ if(cmd === `${prefix}kick`){
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
-      let modRole = message.guild.roles.find("name", "Mod");
-      if(message.member.roles.has(modRole.id)){
+      let modRole = message.guild.roles.find("name", "• Mod •");
+      let modRole = message.guild.roles.find("name", "• Sr.Mod • ");
+      let modRole = message.guild.roles.find("name", "• Admin •");
+      let modRole = message.guild.roles.find("name", "• Owner •");
+      if(message.member.roles.has(modRole.id, srmodRole.id, adminRole.id, ownerRole.id)){
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
@@ -119,6 +122,26 @@ if(cmd === `${prefix}help`){
   return message.channel.send(botembed);
 }
 
+if(cmd === `${prefix}staffhelp`){
+
+  let modRole = message.guild.roles.find("name", "• Helper •");
+  let modRole = message.guild.roles.find("name", "• Mod •");
+  let modRole = message.guild.roles.find("name", "• Sr.Mod • ");
+  let modRole = message.guild.roles.find("name", "• Admin •");
+  let modRole = message.guild.roles.find("name", "• Owner •");
+  if(message.member.roles.has(modRole.id, srmodRole.id, adminRole.id, ownerRole.id)){
+
+  let bicon = bot.user.displayiconUrl;
+  let botembed = new Discord.RichEmbed()
+  .setTitle("__Bot Commands__")
+  .setColor("#af7ac5")
+  .setThumbnail(bicon)
+  .addField("Command List", display = "^staffhelp | ^kick | ^ban ");
+
+
+  return message.channel.send(botembed);
+  }
+}
 
 
 });
