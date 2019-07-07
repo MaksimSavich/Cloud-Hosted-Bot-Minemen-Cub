@@ -49,11 +49,12 @@ bot.on("message", async message => {
 
 if(cmd === `${prefix}kick`){
 
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
 
       let kickRole = message.guild.roles.find("name", "• kick •");
+      if(kUser.hasRole("• kick •")) return message.channel.send("That person can't be kicked!");
       if(message.member.roles.has(kickRole.id)){
 
         let kickEmbed = new Discord.RichEmbed()
@@ -86,7 +87,7 @@ if(cmd === `${prefix}kick`){
 
 if(cmd === `${prefix}ban`){
 
-  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!bUser) return message.channel.send("Can't find user!");
   let bReason = args.join(" ").slice(22);
 
@@ -123,8 +124,6 @@ if(cmd === `${prefix}ban`){
 
   return;
 }
-
-
 
 
       //Hello Command
