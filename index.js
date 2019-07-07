@@ -63,7 +63,7 @@ bot.on("message", async message => {
       if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
 
 
-
+      message.delete().catch(O_o=>{});
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
 
