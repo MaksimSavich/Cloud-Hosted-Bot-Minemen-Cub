@@ -27,7 +27,10 @@ bot.on("message", async message => {
     .setDescription("Reports")
     .setColor("#af7ac5")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-
+    .addField("Reported By", `${messaged.author} with ID: ${message.author.id}`)
+    .addField("Channel", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", reason)
     message.channel.send(reportEmbed);
     return{}
   }
