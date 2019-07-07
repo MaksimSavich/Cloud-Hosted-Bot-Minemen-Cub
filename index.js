@@ -164,27 +164,6 @@ if(cmd === `${prefix}help`){
   return message.channel.send(botembed);
 }
 
-if(cmd === `${prefix}staffhelp`){
-
-  let helperRole = message.guild.roles.find("name", "• Helper •");
-  let modRole = message.guild.roles.find("name", "• Mod •");
-  let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
-  let adminRole = message.guild.roles.find("name", "• Admin •");
-  let ownerRole = message.guild.roles.find("name", "• Owner •");
-  if(message.member.roles.has(helperRole.id || modRole.id || srmodRole.id || adminRole.id || ownerRole.id)){
-
-  let bicon = bot.user.displayiconUrl;
-  let botembed = new Discord.RichEmbed()
-  .setTitle("__Bot Commands__")
-  .setColor("#af7ac5")
-  .setThumbnail(bicon)
-  .addField("Command List", display = "^staffhelp | ^kick | ^ban ");
-
-
-  return message.channel.send(botembed);
-  }
-}
-
 
 });
 
