@@ -57,7 +57,7 @@ if(cmd === `${prefix}kick`){
       if(message.member.roles.has(kickRole.id)){
 
         let kickEmbed = new Discord.RichEmbed()
-      .setDescription("Kick")
+      .setDescription("~Kick~")
       .setColor("#af0000")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
       .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
@@ -81,6 +81,51 @@ if(cmd === `${prefix}kick`){
       return;
     }
   }
+
+    //Ban Command
+
+if(cmd === `${prefix}ban`){
+
+  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+  if(!bUser) return message.channel.send("Can't find user!");
+  let bReason = args.join(" ").slice(22);
+
+    let banRole = message.guild.roles.find("name", "• ban •");
+    if(message.member.roles.has(banRole.id)){
+
+      let banEmbed = new Discord.RichEmbed()
+    .setDescription("~ban~")
+    .setColor("#af0000")
+    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned In", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", bReason);
+
+    let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
+    if(!banChannel) return message.channel.send("Can't find kick-ban-logs channel.");
+
+    message.guild.member(bUser).ban(bReason);
+      message.delete().catch(O_o=>{});
+    banChannel.send(banEmbed);
+
+
+  return;
+  }
+  else {
+    message.channel.send("You can't perform this action!");
+      message.delete().catch(O_o=>{});
+    return;
+  }
+}
+
+
+
+  return;
+}
+
+
+
 
       //Hello Command
 
