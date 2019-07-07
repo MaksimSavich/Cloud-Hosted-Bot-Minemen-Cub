@@ -17,6 +17,23 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
 
+  if(cmd === `${prefix}report`){
+
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])){}
+    if(!rUser) return message.channel.send("Couldn't find user.");
+    let reason = args.join(" ").slice(22);
+
+    let reportEmbed = new Discord.RichEmbed()
+    .setDescription("Reports")
+    .setColor("#af7ac5")
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+
+    message.channel.send(reportEmbed);
+    return{}
+  }
+
+
+
 
 
 if(cmd === `${prefix}hello`){
