@@ -41,7 +41,33 @@ bot.on("message", async message => {
     return;
   }
 
+  if(cmd === `${prefix}kick`){
 
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+    if(!rUSer) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    let modRole = message.guild.roles.find(`name`, "Mod")
+    if(message.member.roles.has(modRole.id))
+
+
+    let kickEmbed = new Discord.RichEmbed(
+      .setDescription("kick")
+      .setColor("#af7ac5")
+      .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+      .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+      .addField("Kicked In", message.channel)
+      .addField("Time", message.createdAt)
+      .addField("Reason", kReason);
+
+      let kickChannel = message.guild.channels.find(`name`, kick-ban-logs);
+      if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
+
+
+      if(!modRole) return message.channel.send("You are unable to do this here")
+      kickChannel.send(kickEmbed):
+
+    return;
+  }
 
 
 
@@ -70,7 +96,7 @@ if(cmd === `${prefix}help`){
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
-  .addField("Command List", display = "^help | ^serverinfo");
+  .addField("Command List", display = "^help | ^serverinfo | ^report");
 
 
   return message.channel.send(botembed);
