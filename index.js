@@ -50,7 +50,7 @@ bot.on("message", async message => {
     if(message.member.roles.has(modRole.id))
     if(kUser.has.roles(`name`, "Mod")) return message.channel.send("That person can't be kicked!");
 
-    let kickEmbed = new Discord.RichEmbed(
+    let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
       .setColor("#af7ac5")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
