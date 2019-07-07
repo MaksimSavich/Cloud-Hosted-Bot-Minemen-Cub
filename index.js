@@ -63,9 +63,9 @@ if(cmd === `${prefix}kick`){
       if(message.member.roles.has(adminRole.id))
       if(message.member.roles.has(ownerRole.id)){
 
-
+        let kickEmbed = new Discord.RichEmbed()
+        
       .setDescription("Kick")
-      let kickEmbed = new Discord.RichEmbed()
       .setColor("#af0000")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
       .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
