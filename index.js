@@ -164,8 +164,4 @@ if(cmd === `${prefix}help`){
 }
 
 
-});
-
-
-
 bot.login(botconfig.token);
