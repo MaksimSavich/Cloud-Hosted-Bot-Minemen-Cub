@@ -54,7 +54,7 @@ if(cmd === `${prefix}kick`){
     let kReason = args.join(" ").slice(22);
 
       let modRole = message.guild.roles.find("name", "Mod");
-      if(!message.member.roles.has(modRole.id)) return message.channel.send("You can't perform this action!"){
+      if(message.member.roles.has(modRole.id)){
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
@@ -74,6 +74,11 @@ if(cmd === `${prefix}kick`){
 
 
     return;
+    }
+    else {
+      message.channel.reply("You can't perform this action!");
+        message.delete().catch(O_o=>{});
+      return;
     }
   }
 
