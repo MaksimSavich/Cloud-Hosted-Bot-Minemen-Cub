@@ -46,9 +46,9 @@ bot.on("message", async message => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
-    let modRole = message.guild.roles.find(`name`, "Mod")
-    if(message.member.roles.has(modRole.id))
-    if(kUser.has.roles(`name`, "Mod")) return message.channel.send("That person can't be kicked!");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You can't perform this action.");
+    if(kUser.hasPermission) return message.channel.send("This person can't be kicked!")
+
 
     let kickEmbed = new Discord.RichEmbed()
       .setDescription("Kick")
@@ -63,7 +63,7 @@ bot.on("message", async message => {
       if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
 
 
-      if(!modRole) return message.channel.send("You are unable to do this here");
+
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
 
