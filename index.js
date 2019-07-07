@@ -65,7 +65,7 @@ bot.on("message", async message => {
 
       if(!modRole) return message.channel.send("You are unable to do this here");
       message.guild.member(kUser).kick(kReason);
-      kickChannel.send(kickEmbed):
+      kickChannel.send(kickEmbed);
 
     return;
   }
