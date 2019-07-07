@@ -51,7 +51,7 @@ bot.on("message", async message => {
     if(kUser.has.roles(`name`, "Mod")) return message.channel.send("That person can't be kicked!");
 
     let kickEmbed = new Discord.RichEmbed(
-      .setDescription("kick")
+      .setDescription("~kick~")
       .setColor("#af7ac5")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
       .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
