@@ -126,7 +126,6 @@ if(cmd === `${prefix}ban`){
 
 
 
-
       //Hello Command
 
 if(cmd === `${prefix}hello`){
@@ -166,12 +165,8 @@ if(cmd === `${prefix}help`){
 
 if(cmd === `${prefix}staffhelp`){
 
-  let helperRole = message.guild.roles.find("name", "• Helper •");
-  let modRole = message.guild.roles.find("name", "• Mod •");
-  let srmodRole = message.guild.roles.find("name", "• Sr.Mod • ");
-  let adminRole = message.guild.roles.find("name", "• Admin •");
-  let ownerRole = message.guild.roles.find("name", "• Owner •");
-  if(message.member.roles.has(helperRole.id || modRole.id || srmodRole.id || adminRole.id || ownerRole.id)){
+  let staffRole = message.guild.roles.find("name", "• staff •");
+  if(message.member.roles.has(staffRole.id)){
 
   let bicon = bot.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
@@ -184,10 +179,6 @@ if(cmd === `${prefix}staffhelp`){
   return message.channel.send(botembed);
   }
 }
-
-
-});
-
 
 
 bot.login(botconfig.token);
