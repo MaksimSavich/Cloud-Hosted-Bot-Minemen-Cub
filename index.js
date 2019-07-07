@@ -58,13 +58,13 @@ if(cmd === `${prefix}kick`){
       let adminRole = message.guild.roles.find("name", "• Admin •")
       let ownerRole = message.guild.roles.find("name", "• Owner •")
 
-      if(message.member.roles.has(modRole.id))
-      if(message.member.roles.has(srmodRole.id))
-      if(message.member.roles.has(adminRole.id))
-      if(message.member.roles.has(ownerRole.id)){
+      if(message.member.roles.has(modRole.id));
+      if(message.member.roles.has(srmodRole.id));
+      if(message.member.roles.has(adminRole.id));
+      if(message.member.roles.has(ownerRole.id));{
 
         let kickEmbed = new Discord.RichEmbed()
-        
+
       .setDescription("Kick")
       .setColor("#af0000")
       .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
