@@ -71,10 +71,10 @@ if(cmd === `${prefix}kick`){
       message.guild.member(kUser).kick(kReason);
       kickChannel.send(kickEmbed);
 
-        message.delete().catch(O_o=>{});
 
     return;
     }
+    message.delete().catch(O_o=>{});
   }
 
       //Hello Command
