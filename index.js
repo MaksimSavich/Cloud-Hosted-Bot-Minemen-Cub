@@ -69,12 +69,12 @@ if(cmd === `${prefix}kick`){
       if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
 
       message.guild.member(kUser).kick(kReason);
+        message.delete().catch(O_o=>{});
       kickChannel.send(kickEmbed);
 
 
     return;
     }
-    message.delete().catch(O_o=>{});
   }
 
       //Hello Command
