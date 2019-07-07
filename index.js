@@ -54,11 +54,14 @@ if(cmd === `${prefix}kick`){
     let kReason = args.join(" ").slice(22);
 
       let modRole = message.guild.roles.find("name", "• Mod •")
-      let modRole = message.guild.roles.find("name", "• Sr.Mod •")
-      let modRole = message.guild.roles.find("name", "• Admin •")
-      let modRole = message.guild.roles.find("name", "• Owner •")
+      let srmodRole = message.guild.roles.find("name", "• Sr.Mod •")
+      let adminRole = message.guild.roles.find("name", "• Admin •")
+      let ownerRole = message.guild.roles.find("name", "• Owner •")
 
-      if(message.member.roles.has(modRole.id)){
+      if(message.member.roles.has(modRole.id))
+      if(message.member.roles.has(srmodRole.id))
+      if(message.member.roles.has(adminRole.id))
+      if(message.member.roles.has(ownerRole.id){
 
 
       .setDescription("Kick")
