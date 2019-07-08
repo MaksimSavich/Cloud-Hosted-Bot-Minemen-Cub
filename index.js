@@ -169,7 +169,7 @@ if(cmd === `${prefix}staffhelp`){
   .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
 
 
-  return message.message.send(botembed);
+  return message.member.send(botembed);
   }
 }
 
