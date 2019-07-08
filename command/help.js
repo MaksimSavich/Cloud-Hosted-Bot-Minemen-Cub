@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (vor, message, args) => {
+module.exports.run = async (bot, message, args) => {
   let bicon = bot.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")

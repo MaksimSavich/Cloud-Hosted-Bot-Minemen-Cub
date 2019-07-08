@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (vor, message, args) => {
+module.exports.run = async (bot, message, args) => {
   let staffRole = message.guild.roles.find("name", "• staff •");
   if(message.member.roles.has(staffRole.id)){
 
