@@ -13,7 +13,7 @@ bot.on("ready", async () => {
     //Auto Welcome
 
     bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den** Official Discord | ${member}`);
+    member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
       //Prefix and return
