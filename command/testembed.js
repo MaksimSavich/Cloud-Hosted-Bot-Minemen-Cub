@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  let bicon = bot.user.displayiconUrl;
+  let bicon = bot.message.avatarURL;
   let footurl = message.author.avatarURL;
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
