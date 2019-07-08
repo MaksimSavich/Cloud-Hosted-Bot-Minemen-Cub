@@ -13,11 +13,8 @@ bot.on("ready", async () => {
     //Auto Welcome
 
     bot.on('guildMemberAdd', member => {
-      const channel = member.guild.channels.find(`name`, "welcome");
-      if (!channel);
-        member.channel.send("welcome")
-
-    });
+    member.guild.channels.get('596898652744843274').send("Welcome"); 
+});
 
       //Prefix and return
 
