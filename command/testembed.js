@@ -4,7 +4,6 @@ module.exports.run = async (bot, message, args) => {
 
   let bicon = bot.user.displayiconUrl;
   let footurl = message.author.avatarURL;
-  let timestamp = date.now(timestamp);
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
