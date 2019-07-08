@@ -42,7 +42,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  let(commandfile) commandfile.run(bot,message,args);
+  let(commandsfile) commandsfile.run(bot,message,args);
     //Report Command
 
   if(cmd === `${prefix}report`){
