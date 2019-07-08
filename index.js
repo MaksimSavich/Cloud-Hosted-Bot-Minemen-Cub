@@ -50,9 +50,9 @@ bot.on("message", async message => {
 if(cmd === `${prefix}kick`){
 
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Can't find user!");
+    if(!kUser) return message.member.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
-    if(!kReason) return message.channel.send("Reason for kick is needed.")
+    if(!kReason) return message.member.send("Reason for kick is needed.");
 
       let kickRole = message.guild.roles.find("name", "• kick •");
       if(message.member.roles.has(kickRole.id)){
@@ -67,7 +67,7 @@ if(cmd === `${prefix}kick`){
       .addField("Reason", kReason);
 
       let kickChannel = message.guild.channels.find(`name`, "kick-ban-logs");
-      if(!kickChannel) return message.channel.send("Can't find kick-ban-logs channel.");
+      if(!kickChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
       message.guild.member(kUser).kick(kReason);
         message.delete().catch(O_o=>{});
@@ -77,7 +77,7 @@ if(cmd === `${prefix}kick`){
     return;
     }
     else {
-      message.channel.send("You can't perform this action!");
+      message.member.send("You can't perform this action!");
         message.delete().catch(O_o=>{});
       return;
     }
@@ -86,8 +86,9 @@ if(cmd === `${prefix}kick`){
 if(cmd === `${prefix}ban`){
 
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("Can't find user!");
+    if(!bUser) return message.member.send("Can't find user!");
     let bReason = args.join(" ").slice(22);
+    if(!bReason) return message.member.send("Reason for ban is needed.");
 
       let banRole = message.guild.roles.find("name", "• ban •");
       if(message.member.roles.has(banRole.id)){
@@ -102,7 +103,7 @@ if(cmd === `${prefix}ban`){
       .addField("Reason", kReason);
 
       let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
-      if(!banChannel) return message.channel.send("Can't find kick-ban-logs channel.");
+      if(!banChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
       message.guild.member(bUser).kick(bReason);
         message.delete().catch(O_o=>{});
@@ -112,7 +113,7 @@ if(cmd === `${prefix}ban`){
     return;
     }
     else {
-      message.channel.send("You can't perform this action!");
+      message.member.send("You can't perform this action!");
         message.delete().catch(O_o=>{});
       return;
     }
@@ -165,7 +166,7 @@ if(cmd === `${prefix}staffhelp`){
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
-  .addField("Command List", display = "^staffhelp | ^kick | ^ban ");
+  .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
 
 
   return message.channel.send(botembed);
