@@ -176,6 +176,14 @@ if(cmd === `${prefix}staffhelp`){
   }
 }
 
+    //Auto Welcome
+
+client.on(`guildMemberAdd` , member => {
+  const channel = member.guild.channels.find('name', `welcome`);
+  if(!channel) return;
+channel.send('Welcome to the **Minemen Den** Discord | ${member}');
+
+});
 
 });
 
