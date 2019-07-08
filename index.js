@@ -179,7 +179,7 @@ if(cmd === `${prefix}help staff`){
     //Auto Welcome
 
     bot.on('guildMemberAdd', member => {
-        member.guild.channels.get('welcome').send("Welcome"); 
+        member.guild.channels.get('597636005985779723').send("Welcome"); 
     });
 
 });
