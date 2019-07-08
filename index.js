@@ -176,23 +176,6 @@ if(cmd === `${prefix}staffhelp`){
   }
 }
 
-client.on("guildMemberAdd", function(message) {
-
-  let guild = message.guild;
-  let member = message;
-  let membercount = client.users.size;
-
-    const embed = new Discord.RichEmbed()
-    .setcolor("#af7ac5")
-    .setTitle("Minemen Cub - Welcome")
-    .setDescription(`Hello ${member.user}, welcome to the Minemen Den!\nplease check out #rules and #react-for-roles.`)
-    .setThumbnail(member.user.avatarURL)
-    .setFooter(footer)
-
-    member.guild.channels.find(`name`, `welcome`).send({ embed: embed });
-});
-
-
 
 });
 
