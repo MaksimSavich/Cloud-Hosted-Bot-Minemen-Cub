@@ -1,29 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-    //Command Handler "start"
 const fs = require("fs");
+
 const bot = new Discord.Client({disableEveryone: true});
-bot.commands = new Discord.Collection();
-
-fs.readdir("./commands/", (err, files) => {
-
-  if(err) console.log(err);
-
-  let jsfile = files.filter(f => f.split(".").pop() === "js")
-  if(jsfile.length <= 0){
-    console.log("Couldn't find commands.");
-    return;
-  }
-
-jsfile.forEach((f, i) =>{
-  let props = require(`./commands/${f}`);
-  console.log(`${f} loaded!`);
-  bot.commands.set(props.help.name, props);
-    });
-
-});
-
-    //Command Handler "end"
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -41,8 +20,6 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
 
-  let commandsfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandsfile) commandsfile.run(bot,message,args);
     //Report Command
 
   if(cmd === `${prefix}report`){
