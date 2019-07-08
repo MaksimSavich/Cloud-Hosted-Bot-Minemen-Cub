@@ -13,10 +13,9 @@ bot.on("ready", async () => {
     //Auto Welcome
 
     bot.on('guildMemberAdd', member => {
-      let messageArray = message.content.split(" ");
       const channel = member.guild.channels.find(`name`, "welcome");
       if (!channel);
-  message.channel.send("welcome")
+        member.channel.send("welcome")
 
     });
 
