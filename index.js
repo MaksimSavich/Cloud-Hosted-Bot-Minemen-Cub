@@ -9,7 +9,14 @@ bot.on("ready", async () => {
   bot.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 })
 
-    //Prefix and return
+
+    //Auto Welcome
+
+    bot.on('guildMemberAdd', member => {
+        member.guild.channels.get('597636005985779723').send("Welcome");
+    });
+
+      //Prefix and return 
 
 bot.on("message", async message => {
   if(message.author.bot) return;
@@ -176,11 +183,6 @@ if(cmd === `${prefix}help staff`){
   }
 }
 
-    //Auto Welcome
-
-    bot.on('guildMemberAdd', member => {
-        member.guild.channels.get('597636005985779723').send("Welcome"); 
-    });
 
 });
 
