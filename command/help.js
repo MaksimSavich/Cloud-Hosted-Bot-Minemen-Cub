@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-  let bicon = bot.message.display.avatarURL;
+
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
-  .setThumbnail(bicon)
+  .setThumbnail(bot.message.avatarURL)
   .addField("Command List", display = "^help | ^serverinfo | ^report | ^help staff");
 
 
