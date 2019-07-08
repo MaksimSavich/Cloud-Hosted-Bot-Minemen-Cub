@@ -14,15 +14,16 @@ fs.readdir("./commands/", (err, files) => {
     console.log("Couldn't find commands.");
     return;
   }
-})
-    //Command Handler "end"
 
 jsfile.forEach((f, i) =>{
   let props = require(`./commands/${f}`);
   console.log(`${f} loaded!`);
   bot.commands.set(props.help.name, props);
-})
+    });
 
+});
+
+    //Command Handler "end"
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
