@@ -153,13 +153,13 @@ if(cmd === `${prefix}help`){
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
-  .addField("Command List", display = "^help | ^serverinfo | ^report");
+  .addField("Command List", display = "^help | ^serverinfo | ^report | ^help staff");
 
 
   return message.channel.send(botembed);
 }
 
-if(cmd === `${prefix}staffhelp`){
+if(cmd === `${prefix}help staff`){
 
   let staffRole = message.guild.roles.find("name", "• staff •");
   if(message.member.roles.has(staffRole.id)){
@@ -178,7 +178,7 @@ if(cmd === `${prefix}staffhelp`){
 
     //Auto Welcome
 
-client.on(`guildMemberAdd`, member => {
+bot.on(`guildMemberAdd`, member => {
   const channel = member.guild.channels.find('name', `welcome`);
   if(!channel) return;
 channel.send('Welcome to the **Minemen Den** Discord | ${members}');
