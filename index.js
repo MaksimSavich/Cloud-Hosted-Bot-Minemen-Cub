@@ -1,6 +1,18 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
+const fs = require("fs");
+
+fs.readdir("./command/", (err, file) => {
+
+  if(err) console.log(err);
+
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
+})
 
 const bot = new Discord.Client({disableEveryone: true});
 
