@@ -166,7 +166,7 @@ if(cmd === `${prefix}help staff`){
 
   let bicon = bot.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
-  .setTitle("__Bot Commands__")
+  .setTitle(bot.user.displayiconURL"__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
   .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
