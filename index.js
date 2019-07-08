@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const fs = require("fs");
 
-fs.readdir("./command/", (err, file) => {
+fs.readdir("./command/", (err, files) => {
 
   if(err) console.log(err);
 
