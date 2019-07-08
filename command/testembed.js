@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#af7ac5")
   .setThumbnail(bicon)
   .addField("Command List", display = "^help | ^serverinfo | ^report | ^help staff")
-  .setfooter(footurl)
+  .footer(footurl)
 
   return message.channel.send(botembed);
 }
