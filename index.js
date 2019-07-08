@@ -97,11 +97,11 @@ if(cmd === `${prefix}ban`){
         let banEmbed = new Discord.RichEmbed()
       .setDescription("~Ban~")
       .setColor("#af0000")
-      .addField("Banned User", `${kUser} with ID ${kUser.id}`)
+      .addField("Banned User", `${bUser} with ID ${bUser.id}`)
       .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
       .addField("Banned In", message.channel)
       .addField("Time", message.createdAt)
-      .addField("Reason", kReason);
+      .addField("Reason", bReason);
 
       let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
       if(!banChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
