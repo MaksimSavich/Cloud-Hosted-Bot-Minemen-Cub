@@ -179,11 +179,12 @@ if(cmd === `${prefix}help staff`){
     //Auto Welcome
 
 bot.on(`guildMemberAdd`, member => {
-  const channel = member.guild.channels.find('name', "welcome");
-  if(!channel) return;
-  message.channel.send("Welcome to the **Minemen Den** Discord | "`${member}`);
+  const welcomechannel = member.guild.channels.find('name', "welcome");
+  if(!welcomechannel) return;
 
-});
+  welcomechannel.send("Welcome to the **Minemen Den** Discord | "`${member}`);
+
+})
 
 });
 
