@@ -181,7 +181,7 @@ if(cmd === `${prefix}help staff`){
 bot.on(`guildMemberAdd`, member => {
   const welcomechannel = member.guild.channels.find('name', "welcome");
 
-  message.welcomechannel.send("Welcome to the **Minemen Den** Discord | test);
+  message.welcomechannel.send("Welcome to the **Minemen Den** Discord | test");
 
 })
 
