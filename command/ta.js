@@ -40,6 +40,7 @@ const Discord = require("discord.js");
     if(options.message) embed.setDescription(options.message);
 
     send(message.channel, embed, {
+      title: options.title,
       name: options.name,
       icon: options.icon
     })
