@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 
-  let botmessage = args.join(" ");
+  let botmessage = args.join(" ")
 
   let userembed = new Discord.RichEmbed()
   .setDescription(message.channel.send(botmessage))
