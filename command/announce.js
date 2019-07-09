@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  let user = message.author.id
   let usermessage = args.join(" ")
   let userrmessage = args.join("-")
 
@@ -10,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle(userrmessage)
   .setDescription(usermessage)
   .setColor("#af7ac5")
-  .setFooter(`<@${user.id}>`)
+  .setFooter(`<@${message.author.id}>`)
   .setTimestamp();
 
   return message.channel.send(userembed);
