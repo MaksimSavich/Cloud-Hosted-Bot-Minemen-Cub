@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
 
   const embed = new Discord.RichEmbed()
     .setTitle("Member")
-    .setAuthor("Minemen Cub | Help", bot.user.avatarURL)
-    /*
+    .setAuthor("Minemen Cub | Help", client.user.avatarURL)
+    /*client
      * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
      */
     .setColor("#af7ac5")

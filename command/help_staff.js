@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
   let staffRole = message.guild.roles.find("name", "• staff •");
   if(message.member.roles.has(staffRole.id)){
 
-  let bicon = bot.user.displayiconUrl;
+  let bicon = client.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
