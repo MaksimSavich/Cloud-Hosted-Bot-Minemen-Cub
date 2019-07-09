@@ -44,7 +44,3 @@ const Discord = require("discord.js");
       icon: options.icon
     })
 }
-
-module.exports.help = {
-  name: "ta"
-}
