@@ -4,9 +4,11 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.author.id
   let usermessage = args.join(" ")
+  let userrmessage = args.join("-")
 
   let userembed = new Discord.RichEmbed()
-  .setTitle(usermessage)
+  .setTitle(userrmessage)
+  .setDescription(usermessage)
   .setColor("#af7ac5")
   .setFooter(`<@${user.id}>`)
   .setTimestamp();
