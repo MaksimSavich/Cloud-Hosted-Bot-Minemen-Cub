@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 .exports.run = async (client, message, args, tools) => {
 
-  let split = `**`
+  let split = `&`
 
   if (!args[0]) {
 
