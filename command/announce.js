@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  let userrmessage = args.join(`**${message}**`)
+
   let usermessage = args.join(" ")
 
   let userembed = new Discord.RichEmbed()
@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#af7ac5")
   .setFooter(`<@${message.author.id}>`)
   .setTimestamp()
-  .addField(usermessage, userrmessage);
+  .addField("**Announcement**", usermessage);
 
   return message.channel.send(userembed);
 
