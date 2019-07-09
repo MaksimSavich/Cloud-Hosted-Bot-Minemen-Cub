@@ -10,7 +10,7 @@ const Discord = require("discord.js");
       const embed = new Discord.MessageEmbed()
         .setColor("#af7ac5")
         .setTitle(`Information`)
-        .setDescription(`**Usage: \`\`\`!announce embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
+        .setDescription(`**Usage: \`\`\`!ta embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
 
         return send(message.channel, embed, {
           name: `Announce Command`,
@@ -41,7 +41,6 @@ const Discord = require("discord.js");
 
     send(message.channel, embed, {
       title: options.title,
-      message: options.message,
-      icon: options.icon
+      message: options.message
     })
 }
