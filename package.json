@@ -9,6 +9,9 @@
   "author": "FlareCrazyy",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "quick.hook": "^1.5.1",
+    "quick.log": "^1.2.1",
+    "quick.log-discord": "^1.1.0"
   }
 }
