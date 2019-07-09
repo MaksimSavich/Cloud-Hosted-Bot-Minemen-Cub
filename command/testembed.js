@@ -3,10 +3,9 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 
-  let botmessage = args.join(" ")
 
   let userembed = new Discord.RichEmbed()
-  .setDescription(message.channel.send(botmessage))
+  .setDescription(message.author.send)
   .setColor("#af7ac5");
 
   return message.channel.send(userembed);
