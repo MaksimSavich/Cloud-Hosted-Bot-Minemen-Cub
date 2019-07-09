@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
     let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
     if(!banChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
-    message.member(bUser).ban(bReason);
+    message.guild.member(bUser).ban(bReason);
       message.delete().catch(O_o=>{});
     banChannel.send(banEmbed);
 
