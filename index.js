@@ -14,7 +14,7 @@ client.on(`message`, message => {
 
   try {
 
-      let commandFile = require(`./command/${cmd},hs`);
+      let commandFile = require(`./command/${cmd}.js`);
       commandFile.run(client, message, args);
 
   } catch (e) {
