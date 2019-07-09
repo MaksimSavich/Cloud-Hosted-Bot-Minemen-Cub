@@ -1,4 +1,3 @@
-const send = require("quick.hook");
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -30,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
     message: args[1] || undefined,
     name: args [2] || `Minemen Den`,
     icon: args[3] || bot.user.displayAvatarURL,
-    embedColor: args[4] || 0xffffff 
+    embedColor: args[4] || 0xffffff
   }
 
   const embed = new Discord.MessageEmbed()
