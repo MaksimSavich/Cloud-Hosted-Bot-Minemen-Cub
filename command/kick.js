@@ -12,17 +12,17 @@ module.exports.run = async (client, message, args) => {
       let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
     .setColor("#af0000")
+    .setFooter(`Kicked At`)
     .setTimestamp()
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
-    .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "kick-ban-logs");
     if(!kickChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
-    message.guild.member(kUser).kick(kReason);
+    message..member(kUser).kick(kReason);
       message.delete().catch(O_o=>{});
     kickChannel.send(kickEmbed);
 
