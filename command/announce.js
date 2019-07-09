@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-  let usermessage = args.contain(`**${message}**`)
-  let userrmessage = args.join("-")
+  let userrmessage = args.contain(`**${message}**`)
+  let usermessage = args.join(" ")
 
   let userembed = new Discord.RichEmbed()
 
