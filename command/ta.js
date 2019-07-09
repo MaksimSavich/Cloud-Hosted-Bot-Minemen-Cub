@@ -1,7 +1,7 @@
 const send = requre(`quick.hook`)
 const Discord = require("discord.js");
 
-.exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, tools) => {
 
   let split = `&`
 
