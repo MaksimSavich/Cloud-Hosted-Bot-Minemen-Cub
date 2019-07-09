@@ -41,6 +41,7 @@ const Discord = require("discord.js");
 
     send(message.channel, embed, {
       title: options.title,
+      message: options.message
       name: options.name,
       icon: options.icon
     })
