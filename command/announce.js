@@ -3,9 +3,11 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 
-  let botmessage = args.join(" ")
+  let usermessage = args.join(" ")
+  let userrmessage = args.join("*")
 
   let userembed = new Discord.RichEmbed()
+  .setTitle(userrmessage)
   .setDescription(botmessage)
   .setColor("#af7ac5")
 
