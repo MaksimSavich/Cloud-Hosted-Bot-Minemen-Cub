@@ -29,7 +29,7 @@ const Discord = require("discord.js");
     title: args[0] || `Announcement`,
     message: args[1] || undefined,
     name: args [2] || `Minemen Den`,
-    icon: args[3] || ,
+    icon: args[3] || client.user.displayAvatarURL,
     embedColor: args[4] || 0xffffff
   }
 
