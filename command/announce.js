@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-  if(cmd === `${prefix}a`){
 
   let usermessage = args.join(" ")
 
@@ -12,5 +11,9 @@ module.exports.run = async (bot, message, args) => {
   .setTimestamp();
 
   return message.channel.send(userembed);
-  }
+
+}
+
+module.exports.help = {
+  name: "a"
 }
