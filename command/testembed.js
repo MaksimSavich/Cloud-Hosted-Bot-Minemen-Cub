@@ -4,12 +4,12 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-  let userembed = new Discord.RichEmbed(
+  let userembed = new Discord.RichEmbed()
   let botmessage = args.join(" ");
+  .setDescription(message.channel.send(botmessage);)
+  .setColor("#af7ac5")
 
-  message.channel.send(botmessage);
-
-  return message.channel.send(userembed));
+  return message.channel.send(userembed);
 }
 
 module.exports.help = {
