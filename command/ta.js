@@ -30,14 +30,14 @@ const Discord = require("discord.js");
     message: args[1] || undefined,
     name: args [2] || `Minemen Den`,
     icon: args[3] || client.user.displayAvatarURL,
-    embedColor: args[4] || 0xffffff
+    embedColor: args[4] || "#af7ac5"
   }
 
   const embed = new Discord.MessageEmbed()
     .setColor(options.embedColor)
     .setTitle(options.title)
 
-    if(options.message) embed.setDescription(options.message);
+    if (options.message) embed.setDescription(options.message);
 
     send(message.channel, embed, {
       title: options.title,
