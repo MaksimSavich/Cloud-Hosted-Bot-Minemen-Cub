@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor("#af7ac5")
   .setFooter(`<@${message.author.id}>`)
   .setTimestamp()
-  .addField(usermessage);
+  .addField(usermessage, usermessage);
 
   return message.channel.send(userembed);
 
