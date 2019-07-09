@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
       const embed = new Discord.MessageEmbed()
         .setColor("#af7ac5")
         .setTitle(`Information`)
-        .setDescription(``**Usage: \`\`\`!announce embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
+        .setDescription(`**Usage: \`\`\`!announce embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
 
         return send(message.channel, embed, {
           name: `Announce Command`,
