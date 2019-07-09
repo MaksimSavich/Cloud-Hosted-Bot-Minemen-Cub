@@ -6,8 +6,8 @@ module.exports.run = async (bot, message, args) => {
 
   let userembed = new Discord.RichEmbed()
   let botmessage = args.join(" ");
-  .setDescription(message.channel.send(botmessage);)
-  .setColor("#af7ac5")
+  .setDescription(message.channel.send(botmessage)
+  .setColor("#af7ac5");
 
   return message.channel.send(userembed);
 }
