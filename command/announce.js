@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
   let userembed = new Discord.RichEmbed()
 
   .setColor("#af7ac5")
-  .setFooter(message.author.AvatarURL, message.author.username)
+  .setFooter(message.author.AvatarURL, `${message.author.tag}`)
   .setTimestamp()
   .addField("**Announcement**", usermessage);
 
