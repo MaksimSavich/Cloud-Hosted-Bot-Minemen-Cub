@@ -1,3 +1,4 @@
+const send = require("quick.hook");
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -20,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
   args =args.join(` `).split(split);
 
-  for(var i =0; i<args.length; i++) args[i] = args[i].trim();
+  for (var i =0; i<args.length; i++) args[i] = args[i].trim();
 
   if(args[4]) args[4] = parseInt(`0x${args[4]}`)
 
@@ -29,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     message: args[1] || undefined,
     name: args [2] || `Minemen Den`,
     icon: args[3] || bot.user.displayAvatarURL,
-    embedColor: args[4] || 0xffffff
+    embedColor: args[4] || 0xffffff 
   }
 
   const embed = new Discord.MessageEmbed()
