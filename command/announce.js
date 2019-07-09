@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
   let userembed = new Discord.RichEmbed()
   .setTitle(usermessage)
   .setColor("#af7ac5")
-  .setfooter(message.author.username)
+  .setfooter(message.author.(`<@${user.id}>`))
   .setTimestamp();
 
   return message.channel.send(userembed);
