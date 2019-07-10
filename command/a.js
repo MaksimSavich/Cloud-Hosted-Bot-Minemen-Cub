@@ -2,9 +2,9 @@ exports.run = async (client, message, args) => {
 
   let sayRole = message.guild.roles.find("name", "• say •");
     if(!message.member.roles.has(sayRole.id)) return message.delete().catch(O_o=>{}), message.member.send("You can't perform this action!");
-    let sayRole = message.guild.roles.find("name", "• say •");
+    
     if(message.member.roles.has(sayRole.id)){
- 
+
       let usermessage = args.join(" ")
 
   let userembed = new Discord.RichEmbed()
@@ -13,11 +13,13 @@ exports.run = async (client, message, args) => {
   .setFooter(message.author.displayAvatarURL, `${message.author.tag}`)
   .setTimestamp()
   .addField("**Announcement**", usermessage);
-    
+
 
   return message.channel.send(userembed)
+
+
     }
   message.delete().catch(O_o=>{});
-
   
+
 }
