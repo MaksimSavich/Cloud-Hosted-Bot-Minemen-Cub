@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const send = require(`quick.hook`);
 
 exports.run = async (client, message, args, tools) => {
