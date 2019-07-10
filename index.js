@@ -30,7 +30,7 @@ client.on(`message`, message => {
 });
 
 client.on("ready", async () => {
-  console.log(`${client.user.username} is online!`);
+  console.log(`${client.user.username} is cool!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 });
 
