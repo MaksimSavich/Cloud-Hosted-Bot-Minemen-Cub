@@ -12,10 +12,9 @@ exports.run = async (client, message, args, tools) => {
         .setTitle(`Information`)
         .setDescription(`**Usage: \`\`\`!ta embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
 
-        return message.member.send(embed: {
+        return send(message.channel, embed, {
           name: `Announce Command`,
-          icon: client.user.displayAvatarURL
-
+          icon: message.author.displayAvatarURL
         })
   }
 
