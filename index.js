@@ -27,26 +27,13 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
-})
-
-client.on("message", async message => {
-  if(message.author.client) return;
-  if(message.channel.type === "dm") return;
-
-  let prefix = clientconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(client, message, args);
-}
+});
 
 
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
-})
+});
 
     //Auto Welcome
 
