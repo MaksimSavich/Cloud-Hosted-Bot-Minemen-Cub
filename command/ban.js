@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!bUser) return message.member.send("Can't find user!");
+  if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
   let bReason = args.join(" ").slice(22);
-  if(!bReason) return message.member.send("Reason for ban is needed.");
+  if(!bReason) return message.member.send("Reason for ban is needed.", message.delete().catch(O_o=>{}));
 
     let banRole = message.guild.roles.find("name", "• ban •");
     if(message.member.roles.has(banRole.id)){
