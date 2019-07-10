@@ -40,5 +40,21 @@ client.on("ready", async () => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 })
 
+if (cmd === `${prefix}staff help`) {
+  let staffRole = message.guild.roles.find("name", "• staff •");
+  if(message.member.roles.has(staffRole.id)){
+
+  let bicon = client.user.displayiconUrl;
+  let botembed = new Discord.RichEmbed()
+  .setTitle("__Bot Commands__")
+  .setColor("#af7ac5")
+  .setThumbnail(bicon)
+  .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
+
+
+  return message.member.send(botembed);
+  }
+}
+
 
 client.login(botconfig.token);
