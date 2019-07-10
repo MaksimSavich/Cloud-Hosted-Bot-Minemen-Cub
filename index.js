@@ -1,6 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const bot = new Discord.bot();
+const bot = new Discord.Client();
 const prefix = `^`;
 bot.on(`message`, message => {
 
