@@ -15,6 +15,7 @@ exports.run = async (client, message, args, tools) => {
 
   return message.channel.send(userembed)
 
+    message.delete().catch(O_o=>{});
+
   }
-  message.delete().catch(O_o=>{});
 }
