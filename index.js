@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = `^`;
+
 
 client.on(`message`, message => {
 
@@ -27,18 +27,18 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
-});
+})
 
 client.on("ready", async () => {
-  console.log(`${client.user.username} is cool!`);
+  console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
-});
+})
 
     //Auto Welcome
 
     client.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
-});
+})
 
 
 client.login(botconfig.token);
