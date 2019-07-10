@@ -1,8 +1,8 @@
-const botconfig = require("./botconfig.json");
+botconst botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const client = new Discord.Client({disableEveryone: true});
+const bot = new Discord.bot();
 const prefix = `^`;
-client.on(`message`, message => {
+bot.on(`message`, message => {
 
   let msg = message.content.toUpperCase();
   let sender = message.author;
@@ -15,7 +15,7 @@ client.on(`message`, message => {
   try {
 
       let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(client, message, args);
+      commandFile.run(bot, message, args);
 
   } catch (e) {
 
@@ -28,21 +28,21 @@ client.on(`message`, message => {
   }
 })
 
-client.on("ready", async () => {
-  console.log(`${client.user.username} is online!`);
-  client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is online!`);
+  bot.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 })
 
     //Auto Welcome
 
-    client.on('guildMemberAdd', member => {
+    bot.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
       //Prefix and return
 
-client.on("message", async message => {
-  if(message.author.client) return;
+bot.on("message", async message => {
+  if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
   let prefix = botconfig.prefix;
@@ -50,8 +50,8 @@ client.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
 
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(client, message, args);
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot, message, args);
 
       //Hello Command
 
