@@ -12,8 +12,9 @@ exports.run = async (client, message, args, tools) => {
   .setTimestamp()
   .setFooter(`${message.author.tag}`, message.author.displayAvatarURL)
   .addField('Announcement', (usermessage));
-  
+
   return message.channel.send(userembed)
 
   }
+  message.delete().catch(O_o=>{});
 }
