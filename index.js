@@ -64,4 +64,4 @@ if(cmd === `${prefix}hello`){
 
 
 
-client.login(botconfig.token);
+bot.login(botconfig.token);
