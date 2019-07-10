@@ -1,8 +1,8 @@
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, tools) => {
 
   let sayRole = message.guild.roles.find("name", "• say •");
-    if(!message.member.roles.has(sayRole.id)) return message.delete().catch(O_o=>{}), message.member.send("You can't perform this action!");
     
+
     if(message.member.roles.has(sayRole.id)){
 
       let usermessage = args.join(" ")
@@ -20,6 +20,6 @@ exports.run = async (client, message, args) => {
 
     }
   message.delete().catch(O_o=>{});
-  
+
 
 }
