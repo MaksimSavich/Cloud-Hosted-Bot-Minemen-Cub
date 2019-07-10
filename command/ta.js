@@ -7,7 +7,7 @@ exports.run = async (client, message, args, tools) => {
 
   if (!args[0]) {
 
-      const embed = new Discord.MessageEmbed()
+      const embed = new Discord.RichEmbed()
         .setColor("#af7ac5")
         .setTitle(`Information`)
         .setDescription(`**Usage: \`\`\`!ta embedTitle ${split} embedMsg ${split} msgName ${split} msgIcon ${split} embedColor\`\`\`**`);
