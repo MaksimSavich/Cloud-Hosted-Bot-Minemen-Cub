@@ -1,7 +1,7 @@
 const send = require(`quick.hook`);
 const Discord = require("discord.js");
 
-exports.run = async.catch(bot, message, args, tools) => {
+exports.run = async .catch(client, message, args, tools) => {
 
   let split = `&`
 
@@ -14,7 +14,7 @@ exports.run = async.catch(bot, message, args, tools) => {
 
         return send(message.channel, embed, {
           name: `Announce Command`,
-          icon: bot.user.displayAvatarURL
+          icon: client.user.displayAvatarURL
 
         })
   }
@@ -29,7 +29,7 @@ exports.run = async.catch(bot, message, args, tools) => {
     title: args[0] || `Announcement`,
     message: args[1] || undefined,
     name: args [2] || `Minemen Den`,
-    icon: args[3] || bot.user.displayAvatarURL,
+    icon: args[3] || client.user.displayAvatarURL,
     embedColor: args[4] || "#af7ac5"
   }
 

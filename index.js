@@ -1,8 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const prefix = `^`;
-bot.on(`message`, message => {
+client.on(`message`, message => {
 
   let msg = message.content.toUpperCase();
   let sender = message.author;
@@ -10,12 +10,12 @@ bot.on(`message`, message => {
   let cmd = args.shift().toLowerCase();
 
   if (!msg.startsWith(prefix)) return;
-  if(message.author.bot) return;
+  if(message.author.client) return;
 
   try {
 
       let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(bot, message, args);
+      commandFile.run(client, message, args);
 
   } catch (e) {
 
@@ -28,30 +28,23 @@ bot.on(`message`, message => {
   }
 })
 
-bot.on("ready", async () => {
-  console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
+client.on("ready", async () => {
+  console.log(`${client.user.username} is online!`);
+  client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 })
 
     //Auto Welcome
 
-    bot.on('guildMemberAdd', member => {
+    client.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
       //Prefix and return
 
-bot.on("message", async message => {
-  if(message.author.bot) return;
+client.on("message", async message => {
+  if(message.author.client) return;
   if(message.channel.type === "dm") return;
 
-  let prefix = botconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(bot, message, args);
 
       //Hello Command
 
@@ -64,4 +57,4 @@ if(cmd === `${prefix}hello`){
 
 
 
-bot.login(botconfig.token);
+client.login(botconfig.token);
