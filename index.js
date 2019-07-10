@@ -94,7 +94,7 @@ if (cmd === `${prefix}ta`){
     return;
 }
 
-});
+
 
 
 
