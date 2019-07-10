@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args, tools) => {
 
   const embed = new Discord.RichEmbed()
     .setTitle("Member")
@@ -21,8 +21,4 @@ module.exports.run = async (client, message, args) => {
     message.channel.send({embed});
 
   message.delete().catch(O_o=>{});
-}
-
-module.exports.help = {
-  name: "help"
 }
