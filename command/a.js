@@ -10,13 +10,13 @@ exports.run = async (client, message, args, tools) => {
   let userembed = new Discord.RichEmbed()
 
   .setColor("#af7ac5")
-  .setFooter()
+  .setFooter(message.author.displayAvatarURL, `${message.author.tag}`)
   .setTimestamp()
   .addField("**Announcement**", usermessage);
+    
+
+  return message.channel.send(userembed)
     }
-
-  return message.channel.send(userembed);
-
   message.delete().catch(O_o=>{});
 
   
