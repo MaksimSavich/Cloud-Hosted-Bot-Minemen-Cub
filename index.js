@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
+const prefix = `^`
 
 client.on(`message`, message => {
 
@@ -22,7 +22,7 @@ client.on(`message`, message => {
 
       console.log(e.message);
 
-  }finally {
+  } finally {
 
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
