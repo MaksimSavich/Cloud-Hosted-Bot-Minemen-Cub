@@ -39,19 +39,6 @@ client.on("ready", async () => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
-      //Prefix and return
-
-client.on("message", async message => {
-  if(message.author.client) return;
-  if(message.channel.type === "dm") return;
-
-  let prefix = clientconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(client, message, args);
 
       //Hello Command
 
