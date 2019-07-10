@@ -27,12 +27,12 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
-})
+});
 
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
-})
+});
 
     //Auto Welcome
 
