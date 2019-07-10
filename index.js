@@ -1,59 +1,53 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const client = new Discord.Client();
-const prefix = `^`;
+const fs = require("fs");
+const bot = new Discord.Client({disableEveryone: true});
 
-client.on(`message`, message => {
+bot.commands = new Discord.Collection();
 
-  let msg = message.content.toUpperCase();
-  let sender = message.author;
-  let args = message.content.slice(prefix.length).trim().split(` `);
-  let cmd = args.shift().toLowerCase();
+fs.readdir("./command/", (err, files) => {
 
-  if (!msg.startsWith(prefix)) return;
-  if(message.author.client) return;
+  if(err) console.log(err);
 
-  try {
-
-      let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(client, message, args);
-
-  } catch (e) {
-
-      console.log(e.message);
-
-  }finally {
-
-      console.log(`${message.author.tag} ran the command ${cmd}`)
-
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
   }
+
+  jsfile.forEach((f, i) =>{
+    let props = require(`./command/${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  });
+
 })
 
-client.on("message", async message => {
-  if(message.author.client) return;
-  if(message.channel.type === "dm") return;
 
-  let prefix = clientconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  let commandfile = client.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(client, message, args);
-}
-
-
-client.on("ready", async () => {
-  console.log(`${client.user.username} is online!`);
-  client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is online!`);
+  bot.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
 })
 
     //Auto Welcome
 
-    client.on('guildMemberAdd', member => {
+    bot.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
+      //Prefix and return
+
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot, message, args);
 
       //Hello Command
 
@@ -62,7 +56,9 @@ if(cmd === `${prefix}hello`){
 }
 
 
-if (cmd === `${prefix}ta`){
+});
+
+if (cmd === `${prefix}ta`) {
 
   let split = `&`
 
@@ -105,12 +101,7 @@ if (cmd === `${prefix}ta`){
     })
 
     message.delete().catch(O_o=>{});
-
-    return;
 }
 
-});
 
-
-
-client.login(botconfig.token);
+bot.login(botconfig.token);
