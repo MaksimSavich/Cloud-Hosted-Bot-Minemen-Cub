@@ -1,8 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = `^`
-
+const prefix = `^`;
 client.on(`message`, message => {
 
   let msg = message.content.toUpperCase();
@@ -11,7 +10,7 @@ client.on(`message`, message => {
   let cmd = args.shift().toLowerCase();
 
   if (!msg.startsWith(prefix)) return;
-  if(message.author.client) return;
+  if(message.author.bot) return;
 
   try {
 
@@ -22,7 +21,7 @@ client.on(`message`, message => {
 
       console.log(e.message);
 
-  } finally {
+  }finally {
 
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
@@ -38,23 +37,31 @@ client.on("ready", async () => {
 
     client.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
-})
+});
 
-if (cmd === `${prefix}staff help`) {
-  let staffRole = message.guild.roles.find("name", "• staff •");
-  if(message.member.roles.has(staffRole.id)){
+      //Prefix and return
 
-  let bicon = client.user.displayiconUrl;
-  let botembed = new Discord.RichEmbed()
-  .setTitle("__Bot Commands__")
-  .setColor("#af7ac5")
-  .setThumbnail(bicon)
-  .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
+client.on("message", async message => {
+  if(message.author.client) return;
+  if(message.channel.type === "dm") return;
 
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
 
-  return message.member.send(botembed);
-  }
+  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(client, message, args);
+
+      //Hello Command
+
+if(cmd === `${prefix}hello`){
+  return message.channel.send("Hello!");
 }
+
+
+});
+
 
 
 client.login(botconfig.token);
