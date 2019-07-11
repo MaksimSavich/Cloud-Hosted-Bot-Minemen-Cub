@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
 
-    let banChannel = message.guild.channels.find(`name`, "kick-ban-logs");
+    let banChannel = message.guild.channels.find(`name`, "punishment-logs");
     if(!banChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
     message.guild.member(bUser).ban(bReason);
