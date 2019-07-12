@@ -21,4 +21,3 @@ exports.run = async (client, message, args, tools) => {
     }
       message.delete().catch(O_o=>{});
   }
-}
