@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!kUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
   let kReason = args.join(" ").slice(22);
-  if(!kReason) return message.member.send("Reason for kick is needed.", message.delete().catch(O_o=>{}));
+  if(!kReason) return message.member.send("Reason for kick is required.", message.delete().catch(O_o=>{}));
 
     let kickRole = message.guild.roles.find("name", "• kick •");
     if(message.member.roles.has(kickRole.id)){
