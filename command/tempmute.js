@@ -31,7 +31,7 @@ if(!muterole){
   let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
-  let mReason = args.join(" ").slice(22).splic();
+  let mReason = args.join(" ").slice(22).split();
   if(!mReason) return message.member.send("Reason for mute is required.", message.delete().catch(O_o=>{}));
 
     let muteEmbed = new Discord.RichEmbed()

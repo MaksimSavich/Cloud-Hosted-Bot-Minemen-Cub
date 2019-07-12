@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
 
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
-  if(bUser.hasrole(• ban •)) return message.member.send(`User can't be banned!`)
+  if(bUser.roles.has(banRole.id)) return message.member.send(`User can't be banned!`);
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
 
