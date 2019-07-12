@@ -5,7 +5,7 @@ exports.run = async (client, message, args, tools) => {
 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`, message.delete().catch(O_o=>{}));
-if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`, message.delete().catch(O_o=>{}))
+if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`, message.delete().catch(O_o=>{}));
 let muterole = message.guild.roles.find("name", "• muted •");
 if(!muterole){
   try{
@@ -28,9 +28,10 @@ if(!muterole){
     }
   }
 
+  let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
-  let mReason = args.join(" ").slice(22);
+  let mReason = args.join(" ").split.slice(22);
   if(!mReason) return message.member.send("Reason for mute is required.", message.delete().catch(O_o=>{}));
 
     let muteEmbed = new Discord.RichEmbed()
