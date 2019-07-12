@@ -1,4 +1,4 @@
-Const Discord = require("discord.js");
+const Discord = require("discord.js");
 
 exports.run = async (client, message, args, tools) => {
 
@@ -17,7 +17,7 @@ exports.run = async (client, message, args, tools) => {
         try{
           await rMember.send(`You have lost the role ${gRole.name}! :(`)
         }catch(e){
-          message.channel.send(`<@${rMember.id}> you have lost the role ${gRole}! We tried your DMsS but they were locked. `)
+          message.channel.send(`<@${rMember.id}> you have lost the role ${gRole}! We tried your DMs but they were locked. `)
     }
       return message.delete().catch(O_o=>{});
 }
