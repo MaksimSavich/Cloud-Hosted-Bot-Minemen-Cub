@@ -6,7 +6,7 @@ exports.run = async (client, message, args, tools) => {
       if(!message.member.roles.has(roleRole.id)) return message.member.send(`You can't perform this action!`), (message.delete().catch(O_o=>{}));
       if(message.member.roles.has(roleRole.id)){
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-      if(!rMember) return message.member.send(1Can't find user!");
+      if(!rMember) return message.member.send("Can't find user!");
   let role = args.join(" ").slice(22);
       if(!role) return message.member.send(`Specify a role!`);
   let gRole = message.guild.roles.find(`name`, role);
