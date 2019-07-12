@@ -11,11 +11,11 @@ exports.run = async (client, message, args, tools) => {
   let gRole = message.guild.roles.find(`name`, role);
       if(!gRole) return message.member.send(`role doesn't exist.`);
 
-        if(rMember.roles.has(gRole.id));
+        if(rMember.roles.has(gRole.id)) return message.member.send(`They already have that role.`);
         await(rMember.addRole(gRole.id));
 
         try{
-          await rMember.send(`You have been awarded the role ${gRole}!`)
+          await rMember.send(`You have been awarded the role ${gRole.name}!`)
         }catch(e){
           message.channel.send(`<@${rMember.id}> you have been awarded the role ${gRole}! We tried your DMsS but they were locked.`)
     }
