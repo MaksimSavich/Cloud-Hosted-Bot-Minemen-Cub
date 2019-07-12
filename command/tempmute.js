@@ -9,7 +9,7 @@ if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can'
 let muteRole = message.guild.roles.find("name", "• muted •");
 if(!muteRole){
   try{
-    muterole = await message.guild.createRole({
+    muteRole = await message.guild.createRole({
       name: "muted",
       color: "#000000",
       permissions:[]
