@@ -20,6 +20,5 @@ exports.run = async (client, message, args, tools) => {
         }catch(e){
           message.channel.sendrMember.send(`<@${rMember.id}> you have been awarded the role ${gRole}! We tried to DM you but they were locked.`)
     }
-      message.delete().catch(O_o=>{})
   }
 }
