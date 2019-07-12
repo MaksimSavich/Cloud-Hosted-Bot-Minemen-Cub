@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args, tools) => {
 
-  if(!message.member.has(`MEMBER_ROLES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
+  if(!message.member.hasPermission(`MEMBER_ROLES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
 
-  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  let rMember = message.guild.memberPer(message.mentions.users.first()) || message.guild.members.get(args[0]);
       if(!rMember) return message.member.send("Can't find user!");
   let role = args.join(" ").slice(22);
       if(!role) return message.member.send(`Specify a role!`);
