@@ -6,16 +6,16 @@ exports.run = async (client, message, args, tools) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`, message.delete().catch(O_o=>{}));
 if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`, message.delete().catch(O_o=>{}))
-let muteRole = message.guild.roles.find("name", "• muted •");
-if(!muteRole){
+let muterole = message.guild.roles.find("name", "• muted •");
+if(!muterole){
   try{
-    muteRole = await message.guild.createRole({
+    muterole = await message.guild.createRole({
       name: "muted",
       color: "#000000",
       permissions:[]
     })
     message.guild.channels.forEach(async (channel, id) => {
-      await channel.overwritePermissions(muteRole, {
+      await channel.overwritePermissions(muterole, {
         SEND_MESSAGES: false,
         ADD_REACTIONS: false,
         SEND_TTS_MESSAGES: false,
@@ -51,7 +51,7 @@ if(!muteRole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-      await(tomute.addRole(muteRole.id));
+      await(tomute.addRole(muterole.id));
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
