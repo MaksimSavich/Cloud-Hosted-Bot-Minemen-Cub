@@ -3,7 +3,7 @@ Const Discord = require("discord.js");
 exports.run = async (client, message, args, tools) => {
 
   let roleRole = message.guild.roles.find("name", "• role •");
-      if(!message.member.roles.has(roleRole.id)) return message.member.send(`You can't perform this action!`);
+      if(!message.member.roles.has(roleRole.id)) return message.member.send(`You can't perform this action!`), (message.delete().catch(O_o=>{}););
       if(message.member.roles.has(roleRole.id)){
   let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
       if(!rMember) return message.member.send(1Can't find user!");
@@ -20,6 +20,6 @@ exports.run = async (client, message, args, tools) => {
         }catch(e){
           message.channel.sendrMember.send(`<@${rMember.id}> you have been awarded the role ${gRole}! We tried to DM you but they were locked.`)
     }
+      message.delete().catch(O_o=>{});
   }
-  message.delete().catch(O_o=>{});
 }
