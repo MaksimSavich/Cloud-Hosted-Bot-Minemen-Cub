@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "punishment-logs");
-    if(!kickChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+    if(!kickChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
     message.guild.member(kUser).kick(kReason);
       message.delete().catch(O_o=>{});

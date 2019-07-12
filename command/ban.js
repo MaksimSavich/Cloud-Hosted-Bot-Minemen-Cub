@@ -1,13 +1,14 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+
+  let banRole = message.guild.roles.find("name", "• ban •");
+  if(message.member.roles.has(banRole.id)){
+
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
-
-    let banRole = message.guild.roles.find("name", "• ban •");
-    if(message.member.roles.has(banRole.id)){
 
       let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
@@ -21,7 +22,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Reason", bReason);
 
     let banChannel = message.guild.channels.find(`name`, "punishment-logs");
-    if(!banChannel) return message.member.send("Can't find kick-ban-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+    if(!banChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
     message.guild.member(bUser).ban(bReason);
       message.delete().catch(O_o=>{});
