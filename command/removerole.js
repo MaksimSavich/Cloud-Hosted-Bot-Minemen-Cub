@@ -19,5 +19,5 @@ exports.run = async (client, message, args, tools) => {
         }catch(e){
           message.channel.send(`<@${rMember.id}> you have lost the role ${gRole}! We tried your DMsS but they were locked. `)
     }
-      message.delete().catch(O_o=>{});
+      return message.delete().catch(O_o=>{});
 }
