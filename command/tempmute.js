@@ -14,7 +14,7 @@ if(!muteRole){
       color: "#000000",
       permissions:[]
     })
-    message.guild.channels.forEach(async, (channel, id) => {
+    message.guild.channels.forEach(async (channel, id) => {
       await channel.overwritePermissions(muteRole, {
         SEND_MESSAGES: false,
         ADD_REACTIONS: false,
