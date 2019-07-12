@@ -16,7 +16,7 @@ exports.run = async (client, message, args, tools) => {
         await(rMember.addRole(gRole.id));
 
         try{
-          rMember.send(`You have been awarded the role ${gRole}!`)
+          await rMember.send(`You have been awarded the role ${gRole}!`)
         }catch(e){
           message.channel.sendrMember.send(`<@${rMember.id}> you have been awarded the role ${gRole}! We tried to DM you but they were locked.`)
     }
