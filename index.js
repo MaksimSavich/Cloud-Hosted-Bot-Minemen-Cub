@@ -66,6 +66,7 @@ client.on("ready", async () => {
   //   return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
   //       console.log(`${message.author.tag} tried to speak!`);
   }
+  
 });
 
 });
