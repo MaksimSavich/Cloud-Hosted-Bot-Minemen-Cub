@@ -28,6 +28,7 @@ if(!muterole){
     }
   }
 
+  let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
   let mReason = args.join("-").slice(22)
@@ -50,7 +51,7 @@ if(!muterole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-      await(tomute.removeRoles(tomute.roles);
+      await(tomute.addRole(muterole.id));
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
