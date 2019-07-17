@@ -59,6 +59,11 @@ if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
 }
 
+client.on("ready", async () => {
+  console.log(`${message.author.tag} tried to speak!`);
+    if (message.author.has.roles(• muted •)) return message.member.send(`You tried to speak whilst muted.`, message.delete().catch(O_o=>{}));
+
+});
 
 });
 
