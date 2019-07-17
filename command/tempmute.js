@@ -10,7 +10,7 @@ let muterole = message.guild.roles.find("name", "• muted •");
 if(!muterole){
   try{
     muterole = await message.guild.createRole({
-      name: "muted",
+      name: "• muted •",
       color: "#000000",
       permissions:[]
     })
@@ -50,7 +50,7 @@ if(!muterole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-      await(tomute.removeRoles(tomute.roles).then(console.log).catch(console.error));
+      await(tomute.removeRoles(tomute.roles);
       await(tomute.addRole(muterole.id));
 
       try{
