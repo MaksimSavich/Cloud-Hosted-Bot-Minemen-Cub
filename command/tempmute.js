@@ -31,7 +31,7 @@ if(!muterole){
   let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
-  let mReason = args.join("-").slice(22)
+  let mReason = args.join("-").slice(22)[2]
   if(!mReason) return message.member.send("Reason for mute is required.", message.delete().catch(O_o=>{}));
 
     let muteEmbed = new Discord.RichEmbed()
@@ -59,8 +59,9 @@ if(!muterole){
         message.channel.send(`<@${tomute.id}> you have been muted for ${ms(ms(mutetime))}! We tried your DMs but they were locked.`)
   }
 
+    message.member.send(`<@${tomute.id}> has been muted.`);
+
   setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.member.send(`<@${tomute.id}> has been muted.`);
   }, ms(mutetime));
 }
