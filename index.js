@@ -60,9 +60,11 @@ if(cmd === `${prefix}hello`){
 }
 
 client.on("ready", async () => {
-  console.log(`${message.author.tag} tried to speak!`);
+  let heheRole = message.guild.roles.find("name", "• muted •");
+  if(message.member.roles.has(heheRole.id)){
     if (message.author.has.roles(`• muted •`)) return message.member.send(`You tried to speak whilst muted.`, message.delete().catch(O_o=>{}));
-
+        console.log(`${message.author.tag} tried to speak!`);
+  }
 });
 
 });
