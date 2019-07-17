@@ -3,11 +3,11 @@ const ms = require(`ms`);
 
 exports.run = async (client, message, args, tools) => {
 
-if (tomute.message.send) return message.member.send("You have been muted. You are unable to speak in any channel. :("), (message.delete().catch(O_o=>{}));
 if(!message.member.hasPermission(`MANAGE_MESSAGES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`, message.delete().catch(O_o=>{}));
 if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`, message.delete().catch(O_o=>{}));
+if (tomute.message.send) return message.member.send("You have been muted. You are unable to speak in any channel. :("), (message.delete().catch(O_o=>{}));
 let muterole = message.guild.roles.find("name", "• muted •");
 if(!muterole){
   try{
