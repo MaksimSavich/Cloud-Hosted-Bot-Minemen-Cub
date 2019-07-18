@@ -3,17 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = `^`;
 
-client.on("ready", async () => {
-  let heheRole = message.guild.roles.find(`name`, "• muted •");
-  if(message.member.roles.has(heheRole.id)){
-    return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
-  };
-
-
-
-});
-
-
 client.on(`message`, message => {
 
   let msg = message.content.toUpperCase();
@@ -40,6 +29,15 @@ client.on(`message`, message => {
   }
 })
 
+client.on("ready", async () => {
+  let heheRole = message.guild.roles.find(`name`, "• muted •");
+  if(message.member.roles.has(heheRole.id)){
+    return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
+  };
+
+
+
+});
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
