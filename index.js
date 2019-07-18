@@ -53,6 +53,8 @@ client.on("message", async message => {
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
 
+}
+
       //Hello Command
 
 if(cmd === `${prefix}hello`){
