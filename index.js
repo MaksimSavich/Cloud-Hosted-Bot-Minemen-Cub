@@ -26,6 +26,10 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
+  client.on("ready", async () => {
+  let mutedrole = message.guild.roles.find(`name`, `• muted •`);
+  if(message.member.has.roles(`• muted •`)) return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
+  });
 })
 
 client.on("ready", async () => {
@@ -62,10 +66,5 @@ if(cmd === `${prefix}hello`){
   }
 });
 
-
-client.on("ready", async () => {
-  let mutedrole = message.guild.roles.find(`name`, `• muted •`);
-  if(message.member.has.roles(`• muted •`)) return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
-  });
 
 client.login(botconfig.token);
