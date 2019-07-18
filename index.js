@@ -53,7 +53,7 @@ client.on("message", async message => {
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
 
-)};
+});
 
       //Hello Command
 
@@ -68,7 +68,7 @@ client.on("ready", async () => {
         console.log(`${message.author.tag} tried to speak!`);
   }
 
-);
+;
 
 });
 
