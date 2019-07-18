@@ -53,13 +53,15 @@ client.on("message", async message => {
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
 
-});
+
 
       //Hello Command
 
 if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
-};
+  }
+});
+
 
 client.on("ready", async () => {
   let heheRole = message.guild.roles.find(`name`, "• muted •");
