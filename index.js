@@ -53,23 +53,22 @@ client.on("message", async message => {
   let commandfile = client.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(client, message, args);
 
-}
+)};
 
       //Hello Command
 
 if(cmd === `${prefix}hello`){
   return message.channel.send("Hello!");
-}
+};
 
-// client.on("ready", async () => {
-//   if(message.author.has.roles(`• muted •`)) return message.member.send(`You tried to speak whilst muted.`);
-//   // let heheRole = message.guild.roles.find(`name`, "• muted •");
-//   // if(message.member.roles.has(heheRole.id)){
-//   //   return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
-//   //       console.log(`${message.author.tag} tried to speak!`);
-//   }
-//
-// );
+client.on("ready", async () => {
+  let heheRole = message.guild.roles.find(`name`, "• muted •");
+  if(message.member.roles.has(heheRole.id)){
+    return message.member.send(`You tried to speak whilst muted.`), message.delete().catch(O_o=>{});
+        console.log(`${message.author.tag} tried to speak!`);
+  }
+
+);
 
 });
 
