@@ -29,7 +29,7 @@ if(!muterole){
   }
 
 const embed = new Discord.RichEmbed()
-     .addField((tomute), "Roles: " + message.guild.member(message.mentions.users.first()).map(role => role.name).join(", ")) // user, roles
+     .addField((`<@${tomute.id}>`), "Roles: " + message.guild.member(message.mentions.users.first()).map(role => role.name).join(", ")) // user, roles
      .addField("Stats", "XP: 0/100 Level 0") // XP, Level?
      .setColor(`#af7ac5`)
      .setThumbnail(message.author.avatarURL);
