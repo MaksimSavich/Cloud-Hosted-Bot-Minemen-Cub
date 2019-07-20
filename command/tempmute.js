@@ -39,7 +39,7 @@ const embed = new Discord.RichEmbed()
 
   message.channel.sendEmbed(embed);
   console.log(message.author + ` Viewed their profile!`);
-  message.delete().catch(O_o=>{});
+
 
 
   let split = "-"
