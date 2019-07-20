@@ -34,8 +34,6 @@ const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setThumbnail(message.author.avatarURL);
 
-     let muteChannel = message.guild.channels.find(`name`, "punishment-logs");
-       if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
   message.channel.sendEmbed(embed);
   console.log(message.author + ` Viewed their profile!`);
