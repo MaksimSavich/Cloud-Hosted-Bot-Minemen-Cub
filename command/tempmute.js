@@ -29,11 +29,13 @@ if(!muterole){
   }
 
 const embed = new Discord.RichEmbed()
-     .addField((tomute), "Roles: " + message.member.roles.map(role => role.name).join(", ")) // user, roles
+     .addField((tomute), "Roles: " + message.guild.member(message.mentions.users.first()).map(role => role.name).join(", ")) // user, roles
      .addField("Stats", "XP: 0/100 Level 0") // XP, Level?
      .setColor(`#af7ac5`)
      .setThumbnail(message.author.avatarURL);
 
+     let muteChannel = message.guild.channels.find(`name`, "punished-players-roles");
+        if(!muteChannel) return message.member.send("Can't find punished-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
   message.channel.sendEmbed(embed);
   console.log(message.author + ` Viewed their profile!`);
