@@ -3,7 +3,6 @@ const ms = require(`ms`);
 
 exports.run = async (client, message, args, tools) => {
 
-if(!message.member.hasPermission(`MANAGE_MESSAGES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`, message.delete().catch(O_o=>{}));
 if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`, message.delete().catch(O_o=>{}));
@@ -11,7 +10,7 @@ let muterole = message.guild.roles.find("name", "• muted •");
 if(!muterole){
   try{
     muterole = await message.guild.createRole({
-      name: "• muted •",
+      name: "muted",
       color: "#000000",
       permissions:[]
     })
@@ -29,10 +28,24 @@ if(!muterole){
     }
   }
 
+const embed = new Discord.RichEmbed()
+     .addField((tomute), "Roles: " + message.member.roles.map(role => role.name).join(", ")) // user, roles
+     .addField("Stats", "XP: 0/100 Level 0") // XP, Level?
+     .setColor(`#af7ac5`)
+     .setThumbnail(message.author.avatarURL);
+
+     let muteChannel = message.guild.channels.find(`name`, "punishment-logs");
+       if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+
+  message.channel.sendEmbed(embed);
+  console.log(message.author + ` Viewed their profile!`);
+  message.delete().catch(O_o=>{});
+
+
   let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
-  let mReason = args.join("-").slice(22)[2]
+  let mReason = args.join(" ").slice(22).split();
   if(!mReason) return message.member.send("Reason for mute is required.", message.delete().catch(O_o=>{}));
 
     let muteEmbed = new Discord.RichEmbed()
@@ -60,9 +73,8 @@ if(!muterole){
         message.channel.send(`<@${tomute.id}> you have been muted for ${ms(ms(mutetime))}! We tried your DMs but they were locked.`)
   }
 
-    message.member.send(`<@${tomute.id}> has been muted.`);
-
   setTimeout(function(){
     tomute.removeRole(muterole.id);
+    message.member.send(`<@${tomute.id}> has been muted.`);
   }, ms(mutetime));
 }
