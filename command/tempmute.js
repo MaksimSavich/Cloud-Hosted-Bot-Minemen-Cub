@@ -33,8 +33,8 @@ const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setThumbnail(message.guild.member(message.mentions.users.first()).avatarURL);
 
-     let muteChannel = message.guild.channels.find(`name`, "punished-players-roles");
-        if(!muteChannel) return message.member.send("Can't find punished-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+     let rolesaveChannel = message.guild.channels.find(`name`, "punished-players-roles");
+        if(!rolesaveChannel) return message.member.send("Can't find punished-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
   message.channel.sendEmbed(embed);
 
