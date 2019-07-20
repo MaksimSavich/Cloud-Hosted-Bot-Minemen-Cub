@@ -26,6 +26,7 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
+})
   
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
@@ -62,4 +63,4 @@ if(cmd === `${prefix}hello`){
 });
 
 
-client.login(botconfig.token)});
+client.login(botconfig.token);
