@@ -30,16 +30,25 @@ if(!muterole){
 
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
 
-const embed = new Discord.RichEmbed()
-     .setColor(`#af7ac5`)
-     .setThumbnail(message.author.avatarURL)
-     .setAuthor((`${message.author.tag}`) , "Punished User")
-     .setTimestamp()
-     .addField("User Roles" , (roles));
+// const embed = new Discord.RichEmbed()
+//      .setColor(`#af7ac5`)
+//      .setThumbnail(message.author.avatarURL)
+//      .setAuthor((`${message.author.tag}`) , "Punished User")
+//      .setTimestamp()
+//      .addField("User Roles" , (roles));
      
+var embed = new Discord.RichEmbed()
+.addField(message.author.username, "Roles: " + message.member.roles.map(role => role.name).join(", ")) // user, roles
+.addField("Stats", "XP: 0/100 Level 0") // XP, Level?
+.setColor(0x00ffff)
+.setThumbnail(message.author.avatarURL)
+
+
      let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
         if(!roleChannel) return message.member.send("Can't find tempmute-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
+
+      console.log(message.author + ` Viewed their profile!`)
        roleChannel.send(embed);
 
 
