@@ -28,11 +28,13 @@ if(!muterole){
     }
   }
 
+  let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
+
 const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setTimestamp()
-     .setAuthor("Punished User" , tomute.user.authorURL)
-     .addField("User Roles" , "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
+     .setAuthor("Punished User" , message.guild.member(message.mentions.users.first()).displayAvatarURL)
+     .addField("User Roles" , (roles));
      
      let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
         if(!roleChannel) return message.member.send("Can't find tempmute-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
