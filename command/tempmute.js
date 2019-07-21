@@ -30,13 +30,13 @@ if(!muterole){
 
 const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
-     .setThumbnail(message.guild.member(message.mentions.users.first()).avatarURL)
+     .setThumbnail(tomute.avatarURL)
      .setTimestamp()
-     .setAuthor("Punished User.", tomute.iconURL)
-     .addField((`<@${tomute.id}>`), "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
+     .setAuthor("Punished User", `<@${tomute.id}>`)
+     .addField("User Roles" , "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
      
-     let roleChannel = message.guild.channels.find(`name` , `punished-players-roles`);
-        if(!roleChannel) return message.member.send("Can't find punished-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+     let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
+        if(!roleChannel) return message.member.send("Can't find tempmute-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
        roleChannel.send(embed);
 
