@@ -32,7 +32,7 @@ const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setThumbnail(message.guild.member(message.mentions.users.first()).avatarURL)
      .setTimestamp()
-     .setAuthor("Punished User.", message.tomute.displayAvatarURL)
+     .setAuthor("Punished User.", message.tomute.avatarURL)
      .addField((`<@${tomute.id}>`), "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
      
      let rolesaveChannel = message.guild.channels.get(`599020333311459328`).send;
