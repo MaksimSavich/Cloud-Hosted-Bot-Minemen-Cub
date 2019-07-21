@@ -32,7 +32,7 @@ const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setThumbnail(message.mentions.users.first().avatarURL)
      .setTimestamp()
-     .setAuthor("Punished User", `<@${tomute.id}>`)
+     .setAuthor("Punished User", `${tomute}`)
      .addField("User Roles" , "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
      
      let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
