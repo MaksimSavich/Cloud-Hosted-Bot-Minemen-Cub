@@ -33,7 +33,7 @@ if(!muterole){
 const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setTimestamp()
-     .setAuthor("Punished User" , (`${message.author.tag}`))
+     .setAuthor((`${message.author.tag}`) , "Punished User")
      .setThumbnail(client.user.displayAvatarURL)
      .addField("User Roles" , (roles));
      
