@@ -30,7 +30,7 @@ if(!muterole){
 
 const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
-     .setThumbnail(message.tomute.displayavatarURL)
+     .setThumbnail(message.member.displayavatarURL)
      .setTimestamp()
      .setAuthor("Punished User", `${tomute}`)
      .addField("User Roles" , "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
