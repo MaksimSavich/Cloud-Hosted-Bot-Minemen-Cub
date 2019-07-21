@@ -35,7 +35,7 @@ const embed = new Discord.RichEmbed()
      .setAuthor("Punished User.", `${tomute.id}.avatarURL`)
      .addField((`<@${tomute.id}>`), "Roles: " + message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ")); // user, roles
      
-     let roleChannel = message.guild.channels.find(`name` , `punished-players-roles channel`);
+     let roleChannel = message.guild.channels.find(`name` , `punished-players-roles`);
         if(!roleChannel) return message.member.send("Can't find punished-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
   message.channel.sendEmbed(embed);
