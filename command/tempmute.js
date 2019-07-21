@@ -33,7 +33,7 @@ if(!muterole){
 const embed = new Discord.RichEmbed()
      .setColor(`#af7ac5`)
      .setTimestamp()
-     .setAuthor("Punished User" , message.guild.member(message.mentions.users.first()).displayAvatarURL)
+     .setAuthor("Punished User" , message.guild.member(message.mentions.users.first()).avatarURL)
      .addField("User Roles" , (roles));
      
      let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
