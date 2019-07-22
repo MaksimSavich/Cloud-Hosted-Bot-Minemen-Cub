@@ -58,20 +58,20 @@ if(!muterole){
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
       }catch(e){
-        message.channel.send(`<@${tomute.id}> you have been muted for ${ms(ms(mutetime))}! We tried your DMs but they were locked.`)
+        message.channel.send(`<@${tomute.id}> you have been muted for ${ms(ms(mutetime))}! We tried your DMs, but they were locked.`)
   }
 
   setTimeout(function(){
+    let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
+    
     tomute.removeRole(muterole.id);
-    message.member.send(`<@${tomute.id}> has been muted for ${args[1]}.`);
+    try{
+      await(tomute.addRole(roles))
+    }catch(e){
+      message.member.send(`add role failed`)
+    }
+    message.member.send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
-
-  let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");  
-try{
-  await(tomute.addRole(roles))
-}catch(e){
-  message.member.send(`add role failed`)
-}
 
 }
 
