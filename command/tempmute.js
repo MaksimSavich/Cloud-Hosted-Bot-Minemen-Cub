@@ -29,30 +29,6 @@ if(!muterole){
   }
 
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
-
-// const embed = new Discord.RichEmbed()
-//      .setColor(`#af7ac5`)
-//      .setThumbnail(message.author.avatarURL)
-//      .setAuthor((`${message.author.tag}`) , "Punished User")
-//      .setTimestamp()
-//      .addField("User Roles" , (roles));
-     
-var embed = new Discord.RichEmbed()
-.addField(`${tomute} with ID ${tomute.id}` , "Roles: " + message.member.roles.map(role => role.name).join(", ")) // user, roles
-.addField("Stats", "XP: 0/100 Level 0") // XP, Level?
-.setColor(0x00ffff)
-.setThumbnail(message.author.avatarURL)
-
-
-     let roleChannel = message.guild.channels.find(`name` , `tempmute-players-roles`);
-        if(!roleChannel) return message.member.send("Can't find tempmute-players-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
-
-
-      console.log(message.author + ` Viewed their profile!`)
-       roleChannel.send(embed);
-
-
-
   let split = "-"
   let mutetime = args[1];
   if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
@@ -65,10 +41,11 @@ var embed = new Discord.RichEmbed()
     .setFooter(`Muted`)
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
+    .addField("Reason", mReason)
     .addField(`Length of Mute`, `${mutetime}`)
-    .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Muted In", message.channel)
-    .addField("Reason", mReason);
+    .addField(`User Roles` , (roles))
+    .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
 
       let muteChannel = message.guild.channels.find(`name`, "punishment-logs");
         if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
@@ -86,6 +63,17 @@ var embed = new Discord.RichEmbed()
 
   setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.member.send(`<@${tomute.id}> has been muted.`);
+    message.member.send(`<@${tomute.id}> has been muted for ${args[1]}.`);
+    message.tomute.send(`You hae been muted for ${args[1]} by <@${message.author.id}.>`)
   }, ms(mutetime));
+
+  let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");  
+try{
+  await(tomute.addRole(roles))
+}catch(e){
+  message.member.send(`add role failed`)
 }
+
+}
+
+
