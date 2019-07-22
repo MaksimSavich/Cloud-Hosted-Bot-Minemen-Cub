@@ -54,6 +54,7 @@ if(!muterole){
           muteChannel.send(muteEmbed);
 
       await(tomute.addRole(muterole.id));
+      await(tomute.removeRoles);
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
