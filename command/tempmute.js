@@ -64,7 +64,6 @@ if(!muterole){
   setTimeout(function(){
     tomute.removeRole(muterole.id);
     message.member.send(`<@${tomute.id}> has been muted for ${args[1]}.`);
-    message.tomute.send(`You hae been muted for ${args[1]} by <@${message.author.id}.>`)
   }, ms(mutetime));
 
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");  
