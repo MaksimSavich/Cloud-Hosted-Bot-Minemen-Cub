@@ -72,7 +72,6 @@ if(!muterole){
     }
     message.member.send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
-
 }
 
 
