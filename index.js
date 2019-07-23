@@ -28,6 +28,19 @@ client.on(`message`, message => {
   }
 })
   
+
+client.on(`raw` , event => {
+  console.log(event);
+
+});
+
+client.on(`messageReactionAdd` , (messageReaction , user) => {
+  console.log(user.username + ` reacted for a role.`);
+
+
+}); 
+
+
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
