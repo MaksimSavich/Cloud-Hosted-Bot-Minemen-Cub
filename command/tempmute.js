@@ -52,7 +52,7 @@ if(!muterole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-          await(tomute.removeRoles(tomute.roles).then(console.log).catch(console.error));
+          await(tomute.removeRoles(tomute.roles));
           await(tomute.addRole(muterole.id));
 
       try{
@@ -62,11 +62,10 @@ if(!muterole){
   }
 
   setTimeout(function(){
-    let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
     
     tomute.removeRole(muterole.id);
     try{
-      await(tomute.addRoles(roles))
+      await(tomute.addRoles(tomute.roles))
     }catch(e){
       message.member.send(`add role failed`)
     }
