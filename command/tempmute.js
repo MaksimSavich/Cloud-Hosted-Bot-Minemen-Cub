@@ -41,9 +41,8 @@ if(!muterole){
     .setFooter(`Muted`)
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
-    .addField("Reason", mReason)
+    .addField("Reason and Length of Mute", mReason , `${mutetime}`)
     .addField(`Length of Mute`, `${mutetime}`)
-    .addField("Muted In", message.channel)
     .addField(`User Roles` , (roles))
     .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
 
@@ -54,7 +53,7 @@ if(!muterole){
           muteChannel.send(muteEmbed);
 
           await(tomute.removeRoles);
-      await(tomute.addRole(muterole.id));
+          await(tomute.addRole(muterole.id));
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
