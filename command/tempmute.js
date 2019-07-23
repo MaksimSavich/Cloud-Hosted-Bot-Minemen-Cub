@@ -64,8 +64,21 @@ if(!muterole){
 
   setTimeout(function(){
     tomute.removeRole(muterole.id)
-    tomute.addRole(roles.id)
-    message.guild.channels.get(`603083462982762496`).send(`<@${tomute.id}> has been unmuted and needs their roles back ASAP!`);
+    tomute.addRole(rolereturn.id)
+    // message.channel.get(`603083462982762496`).send(`<@${tomute.id}> has been unmuted and needs their roles back ASAP!`);
+    
+    let rolesreturnEmbed = new Discord.RichEmbed()
+    .setDescription(`~${tomute}~ needs their roles back`)
+    .setColor("#af0000")
+    .setFooter(`Unmuted`)
+    .setTimestamp()
+    .addField(`User Roles` , (roles));
+
+    let rolereturnChannel = message.guild.channels.find(`name`, "people-who-need-roles");
+    if(!rolereturnChannel) return message.member.send("Can't find people-who-need-roles channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
+
+  rolereturnChannel.send(rolesreturnEmbed);
+
   }, ms(mutetime));
 }
 
