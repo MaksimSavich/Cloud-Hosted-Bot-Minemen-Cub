@@ -70,7 +70,7 @@ if(!muterole){
     }catch(e){
       message.member.send(`add role failed`)
     }
-    message.member.send(`<@${tomute.id}> has been unmuted.`);
+    message.channel.get(`603083462982762496`).send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
 
 }
