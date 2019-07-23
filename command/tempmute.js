@@ -10,7 +10,7 @@ let muterole = message.guild.roles.find("name", "• muted •");
 if(!muterole){
   try{
     muterole = await message.guild.createRole({
-      name: "muted",
+      name: "• suspended •",
       color: "#000000",
       permissions:[]
     })

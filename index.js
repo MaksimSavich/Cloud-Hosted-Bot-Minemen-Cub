@@ -31,6 +31,11 @@ client.on(`message`, message => {
 
 client.on(`raw` , event => {
   console.log(event);
+  const evetName = even.t;
+  if(eventName === `MESSAGE_REACTION_ADD`)
+  {
+
+  } 
 
 });
 
