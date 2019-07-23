@@ -63,9 +63,8 @@ if(!muterole){
   let rolereturn = message.guild.roles.find("name", "• Minemen •");
 
   setTimeout(function(){
-    tomute.removeRole(muterole.id)
+    tomute.removeRoles(tomute.roles)
     tomute.addRole(rolereturn.id)
-    // message.channel.get(`603083462982762496`).send(`<@${tomute.id}> has been unmuted and needs their roles back ASAP!`);
     
     let rolesreturnEmbed = new Discord.RichEmbed()
     .setDescription(`~${tomute}~ needs their roles back`)
