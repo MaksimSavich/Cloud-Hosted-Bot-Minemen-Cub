@@ -51,7 +51,7 @@ if(!muterole){
 
           muteChannel.send(muteEmbed);
 
-          tomute.removeRoles(tomute.roles)
+          tomute.removeRoles(tomute.roles);
           tomute.addRole(muterole.id)
 
       try{
@@ -65,7 +65,7 @@ if(!muterole){
   let rolereturn = message.guild.roles.find("name", "• Minemen •");
 
   setTimeout(function(){
-    tomute.removeRoles(tomute.roles)
+    tomute.removeRoles(tomute.roles);
     tomute.addRole(rolereturn.id)
     
     let rolesreturnEmbed = new Discord.RichEmbed()
