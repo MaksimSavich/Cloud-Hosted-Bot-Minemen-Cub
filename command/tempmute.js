@@ -60,10 +60,12 @@ if(!muterole){
       }catch(e){
         message.channel.send(`<@${tomute.id}> you have been muted for ${ms(ms(mutetime))}! We tried your DMs, but they were locked.`)
   }
+ 
+  let rolereturn = message.guild.roles.find("name", "• Minemen •");
 
   setTimeout(function(){
-    tomute.removeRole(muterole.id);
-    tomute.addRole(`name` , "• Minemen •");
+    tomute.removeRole(muterole.id)
+    tomute.addRole(rolereturn.id)
     message.member.send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
 }
