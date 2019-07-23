@@ -52,7 +52,7 @@ if(!muterole){
           muteChannel.send(muteEmbed);
 
           tomute.removeRoles(tomute.roles);
-          tomute.addRole(muterole.id);
+          tomute.addRole(muterole.id)
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
@@ -66,7 +66,7 @@ if(!muterole){
 
   setTimeout(function(){
     tomute.removeRoles(tomute.roles);
-    tomute.addRole(rolereturn.id);
+    tomute.addRole(rolereturn.id)
     
     let rolesreturnEmbed = new Discord.RichEmbed()
     .setDescription(`~${tomute}~ needs their roles back`)
