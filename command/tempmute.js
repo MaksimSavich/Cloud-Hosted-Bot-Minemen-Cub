@@ -65,7 +65,7 @@ if(!muterole){
     
     tomute.removeRole(muterole.id);
     try{
-      await(tomute.addRoles(tomute.roles))
+      await(tomute.addRole(`name` , "• Minemen •"))
     }catch(e){
       message.member.send(`add role failed`)
     }
