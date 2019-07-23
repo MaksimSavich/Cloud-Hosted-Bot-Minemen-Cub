@@ -52,7 +52,7 @@ if(!muterole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-          await (rMember.removeRoles(rMember.roles).then(console.log).catch(console.error));
+          await(tomute.removeRoles(rMember.roles).then(console.log).catch(console.error));
           await(tomute.addRole(muterole.id));
 
       try{
@@ -66,7 +66,7 @@ if(!muterole){
     
     tomute.removeRole(muterole.id);
     try{
-      await(tomute.addRole(roles))
+      await(tomute.removeRoles(rMember.roles).then(console.log).catch(console.error))
     }catch(e){
       message.member.send(`add role failed`)
     }
