@@ -51,6 +51,7 @@ if(!muterole){
 
           muteChannel.send(muteEmbed);
 
+  {
           tomute.removeRoles(tomute.roles);
           tomute.addRole(muterole.id)
 
@@ -81,4 +82,5 @@ if(!muterole){
   rolereturnChannel.send(rolesreturnEmbed);
 
   }, ms(mutetime));
+  }
 }
