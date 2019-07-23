@@ -66,7 +66,7 @@ if(!muterole){
     
     tomute.removeRole(muterole.id);
     try{
-      await(tomute.removeRoles(rMember.roles).then(console.log).catch(console.error))
+      await(tomute.addRoles(roles))
     }catch(e){
       message.member.send(`add role failed`)
     }
