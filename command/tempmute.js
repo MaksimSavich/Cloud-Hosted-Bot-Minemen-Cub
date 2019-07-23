@@ -41,7 +41,7 @@ if(!muterole){
     .setFooter(`Muted`)
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
-    .addField("Reason and Length of Mute", mReason , `${mutetime}`)
+    .addField("Reason and Length of Mute", `mReason ${mutetime}`)
     .addField(`Length of Mute`, `${mutetime}`)
     .addField(`User Roles` , (roles))
     .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
