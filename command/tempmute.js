@@ -65,8 +65,8 @@ if(!muterole){
 
   setTimeout(function(){
     tomute.removeRole(muterole.id)
-    tomute.addRole(tomute.roles)
-    message.member.send(`<@${tomute.id}> has been unmuted.`);
+    tomute.addRole(rolereturn.id)
+    message.channel.get(`603083462982762496`).send(`<@${tomute.id}> has been unmuted and needs their roles back ASAP!`);
   }, ms(mutetime));
 }
 
