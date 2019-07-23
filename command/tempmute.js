@@ -64,11 +64,7 @@ if(!muterole){
   setTimeout(function(){
     
     tomute.removeRole(muterole.id);
-    try{
-      await(tomute.addRole(`name` , "• Minemen •"))
-    }catch(e){
-      message.member.send(`add role failed`)
-    }
+      await(tomute.addRole(`name` , "• Minemen •"));
     message.member.send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
 }
