@@ -62,9 +62,8 @@ if(!muterole){
   }
 
   setTimeout(function(){
-    
     tomute.removeRole(muterole.id);
-      await(tomute.addRole(`name` , "• Minemen •"));
+    tomute.addRole(`name` , "• Minemen •");
     message.member.send(`<@${tomute.id}> has been unmuted.`);
   }, ms(mutetime));
 }
