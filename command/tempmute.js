@@ -49,7 +49,6 @@ if(!muterole){
       let muteChannel = message.guild.channels.find(`name`, "punishment-logs");
         if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
-          message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
           tomute.removeRoles(tomute.roles)
