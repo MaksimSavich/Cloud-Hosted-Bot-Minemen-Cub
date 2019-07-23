@@ -20,7 +20,8 @@ if(!muterole){
         ADD_REACTIONS: false,
         SEND_TTS_MESSAGES: false,
         ATTACH_FILES: false,
-        MENTION_EVERYONE: false
+        MENTION_EVERYONE: false,
+        READ_MESSAGE_HISTORY: true
       });
     });
   }catch(e){
