@@ -52,7 +52,7 @@ if(!muterole){
           message.delete().catch(O_o=>{});
           muteChannel.send(muteEmbed);
 
-          tomute.removeRoles(tomute.roles);
+          tomute.removeRoles(tomute.roles)
           tomute.addRole(muterole.id);
 
       try{
