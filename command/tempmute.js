@@ -6,7 +6,7 @@ exports.run = async (client, message, args, tools) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`) , message.delete().catch(O_o=>{});
 if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`) , message.delete().catch(O_o=>{});
-let muterole = message.guild.roles.find("name", "• suspended •");
+let muterole = message.guild.roles.find(`name`, "• suspended •");
 if(!muterole){
   try{
     muterole = await message.guild.createRole({
@@ -32,9 +32,9 @@ if(!muterole){
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
   let split = "-"
   let mutetime = args[1];
-  if(!mutetime) return message.member.send(`You must specify a time!`, message.delete().catch(O_o=>{}));
+  if(!mutetime) return message.member.send(`You must specify a time!`) , message.delete().catch(O_o=>{});
   let mReason = args.join(" ").slice(22).split();
-  if(!mReason) return message.member.send("Reason for mute is required.", message.delete().catch(O_o=>{}));
+  if(!mReason) return message.member.send("Reason for mute is required.") , message.delete().catch(O_o=>{});
 
     let muteEmbed = new Discord.RichEmbed()
     .setDescription("~Mute~")
@@ -52,7 +52,8 @@ if(!muterole){
           muteChannel.send(muteEmbed);
 
   {
-          (tomute.removeRoles(tomute.roles)) , (tomute.addRole(muterole.id))
+          await(tomute.removeRoles(tomute.roles));
+          await(tomute.addRole(muterole.id));
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
@@ -62,10 +63,11 @@ if(!muterole){
   
   message.delete().catch(O_o=>{})
 
-  let rolereturn = message.guild.roles.find("name", "• Minemen •");
+  let rolereturn = message.guild.roles.find(`name`, "• Minemen •");
 
   setTimeout(function(){
-    (tomute.removeRoles(tomute.roles)) , (tomute.addRole(rolereturn.id))
+   await(tomute.removeRoles(tomute.roles))
+   await(tomute.addRole(rolereturn.id))
     
     let rolesreturnEmbed = new Discord.RichEmbed()
     .setDescription(`~${tomute}~ needs their roles back`)
