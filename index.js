@@ -88,6 +88,20 @@ client.on(`messageReactionAdd` , (messageReaction , user) => {
   }
 }); 
 
+client.on('messageReactionRemove', (messageReaction, user) =>{
+  var rolename = messageReaction.emoji.name;
+  var role = messageReaction.message.guild.roles.find(role => role.name.toLowerCase() === rolename.toLowerCase());
+
+  if(role)
+  {
+    var member = messageReaction.message.guild.members.find(member => member.id === user.id);
+    if(member)
+  {
+    member.removeRole(role.id);
+  }
+}
+});
+
 
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
