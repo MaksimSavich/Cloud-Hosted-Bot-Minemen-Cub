@@ -39,13 +39,14 @@ client.on(`raw` , event => {
           var reactionChannel = client.channels.get(event.d.channel_id);
           if (reactionChannel.messages.has(event.d.message_id));
             return;
-          else {
-              reactionChannel.fetchMessage(event.d.message_id)
+          
+            
+              if(!reactionChannel) return reactionChannel.fetchMessage(event.d.message_id)
                 .then(msg => {
                     console.log(msg);
                 })
               .catch(err => console.log(err));
-          }
+          
       }
     }
 
