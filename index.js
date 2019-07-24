@@ -44,20 +44,63 @@ client.on(`raw` , event => {
               reactionChannel.fetchMessage(event.d.message_id)
                 .then(msg => {
                     var msgReaction = msg.reactions.get(event.d.emoji.name + ":" + event.d.emoji.id);
-                    console.log(msgReaction);
+                    var users = client.users.get(event.d.user_id);
+                    client.emit(`messageReactionAdd`, msgReaction, user);
                 })
               .catch(err => console.log(err));
           }
+        }
       }
-    }
+      else if (eventname === `MESSAGE_REACTION_REMOVE`)
+      {
+        if(event.d.message_id === `603383852223823872`)
+      {
+          var reactionChannel = client.channels.get(event.d.channel_id);
+          if (reactionChannel.messages.has(event.d.message_id))
+            return;
+          
+            else {
+              reactionChannel.fetchMessage(event.d.message_id)
+                .then(msg => {
+                    var msgReaction = msg.reactions.get(event.d.emoji.name + ":" + event.d.emoji.id);
+                    var users = client.users.get(event.d.user_id);
+                    client.emit(`messageReactionRemove`, msgReaction, user);
+                })
+              .catch(err => console.log(err));
+          }
+        }
+      }
 
 });
 
 client.on(`messageReactionAdd` , (messageReaction , user) => {
-  console.log(user.username + ` reacted for a role.`);
+  
+    var rolename = messageReaction.emoji.name;
+    var role = messageReaction.message.guild.roles.find(role => role.name.toLowerCase() === rolename.toLowerCase());
 
-
+    if(role)
+    {
+      var member = messageReaction.message.guild.members.find(member => member.id === user.id);
+      if(member)
+    {
+      member.addRole(role.id);
+    }
+  }
 }); 
+
+client.on('messageReactionRemove', (messageReaction, user) =>{
+  var rolename = messageReaction.emoji.name;
+  var role = messageReaction.message.guild.roles.find(role => role.name.toLowerCase() === rolename.toLowerCase());
+
+  if(role)
+  {
+    var member = messageReaction.message.guild.members.find(member => member.id === user.id);
+    if(member)
+  {
+    member.removeRole(role.id);
+  }
+}
+});
 
 
 client.on("ready", async () => {
