@@ -51,8 +51,7 @@ client.on(`raw` , event => {
           }
         }
       }
-      
-      if(eventname === `MESSAGE_REACTION_REMOVE`)
+      else if (eventname === `MESSAGE_REACTION_REMOVE`);
       {
         if(event.d.message_id === `603383852223823872`)
       {
@@ -98,7 +97,7 @@ client.on('messageReactionRemove', (messageReaction, user) =>{
     var member = messageReaction.message.guild.members.find(member => member.id === user.id);
     if(member)
   {
-    member.removeRole(role.id);
+    member.Role(role.id);
   }
 }
 });
@@ -140,4 +139,3 @@ if(cmd === `${prefix}hello`){
 
 
 client.login(botconfig.token);
-
