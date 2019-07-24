@@ -34,7 +34,7 @@ client.on(`raw` , event => {
   const eventName = event.t;
     if(eventName === `MESSAGE_REACTION_ADD`)
     {
-      if(event.d.message.id === `603383852223823872`)
+      if(event.d.message_id === `603383852223823872`)
       {
           console.log(`Correct message!`);
       }
