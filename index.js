@@ -51,7 +51,7 @@ client.on(`raw` , event => {
           }
         }
       }
-      else if (eventname === `MESSAGE_REACTION_REMOVE`)
+      else if(eventname === `MESSAGE_REACTION_REMOVE`)
       {
         if(event.d.message_id === `603383852223823872`)
       {
