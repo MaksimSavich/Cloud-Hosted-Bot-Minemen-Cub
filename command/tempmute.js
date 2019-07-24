@@ -52,8 +52,7 @@ if(!muterole){
           muteChannel.send(muteEmbed);
 
   {
-          await(tomute.removeRoles(tomute.roles))
-          await(tomute.addRole(muterole.id))
+          await(tomute.removeRoles(tomute.roles))  , await(tomute.addRole(muterole.id));
 
       try{
         await tomute.send(`You have been muted for ${mutetime}!`)
@@ -66,8 +65,7 @@ if(!muterole){
   let rolereturn = message.guild.roles.find(`name`, "• Minemen •");
 
   setTimeout(function(){
-   await(tomute.removeRoles(tomute.roles))
-   await(tomute.addRole(rolereturn.id))
+   await(tomute.removeRoles(tomute.roles)) , (tomute.addRole(rolereturn.id))
     
     let rolesreturnEmbed = new Discord.RichEmbed()
     .setDescription(`~${tomute}~ needs their roles back`)
