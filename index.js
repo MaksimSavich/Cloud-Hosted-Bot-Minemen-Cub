@@ -29,21 +29,24 @@ client.on(`message`, message => {
 })
   
 
-// client.on(`raw` , event => {
-//   console.log(event);
-//   const eventName = event.t;
-//   if(eventName === `MESSAGE_REACTION_ADD`)
-//   {
+client.on(`raw` , event => {
+  console.log(event);
+  const eventName = event.t;
+    if(eventName === `MESSAGE_REACTION_ADD`)
+    {
+      if(event.d.message.id === `603383852223823872`)
+      {
+          console.log(`Correct message!`);
+      }
+    }
 
-//   } 
+});
 
-// });
-
-// client.on(`messageReactionAdd` , (messageReaction , user) => {
-//   console.log(user.username + ` reacted for a role.`);
+client.on(`messageReactionAdd` , (messageReaction , user) => {
+  console.log(user.username + ` reacted for a role.`);
 
 
-// }); 
+}); 
 
 
 client.on("ready", async () => {
