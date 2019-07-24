@@ -43,7 +43,8 @@ client.on(`raw` , event => {
             else {
               reactionChannel.fetchMessage(event.d.message_id)
                 .then(msg => {
-                    console.log(msg);
+                    var msgReaction = msg.reactions.get(event.d.emoji.name + ":" + event.d.emoji.id);
+                    console.log(msgReaction);
                 })
               .catch(err => console.log(err));
           }
