@@ -36,7 +36,16 @@ client.on(`raw` , event => {
     {
       if(event.d.message_id === `603383852223823872`)
       {
-          console.log(`Correct message!`);
+          var reactionChannel = client.channels.get(event.d.channel_id);
+          if (reactionChannel.messages.has(event.d.message_id));
+            return;
+          else {
+              reactionChannel.fetchMessage(event.d.message_id)
+                .then(msg => {
+                    console.log(msg);
+                })
+              .catch(err => console.log(err));
+          }
       }
     }
 
