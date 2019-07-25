@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args, tools) => {
    
-    let role = message.guild.roles.find("name", "• bigfun •");
+    let roleRole = message.guild.roles.find("name", "• bigfun •");
     if(!message.member.roles.has(roleRole.id)) return message.member.send(`NO PORN FOR YOU!!!`);
     if(message.member.roles.has(roleRole.id)){
 
