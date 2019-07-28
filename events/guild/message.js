@@ -1,6 +1,6 @@
 const { prefix } = require("../../botconfig.json/")
 
-module.exports = async (bot , message) => {
+module.exports = async (client , message) => {
     if(message.author.client) return;
     if(message.channel.type === "dm") return;
 

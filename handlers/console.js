@@ -1,4 +1,4 @@
-module.exports = (bot) => {
+module.exports = (client) => {
 
 let prompt = process.openStdin()
     prompt.addListener("data" , res => {
