@@ -9,5 +9,5 @@ module.exports = (client) => {
         if(pull.config.aliases) pull.config.aliases.forEach(a => clientInformation.aliases.set(a, pull.config.name))
         }
     }
-    ["member" , "admin" , "staff" , "moderator"].forEach(x => load(x))
+    ["admin" , "staff" , "moderator"].forEach(x => load(x))
 }
