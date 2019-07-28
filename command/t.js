@@ -13,9 +13,7 @@ exports.run = async (client, message, args, tools) => {
             .setTitle("How to use the announcement command.")
             .setDescription(`**Usage: \`\`\`^announce embedTitle ${split} embedMsg\`\`\`**`);
 
-        return send(message.channel, embed, {
-            name: `Announce Command`, 
-        })
+            return message.member.send(embed)
     }
 
     args = args.join(` `).split(split);
@@ -35,8 +33,6 @@ exports.run = async (client, message, args, tools) => {
 
     if (options.message) embed.setDescription(options.message);
 
-       return send(message.channel, embed, {
-            name: options.name
-        })
+        return message.channel.send(embed)
 
 }
