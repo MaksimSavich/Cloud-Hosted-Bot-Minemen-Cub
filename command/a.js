@@ -12,7 +12,7 @@ exports.run = async (client, message, args, tools) => {
   .setColor("#af7ac5")
   .setTimestamp()
   .setFooter(`${message.author.tag}`, message.author.displayAvatarURL)
-  .addField((title), (usermessage));
+  .addField((usermessage), (title));
 
     message.delete().catch(O_o=>{});
 
