@@ -32,8 +32,8 @@ if(!muterole){
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
   let split = "~"
   args = args.join(" ").split(split);
-  let mutetime = (args[0]);
-  let mReason = (args[1]);
+  let mutetime = (args[1]);
+
 
   if(!mutetime) return message.member.send(`You must specify a time!`) , message.delete().catch(O_o=>{});
 
@@ -45,7 +45,7 @@ if(!muterole){
     .setFooter(`Muted`)
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
-    .addField("Length and Reason of Mute", `${mutetime} | ${mReason}`)
+    .addField("Length and Reason of Mute", `${mutetime}`)
     .addField(`User Roles` , (roles))
     .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
 
