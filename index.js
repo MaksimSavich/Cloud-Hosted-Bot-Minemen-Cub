@@ -1,16 +1,16 @@
-const { botconfig } = require("./botconfig.json");
 const { Client, Collection } = require("discord.js");
-const client = new Discord.Client();
-const prefix = `^`;
+const { botconfig } = require("./botconfig.json");
+const client = new Client();
 
-    //Auto Welcome
-
-    client.on('guildMemberAdd', member => {
-    member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
-});
 
 ["command", "aliases"].forEach(x => client[x] = new Collection())
 ["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client))
+
+//Auto Welcome
+
+client.on('guildMemberAdd', member => {
+  member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
+});
 
 
 // client.on(`message`, message => {
