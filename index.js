@@ -1,7 +1,6 @@
-const botconfig = require("./botconfig.json");
-const Discord = require("discord.js");
+const { botconfig } = require("./botconfig.json");
+const { Client, Collection } = require("discord.js");
 const client = new Client();
-const supereagent = require("superagent");
 const prefix = `^`;
 
     //Auto Welcome
