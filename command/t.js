@@ -35,7 +35,7 @@ exports.run = async (client, message, args, tools) => {
 
     if (options.message) embed.setDescription(options.message);
 
-        send(message.channel, embed, {
+       return send(message.channel, embed, {
             name: options.name
         })
 
