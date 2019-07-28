@@ -6,8 +6,8 @@ exports.run = async (client, message, args, tools) => {
     if(message.member.roles.has(sayRole.id)){
   
   let split = (`~`)
-  let usermessage = args.join(" ")
-  let title = args.join(" ").split();
+  let title = args.join(" ")
+  let usermessage = args.join(" ").slice(22).split();
   let userembed = new Discord.RichEmbed()
   .setColor("#af7ac5")
   .setTimestamp()
