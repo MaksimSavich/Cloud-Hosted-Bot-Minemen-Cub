@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
   let bicon = client.user.displayiconUrl;
   let botembed = new Discord.RichEmbed()
-  .setTitle("__Bot Commands__")
+  .setAuthor("Minemen Cub | Staff Help", client.user.avatarURL)
   .setColor("#af7ac5")
   .setThumbnail(bicon)
   .addField("Staff Command List", display = "^clear |^tempmute | ^report | ^kick | ^ban");

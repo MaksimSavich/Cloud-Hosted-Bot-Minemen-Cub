@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args, tools) => {
 
   const embed = new Discord.RichEmbed()
-    .setTitle("Member")
+    .setTitle("Member Command List")
     .setAuthor("Minemen Cub | Member Help", client.user.avatarURL)
     
     .setColor("#af7ac5")
