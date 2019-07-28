@@ -9,5 +9,5 @@ module.exports = (bot) => {
         if(pull.config.aliases) pull.config.aliases.forEach(a => clientInformation.aliases.set(a, pull.config.name))
         }
     }
-    ["miscellaneous" , "admin" , "staff" , "moderator"].forEach(x => load(x))
+    ["member" , "admin" , "staff" , "moderator"].forEach(x => load(x))
 }
