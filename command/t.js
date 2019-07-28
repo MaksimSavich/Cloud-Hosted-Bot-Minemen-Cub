@@ -5,9 +5,9 @@ const Discord = require ("discord.js");
 exports.run = async (client , message, tools) => {
 
     let split = `~`;
-    let args = args.join(` `);
+    let words = args.join(` `);
 
-    if (!args[0]) {
+    if (!words[0]) {
 
         const embed = new Discord.RichEmbed()
             .setColor("#af7ac5")
