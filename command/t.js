@@ -5,7 +5,7 @@ const Discord = require ("discord.js");
 exports.run = async (client , message, tools) => {
 
     let split = `~`;
-    
+    let args = args.join(` `);
 
     if (!args[0]) {
 
