@@ -33,7 +33,7 @@ exports.run = async (client, message, args, tools) => {
     const embed = new Discord.RichEmbed()
         .setColor(options.embedColor)
         .setTimestamp()
-        .setFooter((message.member.displayAvatarURL) , (message.author.username))
+        .setFooter((message.author.username), (message.member.AvatarURL))
         .setTitle(options.title)
 
     if (options.message) embed.setDescription(options.message);
