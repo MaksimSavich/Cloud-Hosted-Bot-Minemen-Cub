@@ -18,22 +18,6 @@ client.on("ready", async () => {
 ["command", "aliases"].forEach(x => client[x] = new Collection())
 ["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client))
 
-client.on("message", async message => {
-  if(message.author.client) return;
-  if(message.channel.type === "dm") return;
-
-  let prefix = botconfig.prefix;
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-
-  if(!message.content.startsWith(prefix)) return;
-  let commandfile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
-  if(commandfile) commandfile.run(client, message, args);
-
-})
-
-
 
 // client.on(`message`, message => {
 

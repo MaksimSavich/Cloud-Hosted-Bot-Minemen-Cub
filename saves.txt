@@ -1,12 +1,18 @@
 const Discord = require ("discord.js");
-const supereagent = require("superagent");
+const fetch = require(""node-fetch);
 
-exports.run = async (client, message, args, tools) => {
+module.exports = {
+  config: {
+    name: "",
+    description: "".
+    usage: "^",
+    accessability: "",
+    aliases: [""]
+
+  },
+
+  run: async (client, message, args, tools) => {
 
 
 }
 
-module.exports.help = {
-    name: "",
-    aliases: ["a"]
-  }
