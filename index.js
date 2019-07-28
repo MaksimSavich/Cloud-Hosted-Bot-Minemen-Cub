@@ -1,6 +1,6 @@
 const { botconfig } = require("./botconfig.json");
 const { Client, Collection } = require("discord.js");
-const client = new Client();
+const client = new Discord.Client();
 const prefix = `^`;
 
     //Auto Welcome
