@@ -15,7 +15,7 @@ exports.run = async (client, message, args, tools) => {
             const embed = new Discord.RichEmbed()
                 .setColor("#af7ac5")
                 .setTitle("How to use the announcement command.")
-                .setDescription(`**Usage: \`\`\`^announce embedTitle ${split} embedMsg\`\`\`**`);
+                .setDescription(`**Usage: \`\`\`^announce Title ${split} Message\`\`\`**`);
 
                     return message.member.send(embed)
     }
