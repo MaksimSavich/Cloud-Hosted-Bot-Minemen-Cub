@@ -1,6 +1,7 @@
 const send = require (`quick.hook`);
 const Discord = require ("discord.js");
 
+//^announce test announcement ~ this is a test
  
 exports.run = async (client, message, args, tools) => {
 
@@ -38,11 +39,12 @@ exports.run = async (client, message, args, tools) => {
 
     if (options.message) embed.setDescription(options.message);
 
+    message.delete().catch(O_o=>{});
+
         return message.channel.send(embed)
 
         
     }
-    message.delete().catch(O_o=>{});
 }
 
 module.exports.help = {
