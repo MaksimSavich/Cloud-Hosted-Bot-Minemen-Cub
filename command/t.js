@@ -2,10 +2,10 @@ const send = require (`quick.hook`);
 const Discord = require ("discord.js");
 
  
-exports.run = async (client , message, tools) => {
+exports.run = async (client, message, tools) => {
 
     let split = `~`;
-    let words = args.join(` `);
+    let words = words.join(` `);
 
     if (!words[0]) {
 
