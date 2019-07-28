@@ -5,7 +5,7 @@ const Discord = require ("discord.js");
 exports.run = async (client , message, tools) => {
 
     let split = `~`;
-    let args = args.join(` `);
+    
 
     if (!args[0]) {
 
@@ -18,6 +18,8 @@ exports.run = async (client , message, tools) => {
             name: `Announce Command`, 
         })
     }
+
+    let args = args.join(` `).split(split);
 
     for (var i = 0; i < args.length; i++) args[i] = args[i].trim();
 
