@@ -8,7 +8,7 @@ exports.run = async (message, args) => {
 
     if (!args[0]) {
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
             .setColor("#af7ac5")
             .setTitle("How to use the announcement command.")
             .setDescription(`**Usage: \`\`\`^announce embedTitle ${split} embedMsg\`\`\`**`);
@@ -30,7 +30,7 @@ exports.run = async (message, args) => {
         embedColor: `#af7ac5`
     }
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed()
         .setColor(options.embedColor)
         .setTitle(options.title)
 
