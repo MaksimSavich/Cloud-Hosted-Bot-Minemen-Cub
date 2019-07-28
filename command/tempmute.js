@@ -31,7 +31,7 @@ if(!muterole){
 
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
   let split = "-"
-  args = args.join(" ").split();
+  args = args.join(" ").split(split);
   let mutetime = args[1];
   let mReason = args[2];
 
