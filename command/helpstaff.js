@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
   .setThumbnail(bicon)
   .addField("Staff Command List", display = "^clear |^tempmute | ^report | ^kick | ^ban");
 
-
+  message.delete().catch(O_o=>{});
   return message.member.send(botembed);
   }
 }
