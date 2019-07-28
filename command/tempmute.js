@@ -50,7 +50,7 @@ if(!muterole){
         if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
           muteChannel.send(muteEmbed);
   {
-        await(tomute.removeRoles(tomute.roles));
+        await(tomute.removeRoles(tomute.roles))
         await(tomute.addRole(muterole.id));
 
       try{
@@ -76,7 +76,7 @@ if(!muterole){
   rolereturnChannel.send(rolesreturnEmbed);
   }, ms(mutetime));
   
-  tomute.addRole(rolereturn.id);
+  await tomute.addRole(rolereturn.id);
 
   }
 
