@@ -3,8 +3,8 @@ const { botconfig } = require("./botconfig.json");
 const client = new Client();
 
 
-["command", "aliases"].forEach(x => client[x] = new Collection())
-["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client))
+["command", "aliases"].forEach(x => client[x] = new Collection());
+["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client));
 
 //Auto Welcome
 
