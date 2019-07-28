@@ -33,7 +33,7 @@ exports.run = async (client, message, args, tools) => {
     const embed = new Discord.RichEmbed()
         .setColor(options.embedColor)
         .setTimestamp()
-        .setFooter((message.author.username), (message.member.AvatarURL))
+        .setFooter((message.author.username), (message.author.iconURL))
         .setTitle(options.title)
 
     if (options.message) embed.setDescription(options.message);
@@ -42,6 +42,7 @@ exports.run = async (client, message, args, tools) => {
 
         
     }
+    message.delete().catch(O_o=>{});
 }
 
 module.exports.help = {
