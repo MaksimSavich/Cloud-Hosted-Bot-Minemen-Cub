@@ -39,9 +39,9 @@ if(!muterole){
 
     let muteEmbed = new Discord.RichEmbed()
     .setFooter(`Muted`)
+    .setColor("af0000")
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
-    .addField("Length and Reason of Mute", `${mReason}`)
     .addField("Length and Reason of Mute", `${mReason}`)
     .addField(`User Roles` , (roles))
     .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
