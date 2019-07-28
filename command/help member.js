@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args, tools) => {
     .setAuthor("Minemen Cub | Member Help", client.user.avatarURL)
     
     .setColor("#af7ac5")
-    .setDescription("``\n^help, ^serverinfo, ^report \n``")
+    .setDescription("``\n^help | ^serverinfo | ^report \n``")
 
 
     message.channel.send({embed});
