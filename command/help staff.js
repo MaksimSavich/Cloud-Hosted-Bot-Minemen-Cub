@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
   .setTitle("__Bot Commands__")
   .setColor("#af7ac5")
   .setThumbnail(bicon)
-  .addField("Staff Command List", display = "^staffhelp | ^kick | ^ban");
+  .addField("Staff Command List", display = "^clear |^tempmute | ^report | ^kick | ^ban");
 
 
   return message.member.send(botembed);
