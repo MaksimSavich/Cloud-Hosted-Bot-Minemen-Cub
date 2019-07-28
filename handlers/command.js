@@ -2,12 +2,12 @@ const { readdirSync } = require("fs");
 
 module.exports = (client) => {
     const load = dirs => {
-        const command  = readdirSync(`.command/${dirs}/`).filter(d =>d.endsWith(`.js`))
-        for  (let file of command) {
+        const commands  = readdirSync(`.command/${dirs}/`).filter(d => d.endsWith(`.js`))
+        for  (let file of commands) {
             const pull = require(`../command/${dirs}/${file}`)
-        client.command.set(pull.config.name, pull)
-        if(pull.config.aliases) pull.config.aliases.forEach(a => clientInformation.aliases.set(a, pull.config.name))
+        client.commands.set(pull.config.name, pull)
+        if(pull.config.aliases) pull.config.aliases.forEach(a => client.aliases.set(a, pull.config.name))
         }
     }
-    ["admin" , "staff" , "moderator"].forEach(x => load(x))
+    ["member" , "admin" , "staff" , "moderator"].forEach(x => load(x))
 }
