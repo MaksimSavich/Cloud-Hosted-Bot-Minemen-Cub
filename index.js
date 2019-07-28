@@ -1,6 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Client();
 const supereagent = require("superagent");
 const prefix = `^`;
 
@@ -15,33 +15,8 @@ client.on("ready", async () => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
-
-
-
-
-const fs = require("fs");
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-
-fs.readdir("./command/", (err, files) => {
-
-  if(err) console.log(err)
-
-  let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if(jsfile.length <= 0) {
-       return console.log("[LOGS] Couldn't Find Commands!");
-    }
-
-    jsfile.forEach((f, i) => {
-      let pull = require(`./command/${f}`);
-      client.commands.set(pull.config.name, pull);
-      pull.config.aliases.forEach(alias => {
-        client.aliases.set(alias, pull.config.name)
-      });
-
-    });
-
-});
+["command", "aliases"].forEach(x => client[x] = new Collection())
+["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client))
 
 client.on("message", async message => {
   if(message.author.client) return;
