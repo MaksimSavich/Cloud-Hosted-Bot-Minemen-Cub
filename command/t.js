@@ -5,9 +5,8 @@ const Discord = require ("discord.js");
 exports.run = async (client, message, tools) => {
 
     let split = `~`;
-    let words = words.join(` `);
 
-    if (!words[0]) {
+    if (!args[0]) {
 
         const embed = new Discord.RichEmbed()
             .setColor("#af7ac5")
@@ -34,7 +33,7 @@ exports.run = async (client, message, tools) => {
         .setColor(options.embedColor)
         .setTitle(options.title)
 
-    if (options.message) embed.setDescription(optios.message);
+    if (options.message) embed.setDescription(options.message);
 
         send(message.channel, embed, {
             name: options.name
