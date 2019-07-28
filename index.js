@@ -4,11 +4,6 @@ const client = new Client();
 const supereagent = require("superagent");
 const prefix = `^`;
 
-client.on("ready", async () => {
-  console.log(`${client.user.username} is online!`);
-  client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
-})
-
     //Auto Welcome
 
     client.on('guildMemberAdd', member => {
