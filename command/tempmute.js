@@ -31,9 +31,12 @@ if(!muterole){
 
   let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
   let split = "-"
+  args = args.join(" ").split();
   let mutetime = args[1];
+  let mReason = args[2];
+
   if(!mutetime) return message.member.send(`You must specify a time!`) , message.delete().catch(O_o=>{});
-  let mReason = args.join(" ").slice(22).split();
+
   if(!mReason) return message.member.send("Reason for mute is required.") , message.delete().catch(O_o=>{});
 
     let muteEmbed = new Discord.RichEmbed()
@@ -42,7 +45,7 @@ if(!muterole){
     .setFooter(`Muted`)
     .setTimestamp()
     .addField("Muted User", `${tomute} with ID ${tomute.id}`)
-    .addField("Length and Reason of Mute", `${mReason}`)
+    .addField("Length and Reason of Mute", `${mutetime} | ${mReason}`)
     .addField(`User Roles` , (roles))
     .addField("Muted By", `<@${message.author.id}> with ID ${message.author.id}`);
 
