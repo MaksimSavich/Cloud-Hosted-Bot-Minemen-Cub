@@ -17,7 +17,7 @@ exports.run = async (client , message, tools) => {
         return send(message.channel, embed, {
             name: `Announce Command`, 
         })
-    }
+    };
 
     let args = args.join(` `).split(split);
 
