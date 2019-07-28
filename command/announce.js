@@ -1,5 +1,6 @@
 const send = require (`quick.hook`);
 const Discord = require ("discord.js");
+const supereagent = require("superagent");
 
 //^announce test announcement ~ this is a test
  
