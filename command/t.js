@@ -19,8 +19,6 @@ exports.run = async (client , message, tools) => {
         })
     }
 
-    let args = args.join(` `).split(split);
-
     for (var i = 0; i < args.length; i++) args[i] = args[i].trim();
 
     let options = {
