@@ -14,8 +14,7 @@ exports.run = async (message, args) => {
             .setDescription(`**Usage: \`\`\`^announce embedTitle ${split} embedMsg\`\`\`**`);
 
         return send(message.channel, embed, {
-            name: `Announce Command`,
-            icon: message.client.displayAvatarUrl
+            name: `Announce Command`, 
         })
     }
 
