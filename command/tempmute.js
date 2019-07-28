@@ -50,7 +50,7 @@ if(!muterole){
         if(!muteChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
           muteChannel.send(muteEmbed);
   {
-        await(tomute.removeRoles(tomute.roles))
+        await(tomute.removeRoles(tomute.roles));
         await(tomute.addRole(muterole.id));
 
       try{
@@ -63,7 +63,7 @@ if(!muterole){
   let rolereturn = message.guild.roles.find(`name`, "• Minemen •");
   setTimeout(function(){
    tomute.removeRoles(tomute.roles)
-   
+   tomute.addRole(rolereturn.id)
     
     let rolesreturnEmbed = new Discord.RichEmbed()
     .setDescription(`~${tomute}~ needs their roles back`)
@@ -76,7 +76,6 @@ if(!muterole){
   rolereturnChannel.send(rolesreturnEmbed);
   }, ms(mutetime));
   
-  await tomute.addRole(rolereturn.id);
 
   }
 
