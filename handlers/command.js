@@ -1,4 +1,5 @@
 const { readdirSync } = require("fs");
+const { Client, Collection } = require("discord.js");
 
 module.exports = (client) => {
     const load = dirs => {
