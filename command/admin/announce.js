@@ -1,10 +1,18 @@
 const send = require (`quick.hook`);
 const Discord = require ("discord.js");
-const supereagent = require("superagent");
+const fetch = require("node-fetch");
 
-//^announce test announcement ~ this is a test
- 
-exports.run = async (client, message, args, tools) => {
+module.exports = {
+  config: {
+    name: "announce",
+    description: "Used to announce messages",
+    usage: "^announce",
+    accessability: "admin",
+    aliases: ["a"]
+
+  },
+
+  run: async (client, message, args, tools) => {
 
     let sayRole = message.guild.roles.find("name", "• say •");
     if(message.member.roles.has(sayRole.id)){
@@ -46,9 +54,6 @@ exports.run = async (client, message, args, tools) => {
 
         
     }
+  }
 }
 
-module.exports.help = {
-    name: "announce",
-    aliases: ["a", "A", "Announce", "announcement", "Announcement"]
-  }
