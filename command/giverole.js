@@ -9,7 +9,7 @@ exports.run = async (client, message, args, tools) => {
   let role = args.join(" ").slice(22);
       if(!role) return message.member.send(`Specify a role!`);
   let gRole = message.guild.roles.find(`name`, role);
-      if(!gRole) return message.member.send(`role doesn't exist.`);
+      if(!gRole) return message.member.send(`Role doesn't exist.`);
 
         if(rMember.roles.has(gRole.id)) return message.member.send(`They already have that role.`), (message.delete().catch(O_o=>{}));
         await(rMember.addRole(gRole.id));
