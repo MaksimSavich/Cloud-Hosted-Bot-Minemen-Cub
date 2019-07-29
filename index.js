@@ -19,7 +19,7 @@ fs.readdir("./command/" , (err, files) => {
     console.log(`Loading ${jsfiles.legnth} commands!`);
 
     jsfiles.forEach((f , i) => {
-      let props = require(`./commands/${f}`);
+      let props = require(`./command/${f}`);
       console.log(`${i + 1}: ${f} loaded!`);
       botconfig.commands.set(f , props);
 
