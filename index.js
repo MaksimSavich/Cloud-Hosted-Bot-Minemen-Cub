@@ -1,34 +1,68 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const fs = require(`fs`);
 const supereagent = require("superagent");
 const prefix = `^`;
 
-client.on(`message`, message => {
+client.commands = new Discord.Collection();
 
-  let msg = message.content.toUpperCase();
-  let sender = message.author;
-  let args = message.content.slice(prefix.length).trim().split(` `);
-  let cmd = args.shift().toLowerCase();
+fs.readdir("./command/" , (err, files) => {
+  if(err) console.error(err);
 
-  if (!msg.startsWith(prefix)) return;
-  if(message.author.bot) return;
+  let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if (jsfiles.length <= 0) {
+      console.log("No commands to load!");
+      return;
+    }
 
-  try {
+    console.log(`Loading ${jsfiles.legnth} commands!`);
 
-      let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(client, message, args);
+    jsfiles.forEach((f , i) => {
+      let props = require(`./commands/${f}`);
+      console.log(`${i + 1}: ${f} loaded!`);
+      botconfig.commands.set(f , props);
 
-  } catch (e) {
+    });
+});
 
-      console.log(e.message);
 
-  }finally {
 
-      console.log(`${message.author.tag} ran the command ${cmd}`)
 
-  }
-})
+
+
+
+
+
+
+
+
+
+// client.on(`message`, message => {
+
+//   let msg = message.content.toUpperCase();
+//   let sender = message.author;
+//   let args = message.content.slice(prefix.length).trim().split(` `);
+//   let cmd = args.shift().toLowerCase();
+
+//   if (!msg.startsWith(prefix)) return;
+//   if(message.author.bot) return;
+
+//   try {
+
+//       let commandFile = require(`./command/${cmd}.js`);
+//       commandFile.run(client, message, args);
+
+//   } catch (e) {
+
+//       console.log(e.message);
+
+//   }finally {
+
+//       console.log(`${message.author.tag} ran the command ${cmd}`)
+
+//   }
+// })
 
   
   client.on(`raw` , event => {
@@ -110,11 +144,12 @@ client.on(`message`, message => {
 client.on("ready", async () => {
   console.log(`${client.user.username} is online!`);
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
-})
+  console.log(client.commands);
+});
 
     //Auto Welcome
 
-    client.on('guildMemberAdd', member => {
+  client.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
