@@ -48,7 +48,4 @@ exports.run = async (client, message, args, tools) => {
     }
 }
 
-module.exports.help = {
-    name: "announce",
-    aliases: ["a", "A", "Announce", "announcement", "Announcement"]
-  }
+
