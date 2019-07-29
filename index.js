@@ -4,7 +4,7 @@ const client = new Client();
 
 
 ["command", "aliases"].forEach(x => client[x] = new Collection());
-["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`)(client));
+["console" , "command" , "event"].forEach(x => require(`./handlers/${x}`) (client));
 
 //Auto Welcome
 
