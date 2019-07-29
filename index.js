@@ -5,26 +5,32 @@ const fs = require(`fs`);
 const supereagent = require("superagent");
 const prefix = `^`;
 
-client.commands = new Discord.Collection();
+const config = require("./config.json");
+// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
+client.config = config;
 
-fs.readdir("./command/" , (err, files) => {
-  if(err) console.error(err);
-
-  let jsfiles = files.filter(f => f.split(".").pop() === "js");
-    if (jsfiles.length <= 0) {
-      console.log("No commands to load!");
-      return;
-    }
-
-    console.log(`Loading ${jsfiles.legnth} commands!`);
-
-    jsfiles.forEach((f , i) => {
-      let props = require(`./command/${f}`);
-      console.log(`${i + 1}: ${f} loaded!`);
-      botconfig.commands.set(f , props);
-
-    });
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));
+  });
 });
+
+client.commands = new Enmap();
+
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+  });
+});
+
 
 
 
