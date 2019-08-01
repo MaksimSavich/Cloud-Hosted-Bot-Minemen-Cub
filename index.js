@@ -23,9 +23,9 @@ client.on(`message`, message => {
 
       client.aliases = new Discord.Collection();
       let commandFile = require(`./command/${cmd}.js`);
-      let alias = require(commandFile.conf.aliases.forEach(alias => {client.aliases.set(alias, commandFile.name) }));
+      let alias = (commandFile.conf.aliases.forEach(alias => {client.aliases.set(alias, commandFile.name) }));
         
-      commandFile.alias.run(client, message, args, tools);
+      alias.run(client, message, args, tools);
       
   } catch (e) {
 
