@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
   return message.channel.send(serverembed);
 }
 
-module.exports.help = {
-  name: "serverinfo",
-  alias: ["s"]
-}
+exports.help = {
+  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['si']
+  }

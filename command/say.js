@@ -17,6 +17,6 @@ module.exports.run = async (client, message, args) => {
 
 }
 
-module.exports.help = {
-  name: "say"
-}
+exports.help = {
+  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['sa']
+  }

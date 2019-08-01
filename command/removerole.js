@@ -21,3 +21,7 @@ exports.run = async (client, message, args, tools) => {
     }
       return message.delete().catch(O_o=>{});
 }
+
+exports.help = {
+  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['rr']
+  }

@@ -16,3 +16,7 @@ exports.run = async (client, message, args, tools) => {
     message.channel.send({embed});
 
 }
+
+exports.help = {
+  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['h']
+  }
