@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-const modules = [`test`]; // This will be the list of the names of all modules (folder) your bot owns
+const modules = [`administration`]; // This will be the list of the names of all modules (folder) your bot owns
 const fs = require('fs'); // Require fs to go throw all folder and files
 
 modules.forEach(c => {
