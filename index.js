@@ -1,16 +1,16 @@
-const botconfig = require("./botconfig.json");
-const Discord = require("discord.js");
+import { prefix as _prefix, token } from "./botconfig.json";
+import { Client, Collection } from "discord.js";
 
-const client = new Discord.Client();
-const fs = require(`fs`);
+const client = new Client();
+import { readdir } from `fs`;
 
-client.commands = new Discord.Collection(); // Collection for all commands
-client.aliases = new Discord.Collection(); // Collection for all aliases of every command
+client.commands = new Collection(); // Collection for all commands
+client.aliases = new Collection(); // Collection for all aliases of every command
 ​
 const modules = ['administration', 'moderation'];
 
 modules.forEach(c => {
-  fs.readdir(`./command/${c}/`, (err, files) => { // Here we go through all folders (modules)
+  readdir(`./command/${c}/`, (err, files) => { // Here we go through all folders (modules)
   if (err) throw err; // If there is error, throw an error in the console
   console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`); // When commands of a module are successfully loaded, you can see it in the console
   ​
@@ -159,7 +159,7 @@ client.on("message", async message => {
   if(message.author.client) return;
   if(message.channel.type === "dm") return;
 
-  let prefix = botconfig.prefix;
+  let prefix = _prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -179,4 +179,4 @@ if(cmd === `${prefix}hello`){
 
 
 
-client.login(botconfig.token);
+client.login(token);
