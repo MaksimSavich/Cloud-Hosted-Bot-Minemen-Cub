@@ -25,7 +25,7 @@ client.on(`message`, message => {
       let commandFile = require(`./command/${cmd}.js`);
       let alias = require(commandFile.conf.aliases.forEach(alias => {client.aliases.set(alias, commandFile.name) }));
         
-      alias.run(client, message, args, tools);
+      commandFile.alias.run(client, message, args, tools);
       
   } catch (e) {
 
