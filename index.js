@@ -9,62 +9,33 @@ const prefix = `^`;
 const config = require("./botconfig.json");
 
 
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
-client.config = config;
+client.on(`message`, message => {
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
+  let msg = message.content.toUpperCase();
+  let sender = message.author;
+  let args = message.content.slice(prefix.length).trim().split(` `);
+  let cmd = args.shift().toLowerCase();
 
-client.commands = new Enmap();
-client.aliases = new Discord.Collection();
-fs.readdir("./command/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./command/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    client.commands.set(commandName, props);
-    props.conf.aliases.forEach(alias => {
+  if (!msg.startsWith(prefix)) return;
+  if(message.author.bot) return;
+
+  try {
+
+      let commandFile = require(`./command/${cmd}.js`);
+      commandFile.run(client, message, args);
+      props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.name);
-    });
-  });
-});
+      });
+  } catch (e) {
 
+      console.log(e.message);
 
+  }finally {
 
+      console.log(`${message.author.tag} ran the command ${cmd}`)
 
-// client.on(`message`, message => {
-
-//   let msg = message.content.toUpperCase();
-//   let sender = message.author;
-//   let args = message.content.slice(prefix.length).trim().split(` `);
-//   let cmd = args.shift().toLowerCase();
-
-//   if (!msg.startsWith(prefix)) return;
-//   if(message.author.bot) return;
-
-//   try {
-
-//       let commandFile = require(`./command/${cmd}.js`);
-//       commandFile.run(client, message, args);
-
-//   } catch (e) {
-
-//       console.log(e.message);
-
-//   }finally {
-
-//       console.log(`${message.author.tag} ran the command ${cmd}`)
-
-//   }
-// })
+  }
+})
 
   
   client.on(`raw` , event => {
