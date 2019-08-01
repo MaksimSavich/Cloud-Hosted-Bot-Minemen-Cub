@@ -1,36 +1,29 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const Enmap = require("enmap");
+
 const client = new Discord.Client();
 const fs = require(`fs`);
-const supereagent = require("superagent");
-const prefix = `^`;  
 
-const config = require("./botconfig.json");
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
-client.config = config;
+client.commands = new Discord.Collection(); // Collection for all commands
+client.aliases = new Discord.Collection(); // Collection for all aliases of every command
+​
+const modules = ['administration', 'moderation'];
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client)); 
+modules.forEach(c => {
+  fs.readdir(`./command/${c}/`, (err, files) => { // Here we go through all folders (modules)
+  if (err) throw err; // If there is error, throw an error in the console
+  console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`); // When commands of a module are successfully loaded, you can see it in the console
+  ​
+  
+  files.forEach(f => { // Now we go through all files of a folder (module)
+  const props = require(`./command/${c}/${f}`); // Location of the current command file
+  client.commands.set(props.help.name, props); // Now we add the commmand in the client.commands Collection which we defined in previous code
+  props.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
+  client.aliases.set(alias, props.name); // If we find one, we add it to the client.aliases Collection
+        });
+      });
+    });
   });
-});
-
-client.commands = new Enmap();
-
-fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    client.commands.set(commandName, props);
-  });
-});
 
 
 
