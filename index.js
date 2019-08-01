@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require(`fs`);
 const supereagent = require("superagent");
-const prefix = `^`;
+const prefix = `^`;  
 
 const config = require("./botconfig.json");
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
