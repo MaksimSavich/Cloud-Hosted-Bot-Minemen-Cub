@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
+    "discord.js-aliases": "^1.1.6",
     "enmap": "^5.1.0",
     "fs": "0.0.1-security",
     "ms": "^2.1.2",

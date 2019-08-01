@@ -1,13 +1,11 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+require('discord.js-aliases');
 const client = new Discord.Client();
-const fs = require(`fs`);
-const modules = ['administration'];
-
-name = new Discord.Collection();
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-
+const modules = ['administration'];
+const fs = require(`fs`);
 
 modules.forEach(c => {
   fs.readdir(`./command/${c}/`, (err, files) => {
