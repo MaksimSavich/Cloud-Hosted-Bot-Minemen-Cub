@@ -21,7 +21,6 @@ fs.readdir("./events/", (err, files) => {
 
 
 client.aliases = new Discord.Collection();
-const client = new Discord.Client();
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.config = config;
 
