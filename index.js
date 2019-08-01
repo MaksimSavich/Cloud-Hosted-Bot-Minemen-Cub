@@ -6,10 +6,6 @@ const fs = require(`fs`);
 const supereagent = require("superagent");
 const prefix = `^`;  
 
-rops.conf.aliases.forEach(alias => {
-  client.aliases.set(alias, props.name);
-});
-
 const config = require("./botconfig.json");
 client.aliases = new Discord.Collection();
 
