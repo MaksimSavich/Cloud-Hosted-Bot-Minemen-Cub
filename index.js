@@ -1,26 +1,51 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-require('discord.js-aliases');
 const client = new Discord.Client();
-client.commands = new Discord.Collection(); // Collection for all commands
-client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-const modules = ['administration'];
 const fs = require(`fs`);
+const supereagent = require("superagent");
+const prefix = `^`;  
 
-modules.forEach(c => {
-  fs.readdir(`./command/${c}/`, (err, files) => {
-  if (err) throw err;
-  console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`);
+const config = require("./botconfig.json");
+// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
+client.config = config;
+
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client)); 
   });
 });
 
-  files.forEach(f => {
-  const props = require(`./command/${c}/${f}`);
-  client.commands.set(props.help.name, props);
-  props.conf.aliases.forEach(alias => {
-  client.aliases.set(alias, props.name);
+client.commands = new Enmap.Client();
+client.aliases = new Discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.name);
+    });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // client.on(`message`, message => {
