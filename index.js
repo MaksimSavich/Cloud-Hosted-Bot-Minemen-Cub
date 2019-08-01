@@ -5,10 +5,10 @@ require('discord.js-aliases');
 
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-const modules = ["administration" , "test"]; // This will be the list of the names of all modules (folder) your bot owns
+const command = ["administration" , "test"]; // This will be the list of the names of all modules (folder) your bot owns
 const fs = require('fs'); // Require fs to go throw all folder and files
 
-modules.forEach(c => {
+command.forEach(c => {
 fs.readdir(`./command/${c}/`, (err, files) => { // Here we go through all folders (modules)
 if (err) throw err; // If there is error, throw an error in the console
 console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`); // When commands of a module are successfully loaded, you can see it in the console
