@@ -19,7 +19,7 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-client.commands = new Enmap.Client();
+
 client.aliases = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
