@@ -6,6 +6,7 @@ const modules = ['administration'];
 
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
+name = new Discord.Client();
 
 modules.forEach(c => {
   fs.readdir(`./command/${c}/`, (err, files) => {
