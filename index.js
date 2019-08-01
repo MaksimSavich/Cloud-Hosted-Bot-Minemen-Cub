@@ -21,6 +21,7 @@ client.on(`message`, message => {
 
   try {
 
+      client.aliases = new Discord.Collection();
       let commandFile = require(`./command/${cmd}.js`);
       commandFile.run(client, message, args);
       props.conf.aliases.forEach(alias => {
