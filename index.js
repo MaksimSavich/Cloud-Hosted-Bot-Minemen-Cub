@@ -6,21 +6,13 @@ const fs = require(`fs`);
 const supereagent = require("superagent");
 const prefix = `^`;  
 
-const config = require("./botconfig.json");
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
-client.config = config;
-
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client)); 
-  });
+rops.conf.aliases.forEach(alias => {
+  client.aliases.set(alias, props.name);
 });
 
-
+const config = require("./botconfig.json");
 client.aliases = new Discord.Collection();
+
 // We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.config = config;
 
@@ -43,9 +35,11 @@ fs.readdir("./commands/", (err, files) => {
     let commandName = file.split(".")[0];
     console.log(`Attempting to load command ${commandName}`);
     client.commands.set(commandName, props);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.name);
+    });
   });
 });
-
 
 
 
