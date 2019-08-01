@@ -13,9 +13,8 @@ console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`); // 
 files.forEach(f => { // Now we go through all files of a folder (module)
 const props = require(`./command/${c}/${f}`); // Location of the current command file
 client.commands.set(props.help.name, props); // Now we add the commmand in the client.commands Collection which we defined in previous code
-});
+})
 
-const props = require(`./command/${c}/${f}`);
 props.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
 client.aliases.set(alias, props.name); // If we find one, we add it to the client.aliases Collection
       
