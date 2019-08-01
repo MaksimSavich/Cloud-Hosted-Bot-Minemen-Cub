@@ -11,16 +11,16 @@ modules.forEach(c => {
   fs.readdir(`./command/${c}/`, (err, files) => {
   if (err) throw err;
   console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`);
-  
+  });
+});
+
   files.forEach(f => {
   const props = require(`./command/${c}/${f}`);
   client.commands.set(props.help.name, props);
   props.conf.aliases.forEach(alias => {
   client.aliases.set(alias, props.name);
-        });
-      });
-    });
   });
+});
 
 
 // client.on(`message`, message => {
