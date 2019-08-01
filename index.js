@@ -16,7 +16,7 @@ modules.forEach(c => {
   
   files.forEach(f => {
   const props = require(`./command/${c}/${f}`);
-  name = new Discord.Client();
+  name = new Discord.Collection();
   client.commands.set(props.help.name, props);
   props.conf.aliases.forEach(alias => {
   client.aliases.set(alias, props.name);
