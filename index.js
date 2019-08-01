@@ -2,9 +2,8 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-lient.commands = new Discord.Collection(); // Collection for all commands
+client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-​
 const modules = ['test']; // This will be the list of the names of all modules (folder) your bot owns
 ​
 const fs = require('fs'); // Require fs to go throw all folder and files
@@ -129,10 +128,6 @@ client.aliases.set(alias, props.name); // If we find one, we add it to the clien
     }
   }
   });
-
-
-
-
 
 
 client.on("ready", async () => {
