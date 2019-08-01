@@ -50,7 +50,7 @@ exports.run = async (client, message, args, tools) => {
 
 
     exports.conf = {
-    aliases: ['a']
+    alias: ['a']
     };
     exports.help = {
     name: "announce", description: "announces what you say.", usage: "^announce"
