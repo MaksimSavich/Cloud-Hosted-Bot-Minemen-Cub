@@ -44,13 +44,6 @@ fs.readdir("./commands/", (err, files) => {
 
 
 
-
-
-
-
-
-
-
 // client.on(`message`, message => {
 
 //   let msg = message.content.toUpperCase();
