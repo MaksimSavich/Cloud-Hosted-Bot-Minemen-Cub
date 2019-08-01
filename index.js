@@ -1,12 +1,9 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-
 const client = new Discord.Client();
 const fs = require(`fs`);
-
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-​
 const modules = ['administration', 'moderation'];
 
 modules.forEach(c => {
@@ -24,18 +21,6 @@ modules.forEach(c => {
       });
     });
   });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // client.on(`message`, message => {
