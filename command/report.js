@@ -22,10 +22,10 @@ module.exports.run = async (client, message, args) => {
   reportschannel.send(reportEmbed);
 }
 
-module.exports.help = {
-  name: "report"
-}
+exports.conf = {
+  alias: ['r']
+  };
 
 exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['r']
+  name: "announce", description: "announces what you say.", usage: "^announce"
   }

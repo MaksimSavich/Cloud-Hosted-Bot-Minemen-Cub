@@ -14,7 +14,9 @@ module.exports.run = async (client, message, args, tools) => {
     message.delete().catch(O_o=>{});
 
 }
-
+exports.conf = {
+    alias: ['bf']
+    };
 exports.help = {
-    name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['bf']
+    name: "announce", description: "announces what you say.", usage: "^announce"
     }

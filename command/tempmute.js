@@ -80,7 +80,9 @@ if(!muterole){
   }
 
 }
-
+exports.conf = {
+  alias: ['tm']
+  };
 exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['tm']
+  name: "announce", description: "announces what you say.", usage: "^announce"
   }

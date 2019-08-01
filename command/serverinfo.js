@@ -12,7 +12,9 @@ module.exports.run = async (bot, message, args) => {
 
   return message.channel.send(serverembed);
 }
-
+exports.conf = {
+  alias: ['si']
+  };
 exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['si']
+  name: "announce", description: "announces what you say.", usage: "^announce"
   }

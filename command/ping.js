@@ -4,7 +4,9 @@ exports.run = (client, message, args, tools) => {
 
 
 }
-
+exports.conf = {
+  alias: ['p']
+  };
 exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['p']
+  name: "announce", description: "announces what you say.", usage: "^announce"
   }

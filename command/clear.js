@@ -9,7 +9,9 @@ module.exports.run = async (client, message, args, tools) => {
   });
 
 }
-
+exports.conf = {
+  alias: ['c']
+  };
 exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce" , alias: ['c']
+  name: "announce", description: "announces what you say.", usage: "^announce"
   }
