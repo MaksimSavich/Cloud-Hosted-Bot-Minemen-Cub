@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require(`fs`);
 const modules = ['administration'];
 
-name = new Discord.Client();
+
 client.commands = new Discord.Collection(); // Collection for all commands
 client.aliases = new Discord.Collection(); // Collection for all aliases of every command
 
@@ -16,6 +16,7 @@ modules.forEach(c => {
   
   files.forEach(f => {
   const props = require(`./command/${c}/${f}`);
+  name = new Discord.Client();
   client.commands.set(props.help.name, props);
   props.conf.aliases.forEach(alias => {
   client.aliases.set(alias, props.name);
