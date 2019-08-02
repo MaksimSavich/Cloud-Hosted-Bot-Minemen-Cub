@@ -28,13 +28,14 @@ fs.readdir("./command/", (err, files) => {
     let props = require(`./command/${file}`);
     props.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
       client.aliases.set(alias, props.name);
-    let commandName = file.split(".")[0];
+    })
+      let commandName = file.split(".")[0];
     console.log(`Attempting to load command ${commandName}`);
     client.commands.set(commandName, props);
 
 
       
-      });
+
     });
   });
 
