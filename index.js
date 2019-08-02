@@ -1,35 +1,70 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const Enmap = require("enmap");
 const client = new Discord.Client();
+const fs = require(`fs`);
+const supereagent = require("superagent");
 const prefix = `^`;  
 
+const config = require("./botconfig.json");
 
 
-client.on(`message`, message => {
+// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
+client.config = config;
 
-  let msg = message.content.toUpperCase();
-  let sender = message.author;
-  let args = message.content.slice(prefix.length).trim().split(` `);
-  let cmd = args.shift().toLowerCase();
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));
+  });
+});
 
-  if (!msg.startsWith(prefix)) return;
-  if(message.author.bot) return;
+client.commands = new Enmap();
+client.aliases = new Discord.Collection();
+fs.readdir("./command/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./command/${file}`);
+    props.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, props.name);
+    })
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    client.commands.set(commandName, props);
+  });
+});
 
-  try {
 
-      let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(client, message, args);
 
-  } catch (e) {
 
-      console.log(e.message);
+// client.on(`message`, message => {
 
-  }finally {
+//   let msg = message.content.toUpperCase();
+//   let sender = message.author;
+//   let args = message.content.slice(prefix.length).trim().split(` `);
+//   let cmd = args.shift().toLowerCase();
 
-      console.log(`${message.author.tag} ran the command ${cmd}`)
+//   if (!msg.startsWith(prefix)) return;
+//   if(message.author.bot) return;
 
-  }
-})
+//   try {
+
+//       let commandFile = require(`./command/${cmd}.js`);
+//       commandFile.run(client, message, args);
+
+//   } catch (e) {
+
+//       console.log(e.message);
+
+//   }finally {
+
+//       console.log(`${message.author.tag} ran the command ${cmd}`)
+
+//   }
+// })
 
   
   client.on(`raw` , event => {
