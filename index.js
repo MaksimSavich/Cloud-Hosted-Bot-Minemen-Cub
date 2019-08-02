@@ -15,7 +15,7 @@ client.config = config;
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    const event = require(`./events/${file}`);
+    const event = require(`./events/${file}/`);
     let eventName = file.split(".")[0];
     client.on(eventName, event.bind(null, client));
   });
@@ -27,7 +27,7 @@ fs.readdir("./command/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
-    let props = require(`./command/${file}`);
+    let props = require(`./command/${file}/`);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.name);
     })
