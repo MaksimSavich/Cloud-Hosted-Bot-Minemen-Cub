@@ -1,78 +1,39 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const Enmap = require("enmap");
-require('discord.js-aliases');
+const client = new Discord.Client();
+const fs = require(`fs`);
+const supereagent = require("superagent");
+const prefix = `^`;  
 
-client.commands = new Discord.Collection(); // Collection for all commands
-client.aliases = new Discord.Collection(); // Collection for all aliases of every command
-const modules = ["administration" , "test"]; // This will be the list of the names of all modules (folder) your bot owns
-const fs = require('fs'); // Require fs to go throw all folder and files
-
-
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
-
-client.commands = new Enmap();
-
-fs.readdir("./command/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./command/${file}`);
-    props.conf.aliases.forEach(alias => { // It could be that the command has aliases, so we go through them too
-      client.aliases.set(alias, props.name);
-    })
-      let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-    client.commands.set(commandName, props);
+const config = require("./botconfig.json");
 
 
-      
+client.on(`message`, message => {
 
-    });
-  });
+  let msg = message.content.toUpperCase();
+  let sender = message.author;
+  let args = message.content.slice(prefix.length).trim().split(` `);
+  let cmd = args.shift().toLowerCase();
 
+  if (!msg.startsWith(prefix)) return;
+  if(message.author.bot) return;
 
+  try {
 
+      let commandFile = require(`./command/${cmd}.js`);
+      commandFile.run(client, message, args);
 
+  } catch (e) {
 
+      console.log(e.message);
 
+  }finally {
 
+      console.log(`${message.author.tag} ran the command ${cmd}`)
 
-
-
-// client.on(`message`, message => {
-
-//   let msg = message.content.toUpperCase();
-//   let sender = message.author;
-//   let args = message.content.slice(prefix.length).trim().split(` `);
-//   let cmd = args.shift().toLowerCase();
-
-//   if (!msg.startsWith(prefix)) return;
-//   if(message.author.bot) return;
-
-//   try {
-
-//       let commandFile = require(`./command/${cmd}.js`);
-//       commandFile.run(client, message, args);
-
-//   } catch (e) {
-
-//       console.log(e.message);
-
-//   }finally {
-
-//       console.log(`${message.author.tag} ran the command ${cmd}`)
-
-//   }
-// })
+  }
+})
 
   
   client.on(`raw` , event => {
@@ -145,6 +106,10 @@ fs.readdir("./command/", (err, files) => {
     }
   }
   });
+
+
+
+
 
 
 client.on("ready", async () => {
