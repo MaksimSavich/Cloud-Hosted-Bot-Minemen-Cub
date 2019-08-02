@@ -1,12 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const Enmap = require("enmap");
 const client = new Discord.Client();
-const fs = require(`fs`);
-const supereagent = require("superagent");
 const prefix = `^`;  
 
-const config = require("./botconfig.json");
 
 
 client.on(`message`, message => {
