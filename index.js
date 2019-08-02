@@ -1,10 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const Enmap = require("enmap");
 const client = new Discord.Client();
 const fs = require(`fs`);
-const supereagent = require("superagent");
-const prefix = `^`;  
+
 
 const config = require("./botconfig.json");
 
@@ -21,7 +19,6 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-client.commands = new Enmap();
 client.aliases = new Discord.Collection();
 fs.readdir("./command/", (err, files) => {
   if (err) return console.error(err);
