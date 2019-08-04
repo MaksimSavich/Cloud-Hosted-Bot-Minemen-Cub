@@ -18,5 +18,5 @@ module.exports.run = async (client, message, args, tools) => {
 }
 module.exports.config = {
   name: "help",
-  aliases: ["h"]
+  alias: ["h"]
 }
