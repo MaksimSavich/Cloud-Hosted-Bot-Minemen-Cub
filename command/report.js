@@ -20,9 +20,9 @@ module.exports.run = async (client, message, args) => {
 
   message.delete().catch(O_o=>{});
   reportschannel.send(reportEmbed);
-}
+};
 
 module.exports.config = {
   name: "report",
-  alias: ["r"]
+  aliases: ["r"]
 }

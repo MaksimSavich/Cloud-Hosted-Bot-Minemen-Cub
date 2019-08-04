@@ -34,9 +34,9 @@ module.exports.run = async (client, message, args) => {
       message.delete().catch(O_o=>{});
     return;
   }
-}
+};
 
 module.exports.config = {
   name: "kick",
-  alias: ["k"]
+  aliases: ["k"]
 }

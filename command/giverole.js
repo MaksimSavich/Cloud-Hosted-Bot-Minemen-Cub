@@ -20,9 +20,9 @@ module.exports.run = async (client, message, args, tools) => {
           message.channel.send(`<@${rMember.id}> you have been awarded the role ${gRole}! We tried your DMs but they were locked.`)
     }
       return message.delete().catch(O_o=>{});
-  }
+  };
 
   module.exports.config = {
     name: "giverole",
-    alias: ["gr"]
+    aliases: ["gr"]
 }

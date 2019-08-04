@@ -15,8 +15,8 @@ module.exports.run = async (client, message, args, tools) => {
 
     message.channel.send({embed});
 
-}
+};
 module.exports.config = {
   name: "help",
-  alias: ["h"]
+  aliases: ["h"]
 }

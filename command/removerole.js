@@ -20,8 +20,8 @@ module.exports.run = async (client, message, args, tools) => {
           message.channel.send(`<@${rMember.id}> you have lost the role ${gRole}! We tried your DMs but they were locked. `)
     }
       return message.delete().catch(O_o=>{});
-}
+};
 module.exports.config = {
   name: "removerole",
-  alias: ["rr"]
+  aliases: ["rr"]
 }

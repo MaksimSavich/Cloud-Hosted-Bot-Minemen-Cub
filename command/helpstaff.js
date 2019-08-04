@@ -14,8 +14,8 @@ module.exports.run = async (client, message, args) => {
   message.delete().catch(O_o=>{});
   return message.member.send(botembed);
   }
-}
+};
 module.exports.config = {
   name: "helpstaff",
-  alias: ["hs"]
+  aliases: ["hs"]
 }

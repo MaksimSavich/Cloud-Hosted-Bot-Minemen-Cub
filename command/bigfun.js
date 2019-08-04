@@ -13,8 +13,8 @@ module.exports.run = async (client, message, args, tools) => {
   
     message.delete().catch(O_o=>{});
 
-}
+};
 module.exports.config = {
     name: "bigfun",
-    alias: ["bf"]
+    aliases: ["bf"]
 }
