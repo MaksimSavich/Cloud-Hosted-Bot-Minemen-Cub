@@ -83,5 +83,5 @@ if(!muterole){
 }
 module.exports.config = {
   name: "tempmute",
-  alias: ["tm"]
+  aliases: ["tm"]
 }

@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, tools) => {
     message.channel.send({embed});
 
   message.delete().catch(O_o=>{});
-};
+}
 
 module.exports.config = {
   name: "helpmember",

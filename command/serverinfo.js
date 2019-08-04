@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Total Members", message.guild.memberCount);
 
   return message.channel.send(serverembed);
-};
+}
 module.exports.config = {
   name: "serverinfo",
   aliases: ["si"]
