@@ -24,5 +24,5 @@ module.exports.run = async (client, message, args, tools) => {
 
   module.exports.config = {
     name: "giverole",
-    aliases: ["gr"]
+    alias: ["gr"]
 }

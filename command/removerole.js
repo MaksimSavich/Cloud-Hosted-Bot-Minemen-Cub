@@ -23,5 +23,5 @@ module.exports.run = async (client, message, args, tools) => {
 }
 module.exports.config = {
   name: "removerole",
-  aliases: ["rr"]
+  alias: ["rr"]
 }
