@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const ms = require(`ms`);
-exports.run = async (client, message, args, tools) => {
+
+module.exports.run = async (client, message, args, tools) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`) , message.delete().catch(O_o=>{});
 if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`) , message.delete().catch(O_o=>{});
@@ -80,9 +81,7 @@ if(!muterole){
   }
 
 }
-exports.conf = {
-  alias: ['tm']
-  };
-exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce"
-  }
+module.exports.config = {
+  name: "tempmute",
+  aliases: ["tm"]
+}

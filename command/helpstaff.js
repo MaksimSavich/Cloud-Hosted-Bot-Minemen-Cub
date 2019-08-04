@@ -15,9 +15,7 @@ module.exports.run = async (client, message, args) => {
   return message.member.send(botembed);
   }
 }
-exports.conf = {
-  alias: ['hs']
-  };
-exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce"
-  }
+module.exports.config = {
+  name: "helpstaff",
+  aliases: ["hs"]
+}

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args, tools) => {
+module.exports.run = async (client, message, args, tools) => {
 
   if(!message.member.hasPermission(`MEMBER_ROLES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
 
@@ -22,9 +22,7 @@ exports.run = async (client, message, args, tools) => {
       return message.delete().catch(O_o=>{});
   }
 
-  exports.conf = {
-    alias: ['gr']
-    };
-  exports.help = {
-    name: "announce", description: "announces what you say.", usage: "^announce"
-    }
+  module.exports.config = {
+    name: "giverole",
+    aliases: ["gr"]
+}

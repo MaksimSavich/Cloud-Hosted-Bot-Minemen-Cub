@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args, tools) => {
+module.exports.run = async (client, message, args, tools) => {
 
   const embed = new Discord.RichEmbed()
     .setTitle("Member")
@@ -16,9 +16,7 @@ exports.run = async (client, message, args, tools) => {
     message.channel.send({embed});
 
 }
-exports.conf = {
-  alias: ['h']
-  };
-exports.help = {
-  name: "announce", description: "announces what you say.", usage: "^announce"
-  }
+module.exports.config = {
+  name: "help",
+  aliases: ["h"]
+}

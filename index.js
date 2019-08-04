@@ -2,32 +2,62 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = ("^");
+const fs = require("fs");
 
-client.on(`message`, message => {
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-  let msg = message.content.toUpperCase();
-  let sender = message.author;
-  let args = message.content.slice(prefix.length).trim().split(` `);
-  let cmd = args.shift().toLowerCase();
+fs.readdir("./command/" , (err , files) => {
 
-  if (!msg.startsWith(prefix)) return;
-  if(message.author.bot) return;
+    if(err) console.log(err)
 
-  try {
+    let jsfile = files.filter(f => f.split(".").pop() ==="js")
+      if(jsfiles.length <= 0) {
+          console.log("[LOGS] Couldn't Find Commands!");
+      }
 
-      let commandFile = require(`./command/${cmd}.js`);
-      commandFile.run(client, message, args);
+  jsfile.forEach((f, i) => {
+      let pull = require(`./command/${f}`);
+      client.commands.set(pull.config.name, pull)
+      pull.config.aliases.forEach(alias => {
+        client.aliases.set(alias, pull.config.name)
+      });
+  });
+});
 
-  } catch (e) {
 
-      console.log(e.message);
 
-  }finally {
 
-      console.log(`${message.author.tag} ran the command ${cmd}`)
 
-  }
-})
+
+
+
+
+// client.on(`message`, message => {
+
+//   let msg = message.content.toUpperCase();
+//   let sender = message.author;
+//   let args = message.content.slice(prefix.length).trim().split(` `);
+//   let cmd = args.shift().toLowerCase();
+
+//   if (!msg.startsWith(prefix)) return;
+//   if(message.author.bot) return;
+
+//   try {
+
+//       let commandFile = require(`./command/${cmd}.js`);
+//       commandFile.run(client, message, args);
+
+//   } catch (e) {
+
+//       console.log(e.message);
+
+//   }finally {
+
+//       console.log(`${message.author.tag} ran the command ${cmd}`)
+
+//   }
+// })
 
   
   client.on(`raw` , event => {
