@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
   if(bUser.roles.has(banRole.id)) return message.member.send(`User can't be banned!`);
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
-  if(!bUser.has.role(banRole))
+  if(!bUser.has.role(banRole)) {
       let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
     .setColor("#af0000")
@@ -32,6 +32,7 @@ module.exports.run = async (client, message, args) => {
 
   return;
   }
+}
   else {
     message.member.send("You can't perform this action!");
       message.delete().catch(O_o=>{});
