@@ -2,12 +2,13 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
+  let staffRole = message.guild.roles.find("name", "• staff •");
   let banRole = message.guild.roles.find("name", "• ban •");
   if(message.member.roles.has(banRole.id)){
 
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
-  if(bUser.roles.has(banRole.id)) return message.member.send(`User can't be banned!`);
+  if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be banned!`);
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
       let banEmbed = new Discord.RichEmbed()
