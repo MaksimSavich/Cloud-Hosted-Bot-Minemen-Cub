@@ -10,15 +10,15 @@ module.exports.run = async (client, message, args) => {
   if(bUser.roles.has(banRole.id)) return message.member.send(`User can't be banned!`);
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
-
+  if(!bUser.has.role(banRole))
       let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
     .setColor("#af0000")
-    .setFooter(`Banned`)
+    .setFooter(`Blacklisted`)
     .setTimestamp()
-    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Banned In", message.channel)
+    .addField("Blacklisted User", `${bUser} with ID ${bUser.id}`)
+    .addField("Blacklisted By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Blacklisted In", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
 
