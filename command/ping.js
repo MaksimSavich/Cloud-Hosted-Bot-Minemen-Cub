@@ -3,7 +3,6 @@ module.exports.run = (client, message, args, tools) => {
 
 
   const embed = new Discord.RichEmbed()
-    .setTitle("Member")
     .setAuthor("Minemen Cub | Ping", client.user.avatarURL)
     
     .setColor("#af7ac5")
