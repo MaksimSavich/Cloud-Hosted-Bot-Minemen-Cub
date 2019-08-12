@@ -139,7 +139,7 @@ client.on("ready", async () => {
 });
 
 
-app.get("/ip", (req, res) => {
+app.get("./ip/", (req, res) => {
   console.log(req.ip) // "::ffff:127.0.0.1" ::ffff: is a subnet prefix for IPv4 (32 bit) 
   let ip = req.ip.split(':');
   console.log(ip[3]);
