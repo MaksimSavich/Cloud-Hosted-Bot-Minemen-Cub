@@ -11,7 +11,8 @@ module.exports.run = async (client, message, args) => {
   if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be banned!`, message.delete().catch(O_o=>{}));
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
-      let banEmbed = new Discord.RichEmbed()
+  let moment = message.createdAt;    
+  let banEmbed = new Discord.RichEmbed()
     .setDescription("~Blacklist~")
     .setColor("#af0000")
     .setFooter(`Blacklisted`)
