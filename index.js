@@ -135,15 +135,16 @@ client.on("ready", async () => {
   client.user.setActivity('Minemen Den | ^help', { type: 'WATCHING' });
   console.log(client.commands);
 
-  app.get("/ip", (req, res) => {
+});
+
+
+app.get("/ip", (req, res) => {
   console.log(req.ip) // "::ffff:127.0.0.1" ::ffff: is a subnet prefix for IPv4 (32 bit) 
   let ip = req.ip.split(':');
   console.log(ip[3]);
    res.json(ip[3]);  // ==> 127.0.0.1 You can Get Your Ip address only 
 });
 app.listen(3003);
-
-});
 
     //Auto Welcome
 
