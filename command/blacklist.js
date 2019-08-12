@@ -11,8 +11,7 @@ module.exports.run = async (client, message, args) => {
   if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be banned!`, message.delete().catch(O_o=>{}));
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
-  let moment = message.createdAt;    
-  let banEmbed = new Discord.RichEmbed()
+      let banEmbed = new Discord.RichEmbed()
     .setDescription("~Blacklist~")
     .setColor("#af0000")
     .setFooter(`Blacklisted`)
@@ -20,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Blacklisted User", `${bUser} with ID ${bUser.id}`)
     .addField("Blacklisted By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Blacklisted In", message.channel)
-    .addField("Time", (moment().format('DD/MM/YY, h:mm:ss a')))
+    .addField("Time", message.createAt.format('DD/MM/YY, h:mm:ss a'))
     .addField("Reason", bReason);
 
     let banChannel = message.guild.channels.find(`name`, "punishment-logs");
