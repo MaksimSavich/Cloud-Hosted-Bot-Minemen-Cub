@@ -8,7 +8,7 @@ module.exports.run = (client, message, args, tools) => {
     .setColor("#af7ac5")
     .addField("Bot Ping: " , Math.round(client.ping) + ' ms')
 
-    message.channel.send({embed});
+    message.channel.send(embed);
 
 }
 
