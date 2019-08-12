@@ -12,14 +12,14 @@ module.exports.run = async (client, message, args) => {
   let bReason = args.join(" ").slice(22);
   if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
       let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Ban~")
+    .setDescription("~Blacklist~")
     .setColor("#af0000")
     .setFooter(`Blacklisted`)
     .setTimestamp()
     .addField("Blacklisted User", `${bUser} with ID ${bUser.id}`)
     .addField("Blacklisted By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Blacklisted In", message.channel)
-    .addField("Time", message.createdAt)
+    .addField("Time", (moment().format('DD/MM/YY, h:mm:ss a')))
     .addField("Reason", bReason);
 
     let banChannel = message.guild.channels.find(`name`, "punishment-logs");
