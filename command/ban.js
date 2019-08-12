@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
 
     let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Blacklist~")
+    .setDescription("~Ban~")
     .setColor("#af0000")
     .setFooter(`Banned`)
     .setTimestamp()
