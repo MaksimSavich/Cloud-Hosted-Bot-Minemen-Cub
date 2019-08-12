@@ -1,8 +1,16 @@
 module.exports.run = (client, message, args, tools) => {
 
-  message.channel.send(`Pong!`)
+  msg.channel.send({embed: {
+    color: 0x2ed32e,
+    fields: [{
+        name: "Pong",
+        value: "My Ping: " + Math.round(client.ping) + ' ms'
+  }
+ ]
 
 
+    }
+  })
 }
 module.exports.config = {
   name: "ping",
