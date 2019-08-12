@@ -3,8 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = ("^");
 const fs = require("fs");
-const express = require('express');
-const app = require('express');
+var app = require('express')();
 // client.commands = new Discord.Collection();
 // client.aliases = new Discord.Collection();
 
@@ -139,7 +138,7 @@ client.on("ready", async () => {
 });
 
 
-app.get("./ip/", (req, res) => {
+app.get("/ip", (req, res) => {
   console.log(req.ip) // "::ffff:127.0.0.1" ::ffff: is a subnet prefix for IPv4 (32 bit) 
   let ip = req.ip.split(':');
   console.log(ip[3]);
