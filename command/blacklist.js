@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Blacklisted User", `${bUser} with ID ${bUser.id}`)
     .addField("Blacklisted By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Blacklisted In", message.channel)
-    .addField("Time", message.createAt.format('DD/MM/YY, h:mm:ss a'))
+    .addField("Time", message.createTimestamp)
     .addField("Reason", bReason);
 
     let banChannel = message.guild.channels.find(`name`, "punishment-logs");
