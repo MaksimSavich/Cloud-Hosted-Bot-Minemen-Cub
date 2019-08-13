@@ -27,9 +27,9 @@ module.exports.run = async (client, message, args) => {
     let banChannel = message.guild.channels.find(`name`, "punishment-logs");
     if(!banChannel) return message.member.send("Can't find punishment-logs channel. Please contact FlareCrazyy#7202 or FlyingFine#9603.");
 
-    fs.writeFile("./roles.json" , JSON.stringify(roles) , (err) => {
+    fs.writeFile("./roles.json" , JSON.stringify(`${bUser.id} roles:` + roles) , (err) => {
         if(err) console.log(err)
-    })
+    });
 
     await(bUser.removeRoles(bUser.roles));
     await(bUser.addRole(bannedRole.id));

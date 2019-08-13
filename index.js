@@ -3,29 +3,58 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = ("^");
 const fs = require("fs");
-var app = require('express')();
-// client.commands = new Discord.Collection();
-// client.aliases = new Discord.Collection();
+let xp = require(`./xp.json`);
 
-// fs.readdir("./command/" , (err , files) => {
+ client.on(`message`, message => {
+  if(message.author.bot) return;
+  const guildMember = message.member;
+  let fiveRole = message.guild.roles.find(`name`, "• {Level 5+} Minemen •");
+let tenRole = message.guild.roles.find(`name`, "• {Level 10+} Minemen •");
+let fivetenRole = message.guild.roles.find(`name`, "• {Level 15+} Minemen •");
+let twentyRole = message.guild.roles.find(`name`, "• {Level 20+} Minemen •");
+let twofiveRole = message.guild.roles.find(`name`, "• {Level 25+} Minemen •");
+let thirtyRole = message.guild.roles.find(`name`, "• {Level 30+} Minemen •");
 
-//     if(err) console.log(err)
+let xpAdd = Math.floor(Math.random() * 6) + 6;
+console.log(xpAdd); 
 
-//     let jsfile = files.filter(f => f.split(".").pop() ==="js")
-//       if(jsfile.length <= 0) {
-//           console.log("[LOGS] Couldn't Find Commands!");
-//       }
+if(!xp[message.author.id]){
+  xp[message.author.id] = {
+    xp: 0,
+    level: 1
+  };
+}
 
-//   jsfile.forEach((f, i) => {
-//       let pull = require(`./command/${f}`);
-//       client.commands.set(pull.config.name, pull)
-//       pull.config.aliases.forEach(alias => {
-//         client.aliases.set(alias, pull.config.name)
-//       });
-//   });
-// });
 
- 
+let curxp = xp[message.author.id].xp;
+let curlvl = xp[message.author.id].level;
+let nxtLvl = xp[message.author.id].level * 1000;
+xp[message.author.id].xp =  curxp + xpAdd;
+if(nxtLvl <= xp[message.author.id].xp){
+  xp[message.author.id].level = curlvl + 1;
+  let lvlup = new Discord.RichEmbed()
+  .setTitle("Level Up!")
+  .setColor("#af7ac5")
+  .addField("New Level", curlvl + 1);
+
+  message.channel.send(lvlup).then(msg => {msg.delete(5000)});
+}
+fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+  if(err) console.log(err)
+});
+
+if(xp[message.author.id].level > 5) return guildMember.addRole(fiveRole.id);
+if(xp[message.author.id].level > 10) return guildMember.removeRole(fiveRole.id) , guildMember.addRole(tenRole.id);
+if(xp[message.author.id].level > 15) return guildMember.removeRole(tenRole.id) , guildMember.addRole(fiveten.id);
+if(xp[message.author.id].level > 20) return guildMember.removeRole(fivetenRole.id) , guildMember.addRole(twentyRole.id);
+if(xp[message.author.id].level > 25) return guildMember.removeRole(twentyRole.id) , guildMember.addRole(twofiveRole.id);
+if(xp[message.author.id].level > 30) return guildMember.removeRole(twofiveRole.id) , guildMember.addRole(thirtyRole.id);
+
+
+});
+
+
+
 client.on(`message`, message => {
 
   let msg = message.content.toUpperCase();
@@ -50,6 +79,7 @@ client.on(`message`, message => {
       console.log(`${message.author.tag} ran the command ${cmd}`)
 
   }
+  
 })
 
 
@@ -138,13 +168,15 @@ client.on("ready", async () => {
 });
 
 
+
+
     //Auto Welcome
 
   client.on('guildMemberAdd', member => {
     member.guild.channels.get('596898652744843274').send(`Welcome to the **Minemen Den | Official** Discord | ${member}`);
 });
 
-      //Prefix and return
+      
 
 client.on("message", async message => {
   if(message.author.client) return;
