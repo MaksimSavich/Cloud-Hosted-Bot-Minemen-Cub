@@ -6,7 +6,20 @@ module.exports.run = async (client, message, args) => {
   let banRole = message.guild.roles.find("name", "• blacklist •");
   if(message.member.roles.has(banRole.id)){
 
-  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  
+    if (!args[0]) {
+
+      const embed = new Discord.RichEmbed()
+          .setColor("#af7ac5")
+          .setTitle("How to use the blacklist command.")
+          .setDescription(`**Usage: \`\`\`^blacklist "User" "Reason"\`\`\`**`);
+
+          message.delete().catch(O_o=>{});   
+          return message.member.send(embed)
+}
+  
+  
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
   if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be blacklisted!`, message.delete().catch(O_o=>{}));
   let bReason = args.join(" ").slice(22);

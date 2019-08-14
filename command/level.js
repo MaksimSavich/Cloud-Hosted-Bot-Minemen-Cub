@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig");
 var abbreviate = require("number-abbreviate")
-let xp = require("../xp.json");
+let xp = require("../xp.json"); 
 
 module.exports.run = async (client, message, args, tools) => {
 
-if(message.channel.id === `587465808200990730`){
+  if((message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)) {
     
     if(!xp[message.author.id]){
         xp[message.author.id] = {
@@ -33,5 +33,6 @@ if(message.channel.id === `587465808200990730`){
     
     message.channel.send({embed});
         }
-    };
+    }
+
  

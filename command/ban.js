@@ -7,12 +7,27 @@ module.exports.run = async (client, message, args) => {
     let bannedRole = message.guild.roles.find("name", "• banned •");
     if(message.member.roles.has(banRole.id)){
   
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+      if (!args[0]) {
+
+        const embed = new Discord.RichEmbed()
+            .setColor("#af7ac5")
+            .setTitle("How to use the ban command.")
+            .setDescription(`**Usage: \`\`\`^ban "User" "Reason"\`\`\`**`);
+
+            message.delete().catch(O_o=>{});   
+            return message.member.send(embed)
+}
+    
+    
+      let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.member.send("Can't find user!", message.delete().catch(O_o=>{}));
-    if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be banned`, message.delete().catch(O_o=>{}));
+    if(bUser.roles.has(staffRole.id)) return message.member.send(`User can't be banned.`, message.delete().catch(O_o=>{}));
     let bReason = args.join(" ").slice(22);
     if(!bReason) return message.member.send("Reason for ban is required.", message.delete().catch(O_o=>{}));
     let roles = message.guild.member(message.mentions.users.first()).roles.map(role => role.name).join(", ");
+    
+
+
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")

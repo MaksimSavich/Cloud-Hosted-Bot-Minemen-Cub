@@ -16,7 +16,7 @@ let twofiveRole = message.guild.roles.find(`name`, "• {Level 25+} Minemen •"
 let thirtyRole = message.guild.roles.find(`name`, "• {Level 30+} Minemen •");
 
 let xpAdd = Math.floor(Math.random() * 6) + 6;
-console.log(xpAdd); 
+console.log(xpAdd);
 
 if(!xp[message.author.id]){
   xp[message.author.id] = {

@@ -18,7 +18,8 @@ module.exports.run = async (client, message, args, tools) => {
                 .setTitle("How to use the announcement command.")
                 .setDescription(`**Usage: \`\`\`^announce Title ${split} Message\`\`\`**`);
 
-                    return message.member.send(embed)
+                message.delete().catch(O_o=>{});   
+                return message.member.send(embed)
     }
 
     args = args.join(` `).split(split);

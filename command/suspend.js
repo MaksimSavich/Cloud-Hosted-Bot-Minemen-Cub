@@ -2,9 +2,24 @@ const Discord = require(`discord.js`);
 const ms = require(`ms`);
 
 module.exports.run = async (client, message, args, tools) => {
+  let suspendRole = message.guild.roles.find("name", "• staff •");
+  if(!message.member.roles.has(suspendRole.id)) return message.member.send("You can't perform this action!" , message.delete().catch(O_o=>{})); 
+  if(message.member.roles.has(suspendRole.id)){
+      
+      if (!args[0]) {
+
+    const embed = new Discord.RichEmbed()
+        .setColor("#af7ac5")
+        .setTitle("How to use the suspend command.")
+        .setDescription(`**Usage: \`\`\`^suspend "User" "Reason"\`\`\`**`);
+
+        message.delete().catch(O_o=>{});   
+        return message.member.send(embed)
+}
+
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args [0]));
 if(!tomute) return message.member.send(`Can't find user!`) , message.delete().catch(O_o=>{});
-if(tomute.hasPermission(`MANAGE_MESSAGES`)) return message.member.send(`You can't mute this person.`) , message.delete().catch(O_o=>{});
+if(tomute.roles.has(suspendRole.id)) return message.member.send(`You can't mute this person.`) , message.delete().catch(O_o=>{});
 let muterole = message.guild.roles.find(`name`, "• suspended •");
 if(!muterole){
   try{
@@ -77,11 +92,6 @@ if(!muterole){
   rolereturnChannel.send(rolesreturnEmbed);
   }, ms(mutetime));
   
-
+    }
   }
-
-}
-module.exports.config = {
-  name: "tempmute",
-  aliases: ["tm"]
 }
