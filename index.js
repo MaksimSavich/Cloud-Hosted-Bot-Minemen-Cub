@@ -14,6 +14,7 @@ let fivetenRole = message.guild.roles.find(`name`, "• {Level 15+} Minemen •"
 let twentyRole = message.guild.roles.find(`name`, "• {Level 20+} Minemen •");
 let twofiveRole = message.guild.roles.find(`name`, "• {Level 25+} Minemen •");
 let thirtyRole = message.guild.roles.find(`name`, "• {Level 30+} Minemen •");
+let mineRole = message.guild.roles.find(`name` , "• Minemen •")
 
 let xpAdd = Math.floor(Math.random() * 6) + 6;
 console.log(xpAdd);
@@ -43,12 +44,12 @@ fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
   if(err) console.log(err)
 });
 
-if(xp[message.author.id].level > 5) return guildMember.addRole(fiveRole.id);
-if(xp[message.author.id].level > 10) return guildMember.removeRole(fiveRole.id) , guildMember.addRole(tenRole.id);
-if(xp[message.author.id].level > 15) return guildMember.removeRole(tenRole.id) , guildMember.addRole(fiveten.id);
-if(xp[message.author.id].level > 20) return guildMember.removeRole(fivetenRole.id) , guildMember.addRole(twentyRole.id);
-if(xp[message.author.id].level > 25) return guildMember.removeRole(twentyRole.id) , guildMember.addRole(twofiveRole.id);
-if(xp[message.author.id].level > 30) return guildMember.removeRole(twofiveRole.id) , guildMember.addRole(thirtyRole.id);
+if(xp[message.author.id].level > 4) return guildMember.removeRole(mineRole.id) , guildMember.addRole(fiveRole.id);
+if(xp[message.author.id].level > 9) return guildMember.removeRole(fiveRole.id) , guildMember.addRole(tenRole.id);
+if(xp[message.author.id].level > 14) return guildMember.removeRole(tenRole.id) , guildMember.addRole(fiveten.id);
+if(xp[message.author.id].level > 19) return guildMember.removeRole(fivetenRole.id) , guildMember.addRole(twentyRole.id);
+if(xp[message.author.id].level > 24) return guildMember.removeRole(twentyRole.id) , guildMember.addRole(twofiveRole.id);
+if(xp[message.author.id].level > 29) return guildMember.removeRole(twofiveRole.id) , guildMember.addRole(thirtyRole.id);
 
 
 });
