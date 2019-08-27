@@ -1,7 +1,18 @@
 const Discord = require(`discord.js`);
 const ms = require(`ms`);
 
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
+
+  config: {
+      name: "suspend",
+      description: "suspend a user",
+      usage: "^suspend",
+      accesability: "mod",
+      aliases: ["tempmute"]
+    },
+  
+    run: async (client, message, args) => {
+
   let suspendRole = message.guild.roles.find("name", "• staff •");
   if(!message.member.roles.has(suspendRole.id)) return message.member.send("You can't perform this action!" , message.delete().catch(O_o=>{})); 
   if(message.member.roles.has(suspendRole.id)){
@@ -92,6 +103,7 @@ if(!muterole){
   rolereturnChannel.send(rolesreturnEmbed);
   }, ms(mutetime));
   
+      }
     }
   }
 }

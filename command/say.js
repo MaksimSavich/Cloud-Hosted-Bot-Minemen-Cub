@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "say",
+      description: "say",
+      usage: "^say",
+      accesability: "admin",
+      aliases: []
+    },
+  
+    run: async (client, message, args) => {
 
   if (!args[0]) {
 
@@ -25,10 +35,6 @@ module.exports.run = async (client, message, args) => {
 
         message.delete().catch(O_o=>{});
 
+    }
   }
-
-}
-module.exports.config = {
-  name: "say",
-  aliases: ["sa"]
 }

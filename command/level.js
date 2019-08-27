@@ -1,21 +1,20 @@
 const Discord = require("discord.js");
-const botconfig = require("../botconfig");
 var abbreviate = require("number-abbreviate")
 let xp = require("../xp.json"); 
 
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
 
-  if(!(message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)){
-    const sembed = new Discord.RichEmbed()
-    .setAuthor("Minemen Cub | Help", client.user.avatarURL)
-    .setColor("#af7ac5")
-    .setTitle("Please use commands in the **bot commands** channel!")
-    .setThumbnail(client.user.aAvatarURL)
-    .setFooter("#bot-commands");
+  config: {
+      name: "level",
+      description: "See your level",
+      usage: "^level",
+      accesability: "member",
+      aliases: ["rank"]
+    },
   
-    message.delete().catch(O_o=>{});
-    message.member.send(sembed);
-  } 
+    run: async (client, message, args) => {
+
+ 
   if((message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)) {
     
     if(!xp[message.author.id]){
@@ -38,6 +37,7 @@ module.exports.run = async (client, message, args, tools) => {
     .setAuthor(`${message.author.username} | Level ${curlvl}`)
     .setColor("#af7ac5")
     .setThumbnail(message.author.displayAvatarURL)
+    // .addBlankField(true)
     .addField(`Xp` , `${abbreviate(curxp, 2)}/${abbreviate(nxtLvlXp , 2)}` , true)
     .addField("Progress Bar" , (barStr));
 
@@ -45,5 +45,5 @@ module.exports.run = async (client, message, args, tools) => {
     message.channel.send({embed});
         }
     }
-
+  }
  

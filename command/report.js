@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "report",
+      description: "report a user",
+      usage: "^report",
+      accesability: "member",
+      aliases: []
+    },
+  
+    run: async (client, message, args) => {
 
   if (!args[0]) {
 
@@ -34,7 +44,5 @@ module.exports.run = async (client, message, args) => {
   reportschannel.send(reportEmbed);
 }
 
-module.exports.config = {
-  name: "report",
-  aliases: ["r"]
+
 }

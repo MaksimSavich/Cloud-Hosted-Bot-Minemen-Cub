@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
+
+  config: {
+      name: "removerole",
+      description: "remove role",
+      usage: "^removerole",
+      accesability: "admin",
+      aliases: ["roleremove"]
+    },
+  
+    run: async (client, message, args) => {
 
   if(!message.member.hasPermission(`MEMBER_ROLES`)) return message.member.send("You can't perform that action!"), (message.delete().catch(O_o=>{}));
 
@@ -21,7 +31,5 @@ module.exports.run = async (client, message, args, tools) => {
     }
       return message.delete().catch(O_o=>{});
 }
-module.exports.config = {
-  name: "removerole",
-  aliases: ["rr"]
+
 }

@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "mod",
+      description: "kick a user",
+      usage: "^kick",
+      accesability: "mod",
+      aliases: []
+    },
+  
+    run: async (client, message, args) => {
   
   let kickRole = message.guild.roles.find("name", "• kick •");
   let staffRole = message.guild.roles.find("name", "• staff •");
@@ -52,7 +62,5 @@ module.exports.run = async (client, message, args) => {
   }
 }
 
-module.exports.config = {
-  name: "kick",
-  aliases: ["k"]
+
 }

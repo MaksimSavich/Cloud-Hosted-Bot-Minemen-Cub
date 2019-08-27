@@ -1,8 +1,18 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const roles = require("../roles.json");
+const roles = require("../../roles.json");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "ban",
+      description: "ban a user",
+      usage: "^ban",
+      accesability: "mod",
+      aliases: []
+    },
+  
+    run: async (client, message, args) => {
     let staffRole = message.guild.roles.find("name", "• staff •");
     let banRole = message.guild.roles.find("name", "• ban •");
     let bannedRole = message.guild.roles.find("name", "• banned •");
@@ -69,4 +79,5 @@ module.exports.run = async (client, message, args) => {
       message.delete().catch(O_o=>{});
     return;
   }
+}
 }

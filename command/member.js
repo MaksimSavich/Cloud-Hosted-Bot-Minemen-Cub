@@ -1,18 +1,18 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
 
-  if(!(message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)){
-    const sembed = new Discord.RichEmbed()
-    .setAuthor("Minemen Cub | Help", client.user.avatarURL)
-    .setColor("#af7ac5")
-    .setTitle("Please use commands in the **bot commands** channel!")
-    .setThumbnail(client.user.avatarURL)
-    .setFooter("#bot-commands");
+  config: {
+      name: "member",
+      description: "member help",
+      usage: "^member",
+      accesability: "member",
+      aliases: ["memberhelp"]
+    },
   
-    message.delete().catch(O_o=>{});
-    message.member.send(sembed);
-  } 
+    run: async (client, message, args) => {
+
+  
   if((message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)) {
 
   const embed = new Discord.RichEmbed()
@@ -28,7 +28,5 @@ module.exports.run = async (client, message, args, tools) => {
   message.delete().catch(O_o=>{});
   }
 }
-module.exports.config = {
-  name: "helpmember",
-  aliases: []
+
 }

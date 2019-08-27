@@ -1,18 +1,19 @@
 const Discord = require("discord.js");
 var app = require('express')();
-module.exports.run = (client, message, args, tools) => {
 
-  if(!(message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)){
-    const sembed = new Discord.RichEmbed()
-    .setAuthor("Minemen Cub | Help", client.user.avatarURL)
-    .setColor("#af7ac5")
-    .setTitle("Please use commands in the **bot commands** channel!")
-    .setThumbnail(client.user.avatarURL)
-    .setFooter("#bot-commands");
+module.exports = {
+
+  config: {
+      name: "ping",
+      description: "ping bot",
+      usage: "^ping",
+      accesability: "member",
+      aliases: ["pingbot"]
+    },
   
-    message.delete().catch(O_o=>{});
-    message.member.send(sembed);
-  } 
+    run: async (client, message, args) => {
+
+  
   if((message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)) {
   const embed = new Discord.RichEmbed()
    .setAuthor("Minemen Cub | Ping", client.user.avatarURL)
@@ -33,8 +34,4 @@ module.exports.run = (client, message, args, tools) => {
     app.listen(3003);
 }
 }
-
-module.exports.config = {
-  name: "ping",
-  aliases: ["p"]
 }

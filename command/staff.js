@@ -1,18 +1,17 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "staff",
+      description: "staff help",
+      usage: "^staff",
+      accesability: "mod",
+      aliases: ["staffhelp"]
+    },
   
-  if(!(message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)){
-    const sembed = new Discord.RichEmbed()
-    .setAuthor("Minemen Cub | Help", client.user.avatarURL)
-    .setColor("#af7ac5")
-    .setTitle("Please use commands in the **bot commands** channel!")
-    .setThumbnail(client.user.avatarURL)
-    .setFooter("#bot-commands");
+    run: async (client, message, args) => {
   
-    message.delete().catch(O_o=>{});
-    message.member.send(sembed);
-  } 
   if((message.channel.id === `587465808200990730`) || (message.channel.id === `611070268810592296`)) {
 
   let staffRole = message.guild.roles.find("name", "• staff •");
@@ -27,10 +26,7 @@ module.exports.run = async (client, message, args) => {
 
   message.delete().catch(O_o=>{});
   return message.member.send(botembed);
-  }
-}
-module.exports.config = {
-  name: "helpstaff",
-  aliases: ["hs"]
-}
+        }
+      }
+    }
 }

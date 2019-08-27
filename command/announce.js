@@ -4,7 +4,17 @@ const supereagent = require("superagent");
 
 //^announce test announcement ~ this is a test
  
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
+
+    config: {
+        name: "announce",
+        description: "announcements",
+        usage: "^announce",
+        accesability: "admin",
+        aliases: ["a"]
+      },
+    
+      run: async (client, message, args) => {
 
     let sayRole = message.guild.roles.find("name", "• say •");
     if(message.member.roles.has(sayRole.id)){
@@ -46,11 +56,6 @@ module.exports.run = async (client, message, args, tools) => {
         return message.channel.send(embed)
 
         
-    }
+    };
 }
-
-
-   module.exports.config = {
-       name: "announce",
-       aliases: ["a"]
-   }
+}

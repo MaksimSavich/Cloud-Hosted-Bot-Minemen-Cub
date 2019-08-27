@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args, tools) => {
+module.exports = {
+
+  config: {
+      name: "clear",
+      description: "clear chat",
+      usage: "^clear",
+      accesability: "mod",
+      aliases: ["c"]
+    },
+  
+    run: async (client, message, args) => {
 
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.member.send("You can't perform this action!" , message.delete().catch(O_o=>{}));
   
@@ -20,7 +30,5 @@ module.exports.run = async (client, message, args, tools) => {
   })
 
 }
-module.exports.config = {
-  name: "clear",
-  aliases: ["c"]
+
 }

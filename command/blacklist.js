@@ -1,6 +1,16 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+
+  config: {
+      name: "blacklist",
+      description: "blacklist",
+      usage: "^blacklist",
+      accesability: "admin",
+      aliases: []
+    },
+  
+    run: async (client, message, args) => {
 
   let staffRole = message.guild.roles.find("name", "• staff •");
   let banRole = message.guild.roles.find("name", "• blacklist •");
@@ -48,10 +58,6 @@ module.exports.run = async (client, message, args) => {
     message.member.send("You can't perform this action!");
       message.delete().catch(O_o=>{});
     return;
+    }
   }
-}
-
-module.exports.config = {
-  name: "ban",
-  aliases: ["b"]
 }
