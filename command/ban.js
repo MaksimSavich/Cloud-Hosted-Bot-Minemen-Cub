@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const roles = require("../../roles.json");
+const roles = require("../roles.json");
 
 module.exports = {
 

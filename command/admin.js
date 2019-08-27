@@ -26,7 +26,7 @@ config: {
     .setAuthor("Minemen Cub | Staff Help", client.user.avatarURL)
     .setColor("#af7ac5")
     .addField("Admin Command List", display = "``\n^announce | ^say | ^blacklist | ^giverole | ^removerole\n``")
-    .addField("Music Commands", display = "``\n^play | ^leave\n``")
+    .addField("Music Commands", display = "``\n^play | ^leave | ^skip | ^volume\n``")
 
     message.delete().catch(O_o=>{});
     return message.member.send(botembed);
